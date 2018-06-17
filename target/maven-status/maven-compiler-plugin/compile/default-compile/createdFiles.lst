@@ -8,7 +8,6 @@ com/paigunna/api/service/NotiServiceImpl.class
 com/paigunna/api/service/VehicleService.class
 com/paigunna/api/domain/UserType.class
 com/paigunna/api/domain/Notification.class
-com/paigunna/api/service/VehicleTypeServiceImpl$1.class
 com/paigunna/api/service/NotiService.class
 com/paigunna/api/domain/Vehicle.class
 com/paigunna/api/service/ProviderActiveServiceImpl.class
@@ -18,6 +17,7 @@ com/paigunna/api/resource/VehicleTypeResource.class
 com/paigunna/api/repo/TransactionRepo.class
 com/paigunna/api/service/VehicleTypeService.class
 com/paigunna/api/domain/SocialType.class
+com/paigunna/api/service/VehicleNearbyServiceImpl$1.class
 com/paigunna/api/domain/Transaction.class
 com/paigunna/api/PaigunnaApi.class
 com/paigunna/api/service/VehicleNearbyService.class
