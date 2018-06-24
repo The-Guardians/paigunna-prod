@@ -386,11 +386,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+var TravelMode = google.maps.TravelMode;
+var DirectionsStatus = google.maps.DirectionsStatus;
 var MapComponent = /** @class */ (function () {
     function MapComponent(http) {
         this.http = http;
         this.nearByPlace = [];
         this.activeProviders = [];
+        this.directionService = new google.maps.DirectionsService;
+        this.directionDisplay = new google.maps.DirectionsRenderer;
     }
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -424,14 +428,9 @@ var MapComponent = /** @class */ (function () {
     MapComponent.prototype.searchEvent = function () {
         var _this = this;
         this.map.addListener('click', function (args) {
-            var marker = new google.maps.Marker({
-                position: args.latLng,
-                map: _this.map,
-                animation: google.maps.Animation.BOUNCE
-            });
-            marker.addListener('click', function (args) {
-                marker.setMap(null);
-            });
+            _this.selectPlace = args.latLng;
+            _this.findDirection();
+            console.log("select place : " + _this.selectPlace);
         });
     };
     MapComponent.prototype.setMyLocation = function (pos) {
@@ -491,13 +490,34 @@ var MapComponent = /** @class */ (function () {
         });
     };
     MapComponent.prototype.createMarker = function (place) {
+        var _this = this;
         var marker = new google.maps.Marker({
             map: this.map,
             position: place.geometry.location,
             animation: google.maps.Animation.DROP
         });
         marker.addListener('click', function () {
-            marker.setMap(null);
+            _this.selectPlace = marker.getPosition();
+            console.log("select place ; " + _this.selectPlace);
+            _this.findDirection();
+        });
+    };
+    MapComponent.prototype.findDirection = function () {
+        var _this = this;
+        var request = {
+            origin: this.myPos,
+            destination: this.selectPlace,
+            travelMode: TravelMode.DRIVING
+        };
+        this.directionDisplay.setMap(null);
+        this.directionService.route(request, function (result, status) {
+            if (status === DirectionsStatus.OK) {
+                _this.directionDisplay.setMap(_this.map);
+                _this.directionDisplay.setDirections(result);
+            }
+            else {
+                window.alert('Directions request failed due to ' + status);
+            }
         });
     };
     MapComponent.prototype.searchActiveProvider = function () {
@@ -539,7 +559,7 @@ module.exports = ".hos:hover{\n border-bottom: 2px solid red;\n}\n\n.tour:hover{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <a href=\"\" class=\"uk-icon-button  uk-margin-small-right\" uk-icon=\"facebook\"></a>\n    <a href=\"\" class=\"uk-icon-button uk-margin-small-right\" uk-icon=\"google-plus\"></a>\n    <div class=\"uk-navbar-item\">\n      <a href=\"\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: user\"></span>Account</a>\n      <div uk-dropdown=\"mode: click\">\n        <ul class=\"uk-nav uk-dropdown-nav\">\n          <li class=\"uk-nav-header\">Account</li>\n          <li><a href=\"#\">Route Detail</a></li>\n          <li><a href=\"#\">History</a></li>\n          <li><a href=\"#\">Payment</a></li>\n          <li class=\"uk-nav-divider\"></li>\n          <li><a href=\"#\"><span uk-icon=\"sign-out\"></span>Logout</a></li>\n        </ul>\n      </div>\n    </div>\n\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <a href=\"\" class=\"uk-icon-button  uk-margin-small-right\" uk-icon=\"facebook\"></a>\n    <a href=\"\" class=\"uk-icon-button uk-margin-small-right\" uk-icon=\"google-plus\"></a>\n    <div class=\"uk-navbar-item\">\n      <a href=\"\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: user\"></span>Account</a>\n      <div uk-dropdown=\"mode: click\">\n        <ul class=\"uk-nav uk-dropdown-nav\">\n          <li class=\"uk-nav-header\">Account</li>\n          <li><a href=\"#\">Route Detail</a></li>\n          <li><a href=\"#\">History</a></li>\n          <li><a href=\"#\">Payment</a></li>\n          <li class=\"uk-nav-divider\"></li>\n          <li><a href=\"#\"><span uk-icon=\"sign-out\"></span>Logout</a></li>\n        </ul>\n      </div>\n    </div>\n\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -574,6 +594,9 @@ var StarterNavComponent = /** @class */ (function () {
     StarterNavComponent.prototype.ngAfterViewInit = function () {
         console.log('only after THIS EVENT "child" is usable!!');
         this.mapComponent.searchRestaurant();
+    };
+    StarterNavComponent.prototype.textChange = function () {
+        console.log(this.placeSearch);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["MapComponent"]),

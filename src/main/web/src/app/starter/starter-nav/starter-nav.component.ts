@@ -10,6 +10,8 @@ export class StarterNavComponent implements OnInit {
 
   @ViewChild(MapComponent) mapComponent;
 
+  placeSearch: string;
+
   constructor() { }
 
   ngOnInit() {
@@ -19,4 +21,9 @@ export class StarterNavComponent implements OnInit {
     console.log('only after THIS EVENT "child" is usable!!');
     this.mapComponent.searchRestaurant();
   }
+
+  textChange(){
+    console.log(this.placeSearch);
+  }
+
 }

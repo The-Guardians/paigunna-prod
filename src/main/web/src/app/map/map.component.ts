@@ -1,6 +1,9 @@
 import {Component, ElementRef, OnInit, Provider, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {} from "@types/googlemaps";
+import {directiveCreate} from "@angular/core/src/render3/instructions";
+import TravelMode = google.maps.TravelMode;
+import DirectionsStatus = google.maps.DirectionsStatus;
 
 @Component({
   selector: 'app-map',
@@ -17,6 +20,10 @@ export class MapComponent implements OnInit {
   myPos: google.maps.LatLng;
   nearByPlace: any = [];
   activeProviders: Provider = [];
+  selectPlace: any;
+
+  directionService = new google.maps.DirectionsService;
+  directionDisplay = new google.maps.DirectionsRenderer;
 
   constructor(private http: HttpClient) {
 
@@ -62,15 +69,10 @@ export class MapComponent implements OnInit {
 
   searchEvent() {
     this.map.addListener('click', args => {
-      let marker = new google.maps.Marker({
-        position: args.latLng,
-        map: this.map,
-        animation: google.maps.Animation.BOUNCE
-      });
+      this.selectPlace= args.latLng;
+      this.findDirection();
 
-      marker.addListener('click', args => {
-        marker.setMap(null);
-      })
+      console.log("select place : " + this.selectPlace);
     })
 
   }
@@ -146,8 +148,31 @@ export class MapComponent implements OnInit {
     });
 
     marker.addListener('click', () => {
-      marker.setMap(null);
+      this.selectPlace = marker.getPosition();
+      console.log("select place ; "+ this.selectPlace);
+      this.findDirection();
     })
+  }
+
+  findDirection(){
+
+    let request = {
+      origin: this.myPos,
+      destination: this.selectPlace,
+      travelMode: TravelMode.DRIVING
+    };
+    this.directionDisplay.setMap(null);
+    this.directionService.route(request, (result, status)=>{
+      if (status === DirectionsStatus.OK) {
+        this.directionDisplay.setMap(this.map);
+        this.directionDisplay.setDirections(result);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    })
+
+
+
   }
 
   searchActiveProvider() {
