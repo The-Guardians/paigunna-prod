@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, Provider, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {} from "@types/googlemaps";
-import {directiveCreate} from "@angular/core/src/render3/instructions";
 import TravelMode = google.maps.TravelMode;
 import DirectionsStatus = google.maps.DirectionsStatus;
 
@@ -24,6 +23,7 @@ export class MapComponent implements OnInit {
 
   directionService = new google.maps.DirectionsService;
   directionDisplay = new google.maps.DirectionsRenderer;
+  distance: number;
 
   constructor(private http: HttpClient) {
 
@@ -66,6 +66,17 @@ export class MapComponent implements OnInit {
     }
   }
 
+  setMyLocation(pos: any) {
+    this.myPos = pos;
+  }
+
+  setMyMarker(marker: any) {
+    this.myMarker = marker;
+    this.myMarker.setMap(this.map);
+  }
+
+
+  // Search
 
   searchEvent() {
     this.map.addListener('click', args => {
@@ -77,16 +88,10 @@ export class MapComponent implements OnInit {
 
   }
 
-  setMyLocation(pos: any) {
-    this.myPos = pos;
-  }
-
-  setMyMarker(marker: any) {
-    this.myMarker = marker;
-    this.myMarker.setMap(this.map);
-  }
-
   searchHostel() {
+
+    this.clearMarker();
+
     let request = ({
       location: this.myPos,
       radius: 500,
@@ -105,6 +110,9 @@ export class MapComponent implements OnInit {
   }
 
   searchTourist() {
+
+    this.clearMarker();
+
     let request = ({
       location: this.myPos,
       radius: 500,
@@ -119,10 +127,12 @@ export class MapComponent implements OnInit {
         }
       }
     });
-
   }
 
   searchRestaurant() {
+
+    this.clearMarker();
+
     console.log("in resturant");
     let request = ({
       location: this.myPos,
@@ -151,7 +161,9 @@ export class MapComponent implements OnInit {
       this.selectPlace = marker.getPosition();
       console.log("select place ; "+ this.selectPlace);
       this.findDirection();
-    })
+    });
+
+    this.nearByPlace.push(marker);
   }
 
   findDirection(){
@@ -166,14 +178,26 @@ export class MapComponent implements OnInit {
       if (status === DirectionsStatus.OK) {
         this.directionDisplay.setMap(this.map);
         this.directionDisplay.setDirections(result);
+        console.log("direction : "+this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
+        this.distance = (this.directionDisplay.getDirections().routes[0].legs[0].distance.value)/1000;
+        console.log("distance : "+this.distance+" km");
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     })
-
-
-
   }
+
+  clearMarker() {
+    this.setMapOnAll(null);
+    this.nearByPlace = [];
+  }
+
+  setMapOnAll(map){
+    for(let i = 0 ; i < this.nearByPlace.length;i++){
+      this.nearByPlace[i].setMap(map);
+    }
+  }
+
 
   searchActiveProvider() {
   }

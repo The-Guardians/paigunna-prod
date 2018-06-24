@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author Arm
  */
@@ -22,7 +24,7 @@ public class UserResource {
     private UserService userService;
 
     @GetMapping
-    public User findAllUser(){
-        return null;
+    public List<User> findAll(){
+        return userRepo.findAll();
     }
 }

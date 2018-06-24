@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class VehicleNearbyServiceImpl implements VehicleNearbyService {
 
-    private static final int RADIUS = 6371;//kilometers
+    private static final int RADIUS = 20;//kilometers
 
     private static final int NUMBER_OF_RECORDS = 20;
 
