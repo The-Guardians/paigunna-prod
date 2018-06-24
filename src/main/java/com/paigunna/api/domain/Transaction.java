@@ -48,7 +48,6 @@ public class Transaction implements Serializable {
     @Column(name = "DESTINATION_LNG")
     private Double destinationLng;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PROVIDER")
     private User provider;
@@ -152,6 +151,7 @@ public class Transaction implements Serializable {
     public void setPassenger(User passenger) {
         this.passenger = passenger;
     }
+
 
     @Override
     public boolean equals(Object o) {

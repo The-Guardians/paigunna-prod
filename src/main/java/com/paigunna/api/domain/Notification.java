@@ -49,6 +49,14 @@ public class Notification implements Serializable {
         this.status = status;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

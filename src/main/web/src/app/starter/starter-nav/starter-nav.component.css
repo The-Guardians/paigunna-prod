@@ -1,0 +1,15 @@
+.hos:hover{
+ border-bottom: 2px solid red;
+}
+
+.tour:hover{
+ border-bottom: 2px solid dodgerblue;
+}
+
+.rest:hover{
+ border-bottom: 2px solid green;
+}
+
+nav{
+  background-color: #ebebeb !important;
+}

@@ -101,16 +101,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _starter_starter_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./starter/starter.component */ "./src/app/starter/starter.component.ts");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
-/* harmony import */ var _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./starter/starter-nav/starter-nav.component */ "./src/app/starter/starter-nav/starter-nav.component.ts");
-/* harmony import */ var _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./starter/starter-side-nav/starter-side-nav.component */ "./src/app/starter/starter-side-nav/starter-side-nav.component.ts");
-/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
+/* harmony import */ var _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./starter/starter-nav/starter-nav.component */ "./src/app/starter/starter-nav/starter-nav.component.ts");
+/* harmony import */ var _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./starter/starter-side-nav/starter-side-nav.component */ "./src/app/starter/starter-side-nav/starter-side-nav.component.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -134,15 +140,15 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
                 _starter_starter_component__WEBPACK_IMPORTED_MODULE_7__["StarterComponent"],
-                _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_9__["StarterNavComponent"],
-                _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_10__["StarterSideNavComponent"]
+                _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_8__["StarterNavComponent"],
+                _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_9__["StarterSideNavComponent"]
             ],
             imports: [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSidenavModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_11__["MDBBootstrapModule"].forRoot(),
-                _agm_core__WEBPACK_IMPORTED_MODULE_8__["AgmCoreModule"].forRoot({
-                    apiKey: 'AIzaSyAGwr9WxsGbt0jQdllJbQANHcQ7FMj7FpU'
-                }),
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot(),
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                     {
                         path: 'login',
@@ -159,8 +165,45 @@ var AppModule = /** @class */ (function () {
                             { path: 'map', component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"], pathMatch: 'full' }
                         ]
                     }
-                ])
+                ]),
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatBadgeModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatBottomSheetModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSliderModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTreeModule"],
             ],
+            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
@@ -253,7 +296,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n"
+module.exports = "<button type=\"button\" class=\"btn btn-primary waves-light\" (click)=\"form.show()\" mdbWavesEffect>Login with avatar form</button>\n<!--Modal: Login with Avatar Form-->\n<div mdbModal #form=\"mdb-modal\" class=\"modal fade\" id=\"modalLoginAvatar\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog cascading-modal modal-avatar modal-sm\" role=\"document\">\n    <!--Content-->\n    <div class=\"modal-content\">\n\n      <!--Header-->\n      <div class=\"modal-header\">\n        <img src=\"../../../assets/img/paigunna-logo.png\" class=\"rounded-circle img-responsive\">\n      </div>\n      <!--Body-->\n      <div class=\"modal-body text-center mb-1\">\n\n        <h5 class=\"mt-1 mb-2\">Paigunna</h5>\n\n        <div class=\"md-form ml-0 mr-0\">\n          <input mdbInputDirective type=\"password\" type=\"text\" id=\"form29\" class=\"form-control ml-0\">\n          <label for=\"form29\" class=\"ml-0\">Enter password</label>\n        </div>\n\n        <div class=\"text-center\">\n          <button class=\"btn btn-cyan mt-1 waves-light\" mdbWavesEffect>Login <i class=\"fa fa-sign-in ml-1\"></i></button>\n        </div>\n      </div>\n\n    </div>\n    <!--/.Content-->\n  </div>\n</div>\n<!--Modal: Login with Avatar Form-->\n"
 
 /***/ }),
 
@@ -305,7 +348,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  height: 300px;\n  width: 100%;\n}\n"
+module.exports = "agm-map {\n  height: 100vh;\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -316,7 +359,7 @@ module.exports = "agm-map {\n  height: 300px;\n  width: 100%;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div #map style=\"width:100%; height:700px\">\n  loading...\n</div>\n\n"
+module.exports = "<div #map style=\"width:100%; height:90vh; z-index: 0;\">\n  Loading...\n</div>\n\n"
 
 /***/ }),
 
@@ -331,6 +374,7 @@ module.exports = "<div #map style=\"width:100%; height:700px\">\n  loading...\n<
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapComponent", function() { return MapComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -341,88 +385,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var MapComponent = /** @class */ (function () {
-    function MapComponent() {
-        this.mapStyle = [
-            { elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
-            { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
-            { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-            {
-                featureType: 'administrative.locality',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry',
-                stylers: [{ color: '#263c3f' }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#6b9a76' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{ color: '#38414e' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.stroke',
-                stylers: [{ color: '#212a37' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#9ca5b3' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{ color: '#746855' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{ color: '#1f2835' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#f3d19c' }]
-            },
-            {
-                featureType: 'transit',
-                elementType: 'geometry',
-                stylers: [{ color: '#2f3948' }]
-            },
-            {
-                featureType: 'transit.station',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{ color: '#17263c' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#515c6d' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.stroke',
-                stylers: [{ color: '#17263c' }]
-            }
-        ];
+    function MapComponent(http) {
+        this.http = http;
+        this.nearByPlace = [];
+        this.activeProviders = [];
     }
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -436,7 +404,7 @@ var MapComponent = /** @class */ (function () {
                 var mapProp = {
                     center: pos,
                     zoom: 15,
-                    styles: _this.mapStyle
+                    disableDefaultUI: true
                 };
                 _this.map = new google.maps.Map(_this.mapElement.nativeElement, mapProp);
                 var marker = new google.maps.Marker({
@@ -444,12 +412,27 @@ var MapComponent = /** @class */ (function () {
                     title: 'My Current Location',
                     animation: google.maps.Animation.BOUNCE
                 });
+                marker.addListener('click', function (args) {
+                    _this.map.panTo(marker.getPosition());
+                    console.log(marker.getPosition().lng() + " : " + marker.getPosition().lat());
+                });
                 _this.setMyMarker(marker);
                 _this.searchEvent();
             }));
         }
     };
     MapComponent.prototype.searchEvent = function () {
+        var _this = this;
+        this.map.addListener('click', function (args) {
+            var marker = new google.maps.Marker({
+                position: args.latLng,
+                map: _this.map,
+                animation: google.maps.Animation.BOUNCE
+            });
+            marker.addListener('click', function (args) {
+                marker.setMap(null);
+            });
+        });
     };
     MapComponent.prototype.setMyLocation = function (pos) {
         this.myPos = pos;
@@ -457,6 +440,67 @@ var MapComponent = /** @class */ (function () {
     MapComponent.prototype.setMyMarker = function (marker) {
         this.myMarker = marker;
         this.myMarker.setMap(this.map);
+    };
+    MapComponent.prototype.searchHostel = function () {
+        var _this = this;
+        var request = ({
+            location: this.myPos,
+            radius: 500,
+            type: 'lodging'
+        });
+        var service = new google.maps.places.PlacesService(this.map);
+        service.nearbySearch(request, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    _this.createMarker(results[i]);
+                }
+            }
+        });
+    };
+    MapComponent.prototype.searchTourist = function () {
+        var _this = this;
+        var request = ({
+            location: this.myPos,
+            radius: 500,
+            type: ''
+        });
+        var service = new google.maps.places.PlacesService(this.map);
+        service.nearbySearch(request, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    _this.createMarker(results[i]);
+                }
+            }
+        });
+    };
+    MapComponent.prototype.searchRestaurant = function () {
+        var _this = this;
+        console.log("in resturant");
+        var request = ({
+            location: this.myPos,
+            radius: 500,
+            type: 'store'
+        });
+        var service = new google.maps.places.PlacesService(this.map);
+        service.nearbySearch(request, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    _this.createMarker(results[i]);
+                }
+            }
+        });
+    };
+    MapComponent.prototype.createMarker = function (place) {
+        var marker = new google.maps.Marker({
+            map: this.map,
+            position: place.geometry.location,
+            animation: google.maps.Animation.DROP
+        });
+        marker.addListener('click', function () {
+            marker.setMap(null);
+        });
+    };
+    MapComponent.prototype.searchActiveProvider = function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('map'),
@@ -468,7 +512,7 @@ var MapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], MapComponent);
     return MapComponent;
 }());
@@ -484,7 +528,7 @@ var MapComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".hos:hover{\n border-bottom: 2px solid red;\n}\n\n.tour:hover{\n border-bottom: 2px solid dodgerblue;\n}\n\n.rest:hover{\n border-bottom: 2px solid green;\n}\n\nnav{\n  background-color: #ebebeb !important;\n}\n"
 
 /***/ }),
 
@@ -495,7 +539,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-primary waves-light\" (click)=\"form.show()\" mdbWavesEffect>Login with avatar form</button>\n<!--Modal: Login with Avatar Form-->\n<div mdbModal #form=\"mdb-modal\" class=\"modal fade\" id=\"modalLoginAvatar\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog cascading-modal modal-avatar modal-sm\" role=\"document\">\n    <!--Content-->\n    <div class=\"modal-content\">\n\n      <!--Header-->\n      <div class=\"modal-header\">\n        <img src=\"https://mdbootstrap.com/img/Photos/Avatars/img%20%281%29.jpg\" class=\"rounded-circle img-responsive\">\n      </div>\n      <!--Body-->\n      <div class=\"modal-body text-center mb-1\">\n\n        <h5 class=\"mt-1 mb-2\">Maria Doe</h5>\n\n        <div class=\"md-form ml-0 mr-0\">\n          <input mdbInputDirective type=\"password\" type=\"text\" id=\"form29\" class=\"form-control ml-0\">\n          <label for=\"form29\" class=\"ml-0\">Enter password</label>\n        </div>\n\n        <div class=\"text-center\">\n          <button class=\"btn btn-cyan mt-1 waves-light\" mdbWavesEffect>Login <i class=\"fa fa-sign-in ml-1\"></i></button>\n        </div>\n      </div>\n\n    </div>\n    <!--/.Content-->\n  </div>\n</div>\n<!--Modal: Login with Avatar Form-->\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <a href=\"\" class=\"uk-icon-button  uk-margin-small-right\" uk-icon=\"facebook\"></a>\n    <a href=\"\" class=\"uk-icon-button uk-margin-small-right\" uk-icon=\"google-plus\"></a>\n    <div class=\"uk-navbar-item\">\n      <a href=\"\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: user\"></span>Account</a>\n      <div uk-dropdown=\"mode: click\">\n        <ul class=\"uk-nav uk-dropdown-nav\">\n          <li class=\"uk-nav-header\">Account</li>\n          <li><a href=\"#\">Route Detail</a></li>\n          <li><a href=\"#\">History</a></li>\n          <li><a href=\"#\">Payment</a></li>\n          <li class=\"uk-nav-divider\"></li>\n          <li><a href=\"#\"><span uk-icon=\"sign-out\"></span>Logout</a></li>\n        </ul>\n      </div>\n    </div>\n\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -510,6 +554,7 @@ module.exports = "<button type=\"button\" class=\"btn btn-primary waves-light\" 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarterNavComponent", function() { return StarterNavComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../map/map.component */ "./src/app/map/map.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -520,11 +565,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var StarterNavComponent = /** @class */ (function () {
     function StarterNavComponent() {
     }
     StarterNavComponent.prototype.ngOnInit = function () {
     };
+    StarterNavComponent.prototype.ngAfterViewInit = function () {
+        console.log('only after THIS EVENT "child" is usable!!');
+        this.mapComponent.searchRestaurant();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["MapComponent"]),
+        __metadata("design:type", Object)
+    ], StarterNavComponent.prototype, "mapComponent", void 0);
     StarterNavComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-starter-nav',
@@ -558,7 +612,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  starter-side-nav works!\n</p>\n"
+module.exports = ""
 
 /***/ }),
 
@@ -621,7 +675,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <app-starter-nav></app-starter-nav>\n  <app-starter-side-nav></app-starter-side-nav>\n  <div class=\"content\">\n    <app-map></app-map>\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\n  <app-starter-nav></app-starter-nav>\n</div>\n"
 
 /***/ }),
 

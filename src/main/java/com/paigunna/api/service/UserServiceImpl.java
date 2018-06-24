@@ -3,10 +3,13 @@ package com.paigunna.api.service;
 import com.paigunna.api.domain.User;
 import com.paigunna.api.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Arm
  */
+
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

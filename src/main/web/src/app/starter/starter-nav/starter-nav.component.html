@@ -1,31 +1,54 @@
-<button type="button" class="btn btn-primary waves-light" (click)="form.show()" mdbWavesEffect>Login with avatar form</button>
-<!--Modal: Login with Avatar Form-->
-<div mdbModal #form="mdb-modal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
-    <!--Content-->
-    <div class="modal-content">
+<!--Nav Bar-->
+<nav class="uk-navbar-container" uk-navbar xmlns="http://www.w3.org/1999/html">
+  <div class="nav-overlay uk-navbar-left">
 
-      <!--Header-->
-      <div class="modal-header">
-        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%281%29.jpg" class="rounded-circle img-responsive">
-      </div>
-      <!--Body-->
-      <div class="modal-body text-center mb-1">
+    <!-- Paigunna Logo -->
+    <a class="uk-navbar-item uk-logo"><img src="assets/img/paigunna-logo.png" width="100px" height="100px"></a>
 
-        <h5 class="mt-1 mb-2">Maria Doe</h5>
+    <!-- Menu List -->
+    <ul class="uk-navbar-nav">
+      <li class="uk-active hos"><a (click)="mapComponent.searchHostel()">Hostel</a></li>
+      <li class="uk-active tour"><a (click)="mapComponent.searchTourist()">Tourist Attraction</a></li>
+      <li class="uk-active rest"><a (click)="mapComponent.searchRestaurant()">Restaurant</a></li>
+    </ul>
 
-        <div class="md-form ml-0 mr-0">
-          <input mdbInputDirective type="password" type="text" id="form29" class="form-control ml-0">
-          <label for="form29" class="ml-0">Enter password</label>
-        </div>
-
-        <div class="text-center">
-          <button class="btn btn-cyan mt-1 waves-light" mdbWavesEffect>Login <i class="fa fa-sign-in ml-1"></i></button>
-        </div>
-      </div>
-
-    </div>
-    <!--/.Content-->
   </div>
-</div>
-<!--Modal: Login with Avatar Form-->
+
+  <!-- Search Box-->
+  <div class="nav-overlay uk-navbar-right">
+
+    <a href="" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
+    <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="google-plus"></a>
+    <div class="uk-navbar-item">
+      <a href=""><span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>Account</a>
+      <div uk-dropdown="mode: click">
+        <ul class="uk-nav uk-dropdown-nav">
+          <li class="uk-nav-header">Account</li>
+          <li><a href="#">Route Detail</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Payment</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="#"><span uk-icon="sign-out"></span>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+       href="#"></a>
+  </div>
+
+  <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+
+    <div class="uk-navbar-item uk-width-expand">
+      <form class="uk-search uk-search-navbar uk-width-1-1">
+        <input class="uk-search-input" type="search" placeholder="Search Place" autofocus>
+      </form>
+    </div>
+    <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+  </div>
+</nav>
+
+<app-map></app-map>
+
+
