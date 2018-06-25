@@ -4,37 +4,20 @@
   <a *ngIf="authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
      uk-icon="google-plus"></a>
   <a><img *ngIf="authService.user | async as user" class="uk-icon-button" [src]="user.photoURL"
-          width="50px" height="50px"></a>
+          width="50px" height="50px"><span class="uk-badge" style="position: relative; margin-bottom: 15px;margin-right: 5px">1</span></a>
   <div uk-dropdown="mode: click">
     <ul class="uk-nav uk-dropdown-nav">
-      <li class="uk-nav-header">{{username}}</li>
-      <li><a>Route Detail</a></li>
-      <li><a>History</a></li>
-      <li><a>Payment</a></li>
+      <li class="uk-nav-header" style="text-align: center">{{username}}</li>
+      <li class="uk-nav-divider"></li>
+      <li><a><span class="uk-margin-small-right" uk-icon="icon: location"></span>Route Detail<span class="uk-margin-small-left uk-badge">1</span></a></li>
+      <li><a><span class="uk-margin-small-right" uk-icon="icon: history"></span>History</a></li>
+      <li><a><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span>Payment</a></li>
       <li class="uk-nav-divider"></li>
       <li (click)="authService.logout()"><a><span class="uk-margin-small-right" uk-icon="sign-out"></span>Logout</a>
       </li>
     </ul>
   </div>
 </div>
-
-<!--<div class="uk-navbar-item">-->
-<!--<a *ngIf="!authService.use" (click)="printUser()" class="uk-icon-button  uk-margin-small-right"-->
-<!--uk-icon="facebook"></a>-->
-<!--<a *ngIf="!authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"-->
-<!--uk-icon="google-plus"></a>-->
-<!--<a *ngIf="authService.user | async as user"><img class="uk-icon-button" [src]="user.photoURL" width="50px" height="50px"></a>-->
-<!--<div uk-dropdown="mode: click">-->
-<!--<ul class="uk-nav uk-dropdown-nav">-->
-<!--<li class="uk-nav-header">Account</li>-->
-<!--<li><a href="#">Route Detail</a></li>-->
-<!--<li><a href="#">History</a></li>-->
-<!--<li><a href="#">Payment</a></li>-->
-<!--<li class="uk-nav-divider"></li>-->
-<!--<li (click)="logout()"><a><span uk-icon="sign-out"></span>Logout</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
 
 
 

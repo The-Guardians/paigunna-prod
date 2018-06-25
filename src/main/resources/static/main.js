@@ -218,7 +218,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\">{{username}}</li>\n      <li><a>Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\" style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\" style=\"text-align: center\">{{username}}</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: location\"></span>Route Detail<span class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n\n\n"
 
 /***/ }),
 
@@ -267,7 +267,11 @@ var LoginComponent = /** @class */ (function () {
         });
     };
     LoginComponent.prototype.loginGoogle = function () {
+        var _this = this;
         this.authService.loginWithGoogle();
+        this.authService.afAuth.authState.subscribe(function (e) {
+            _this.username = e.displayName;
+        });
     };
     LoginComponent.prototype.loginFacebook = function () {
         this.authService.loginWithFacebook();
@@ -329,6 +333,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapComponent", function() { return MapComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -342,9 +347,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TravelMode = google.maps.TravelMode;
 var DirectionsStatus = google.maps.DirectionsStatus;
+
 var MapComponent = /** @class */ (function () {
-    function MapComponent(http) {
+    function MapComponent(http, authService) {
         this.http = http;
+        this.authService = authService;
         this.nearByPlace = [];
         this.activeProviders = [];
         this.directionService = new google.maps.DirectionsService;
@@ -503,7 +510,7 @@ var MapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], MapComponent);
     return MapComponent;
 }());
@@ -574,7 +581,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".hos:hover{\n border-bottom: 5px solid red;\n}\n\n.tour:hover{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:hover{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #ebebeb !important;\n}\n"
+module.exports = ".hos:visited{\n border-bottom: 5px solid red;\n}\n\n.tour:visited{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:visited{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #323e53 !important;\n  color: #ffffff;\n}\n\n.white{\n  color: #ffffff;\n}\n\n"
 
 /***/ }),
 
@@ -585,7 +592,7 @@ module.exports = ".hos:hover{\n border-bottom: 5px solid red;\n}\n\n.tour:hover{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -601,6 +608,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarterNavComponent", function() { return StarterNavComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../map/map.component */ "./src/app/map/map.component.ts");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../providers/auth.service */ "./src/app/providers/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -612,8 +620,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var StarterNavComponent = /** @class */ (function () {
-    function StarterNavComponent() {
+    function StarterNavComponent(authService) {
+        this.authService = authService;
     }
     StarterNavComponent.prototype.ngOnInit = function () {
     };
@@ -633,7 +643,7 @@ var StarterNavComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./starter-nav.component.html */ "./src/app/starter/starter-nav/starter-nav.component.html"),
             styles: [__webpack_require__(/*! ./starter-nav.component.css */ "./src/app/starter/starter-nav/starter-nav.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], StarterNavComponent);
     return StarterNavComponent;
 }());

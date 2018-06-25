@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {} from "@types/googlemaps";
 import TravelMode = google.maps.TravelMode;
 import DirectionsStatus = google.maps.DirectionsStatus;
+import {AuthService} from "../providers/auth.service";
 
 @Component({
   selector: 'app-map',
@@ -25,7 +26,7 @@ export class MapComponent implements OnInit {
   directionDisplay = new google.maps.DirectionsRenderer;
   distance: number;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient , public authService: AuthService) {
 
   }
 
