@@ -662,10 +662,10 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/styles.scss */"./src/styles.scss");
-__webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/node_modules/font-awesome/scss/font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
-__webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/node_modules/bootstrap/scss/bootstrap.scss */"./node_modules/bootstrap/scss/bootstrap.scss");
-module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/node_modules/angular-bootstrap-md/scss/mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
+__webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/styles.scss */"./src/styles.scss");
+__webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/node_modules/font-awesome/scss/font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
+__webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/node_modules/bootstrap/scss/bootstrap.scss */"./node_modules/bootstrap/scss/bootstrap.scss");
+module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/node_modules/angular-bootstrap-md/scss/mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
 
 
 /***/ })

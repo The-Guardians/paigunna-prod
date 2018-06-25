@@ -24,6 +24,15 @@ export class MapComponent implements OnInit {
   directionService = new google.maps.DirectionsService;
   directionDisplay = new google.maps.DirectionsRenderer;
   distance: number;
+  type: any;
+  priceMotor: number;
+  rate: number;
+  price1: any;
+  price2: any;
+  textTotalAmount: any;
+  totalAmount: any;
+  amount: number;
+  pay: number;
 
   constructor(private http: HttpClient) {
 
@@ -178,6 +187,8 @@ export class MapComponent implements OnInit {
       if (status === DirectionsStatus.OK) {
         this.directionDisplay.setMap(this.map);
         this.directionDisplay.setDirections(result);
+        let panel = document.getElementById('route-panel');
+        this.directionDisplay.setPanel(panel);
         console.log("direction : "+this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
         this.distance = (this.directionDisplay.getDirections().routes[0].legs[0].distance.value)/1000;
         console.log("distance : "+this.distance+" km");
@@ -197,7 +208,6 @@ export class MapComponent implements OnInit {
       this.nearByPlace[i].setMap(map);
     }
   }
-
 
   searchActiveProvider() {
   }

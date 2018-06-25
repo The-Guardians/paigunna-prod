@@ -218,7 +218,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\">{{username}}</li>\n      <li><a>Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\">{{username}}</li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\">Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<!--Route popup-->\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center\">\n    <div class=\"modal-content\" style=\"height:500px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\" style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            Price : test\n                            <!--<label id=\"price2\"></label>-->\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\">\n              Taxi\n            </button>\n          </div>\n        </a>\n      </div>\n      <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%;\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--/Route popup-->\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
 
 /***/ }),
 
@@ -267,7 +267,11 @@ var LoginComponent = /** @class */ (function () {
         });
     };
     LoginComponent.prototype.loginGoogle = function () {
+        var _this = this;
         this.authService.loginWithGoogle();
+        this.authService.afAuth.authState.subscribe(function (e) {
+            _this.username = e.displayName;
+        });
     };
     LoginComponent.prototype.loginFacebook = function () {
         this.authService.loginWithFacebook();
@@ -473,6 +477,8 @@ var MapComponent = /** @class */ (function () {
             if (status === DirectionsStatus.OK) {
                 _this.directionDisplay.setMap(_this.map);
                 _this.directionDisplay.setDirections(result);
+                var panel = document.getElementById('route-panel');
+                _this.directionDisplay.setPanel(panel);
                 console.log("direction : " + _this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
                 _this.distance = (_this.directionDisplay.getDirections().routes[0].legs[0].distance.value) / 1000;
                 console.log("distance : " + _this.distance + " km");
@@ -773,7 +779,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/main.ts */"./src/main.ts");
 
 
 /***/ })
