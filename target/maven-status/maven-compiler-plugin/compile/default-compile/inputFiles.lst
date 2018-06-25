@@ -27,11 +27,14 @@
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/TransactionResource.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/VehicleType.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserPosUpdateDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/User.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserSearchDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleNearbyService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/PaigunnaApi.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/UserServiceImpl.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/NotiResource.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/ServiceStatus.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/NotiService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/VehicleTypeResource.java

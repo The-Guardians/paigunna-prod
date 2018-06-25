@@ -44,6 +44,10 @@ public class User implements Serializable {
     private Double lng;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "SERVICE_STATUS")
+    private ServiceStatus serviceStatus;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "USER_TYPE")
     private UserType userType;
 

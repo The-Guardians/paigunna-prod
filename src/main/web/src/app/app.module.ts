@@ -9,7 +9,8 @@ import {StarterNavComponent} from './starter/starter-nav/starter-nav.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from "@angular/forms"
+import {FormsModule} from "@angular/forms";
+import {AngularFireModule} from "angularfire2"
 import {MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -45,6 +46,10 @@ import {MatAutocompleteModule,
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,} from "@angular/material";
+import { LoginComponent } from './login/login.component';
+import {AuthService} from "./providers/auth.service";
+import {environment} from "../environments/environment";
+import {AngularFireAuthModule} from "angularfire2/auth";
 
 
 @NgModule({
@@ -53,8 +58,12 @@ import {MatAutocompleteModule,
     MapComponent,
     StarterComponent,
     StarterNavComponent,
+    LoginComponent,
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    AngularFireAuthModule,
     FormsModule,
     HttpClientModule,
     MatSidenavModule,
@@ -109,7 +118,7 @@ import {MatAutocompleteModule,
     MatTreeModule,
   ],
   schemas:[NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
