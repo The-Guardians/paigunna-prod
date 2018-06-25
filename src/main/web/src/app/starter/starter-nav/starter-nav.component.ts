@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MapComponent} from "../../map/map.component";
+import {User} from "../../../generated-model/model";
 @Component({
   selector: 'app-starter-nav',
   templateUrl: './starter-nav.component.html',
@@ -12,6 +13,8 @@ export class StarterNavComponent implements OnInit {
 
   placeSearch: string;
 
+  user: User;
+
   constructor() { }
 
   ngOnInit() {
@@ -19,7 +22,6 @@ export class StarterNavComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log('only after THIS EVENT "child" is usable!!');
-    this.mapComponent.searchRestaurant();
   }
 
   textChange(){

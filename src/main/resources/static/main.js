@@ -98,22 +98,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _starter_starter_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./starter/starter.component */ "./src/app/starter/starter.component.ts");
-/* harmony import */ var _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./starter/starter-nav/starter-nav.component */ "./src/app/starter/starter-nav/starter-nav.component.ts");
-/* harmony import */ var _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./starter/starter-side-nav/starter-side-nav.component */ "./src/app/starter/starter-side-nav/starter-side-nav.component.ts");
-/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _starter_starter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./starter/starter.component */ "./src/app/starter/starter.component.ts");
+/* harmony import */ var _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./starter/starter-nav/starter-nav.component */ "./src/app/starter/starter-nav/starter-nav.component.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! angularfire2 */ "./node_modules/angularfire2/index.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -137,74 +141,66 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
                 _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
-                _starter_starter_component__WEBPACK_IMPORTED_MODULE_7__["StarterComponent"],
-                _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_8__["StarterNavComponent"],
-                _starter_starter_side_nav_starter_side_nav_component__WEBPACK_IMPORTED_MODULE_9__["StarterSideNavComponent"]
+                _starter_starter_component__WEBPACK_IMPORTED_MODULE_5__["StarterComponent"],
+                _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_6__["StarterNavComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
             ],
             imports: [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSidenavModule"],
+                angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
+                angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"],
+                angularfire2_auth__WEBPACK_IMPORTED_MODULE_16__["AngularFireAuthModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSidenavModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot(),
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_7__["MDBBootstrapModule"].forRoot(),
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                     {
-                        path: 'login',
-                        component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"],
-                        pathMatch: 'full'
-                    },
-                    // {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-                    {
                         path: '',
-                        component: _starter_starter_component__WEBPACK_IMPORTED_MODULE_7__["StarterComponent"],
+                        component: _starter_starter_component__WEBPACK_IMPORTED_MODULE_5__["StarterComponent"],
                         data: { title: 'หน้าหลัก', iconClass: 'fa fa-home' },
-                        children: [
-                            { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], pathMatch: 'full' },
-                            { path: 'map', component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"], pathMatch: 'full' }
-                        ]
+                        children: []
                     }
                 ]),
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatAutocompleteModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatBadgeModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatBottomSheetModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatChipsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRippleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSidenavModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSliderModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSlideToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTabsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTreeModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatBadgeModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatBottomSheetModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatButtonToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSliderModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTreeModule"],
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
-            providers: [],
+            providers: [_providers_auth_service__WEBPACK_IMPORTED_MODULE_14__["AuthService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -215,80 +211,6 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard.component.css":
-/*!***************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.css ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/dashboard/dashboard.component.html":
-/*!****************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.html ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  dashboard works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/dashboard/dashboard.component.ts":
-/*!**************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.ts ***!
-  \**************************************************/
-/*! exports provided: DashboardComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
-    }
-    DashboardComponent.prototype.ngOnInit = function () {
-    };
-    DashboardComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-dashboard',
-            template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
-            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], DashboardComponent);
-    return DashboardComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/login/login.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/login/login.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/login/login.component.html":
 /*!********************************************!*\
   !*** ./src/app/login/login.component.html ***!
@@ -296,7 +218,18 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-primary waves-light\" (click)=\"form.show()\" mdbWavesEffect>Login with avatar form</button>\n<!--Modal: Login with Avatar Form-->\n<div mdbModal #form=\"mdb-modal\" class=\"modal fade\" id=\"modalLoginAvatar\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog cascading-modal modal-avatar modal-sm\" role=\"document\">\n    <!--Content-->\n    <div class=\"modal-content\">\n\n      <!--Header-->\n      <div class=\"modal-header\">\n        <img src=\"../../../assets/img/paigunna-logo.png\" class=\"rounded-circle img-responsive\">\n      </div>\n      <!--Body-->\n      <div class=\"modal-body text-center mb-1\">\n\n        <h5 class=\"mt-1 mb-2\">Paigunna</h5>\n\n        <div class=\"md-form ml-0 mr-0\">\n          <input mdbInputDirective type=\"password\" type=\"text\" id=\"form29\" class=\"form-control ml-0\">\n          <label for=\"form29\" class=\"ml-0\">Enter password</label>\n        </div>\n\n        <div class=\"text-center\">\n          <button class=\"btn btn-cyan mt-1 waves-light\" mdbWavesEffect>Login <i class=\"fa fa-sign-in ml-1\"></i></button>\n        </div>\n      </div>\n\n    </div>\n    <!--/.Content-->\n  </div>\n</div>\n<!--Modal: Login with Avatar Form-->\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\">{{username}}</li>\n      <li><a>Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
 
 /***/ }),
 
@@ -311,6 +244,7 @@ module.exports = "<button type=\"button\" class=\"btn btn-primary waves-light\" 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -321,18 +255,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(authService) {
+        this.authService = authService;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.authService.afAuth.authState.subscribe(function (e) {
+            _this.username = e.displayName;
+        });
+    };
+    LoginComponent.prototype.loginGoogle = function () {
+        this.authService.loginWithGoogle();
+    };
+    LoginComponent.prototype.loginFacebook = function () {
+        this.authService.loginWithFacebook();
+    };
+    LoginComponent.prototype.logout = function () {
+        this.authService.logout();
+    };
+    LoginComponent.prototype.printUser = function () {
+        this.authService.afAuth.authState.subscribe(function (e) {
+            console.log("authState : " + e.isAnonymous);
+        });
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
-            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
+            styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -425,6 +379,14 @@ var MapComponent = /** @class */ (function () {
             }));
         }
     };
+    MapComponent.prototype.setMyLocation = function (pos) {
+        this.myPos = pos;
+    };
+    MapComponent.prototype.setMyMarker = function (marker) {
+        this.myMarker = marker;
+        this.myMarker.setMap(this.map);
+    };
+    // Search
     MapComponent.prototype.searchEvent = function () {
         var _this = this;
         this.map.addListener('click', function (args) {
@@ -433,15 +395,9 @@ var MapComponent = /** @class */ (function () {
             console.log("select place : " + _this.selectPlace);
         });
     };
-    MapComponent.prototype.setMyLocation = function (pos) {
-        this.myPos = pos;
-    };
-    MapComponent.prototype.setMyMarker = function (marker) {
-        this.myMarker = marker;
-        this.myMarker.setMap(this.map);
-    };
     MapComponent.prototype.searchHostel = function () {
         var _this = this;
+        this.clearMarker();
         var request = ({
             location: this.myPos,
             radius: 500,
@@ -458,6 +414,7 @@ var MapComponent = /** @class */ (function () {
     };
     MapComponent.prototype.searchTourist = function () {
         var _this = this;
+        this.clearMarker();
         var request = ({
             location: this.myPos,
             radius: 500,
@@ -474,6 +431,7 @@ var MapComponent = /** @class */ (function () {
     };
     MapComponent.prototype.searchRestaurant = function () {
         var _this = this;
+        this.clearMarker();
         console.log("in resturant");
         var request = ({
             location: this.myPos,
@@ -501,6 +459,7 @@ var MapComponent = /** @class */ (function () {
             console.log("select place ; " + _this.selectPlace);
             _this.findDirection();
         });
+        this.nearByPlace.push(marker);
     };
     MapComponent.prototype.findDirection = function () {
         var _this = this;
@@ -514,11 +473,23 @@ var MapComponent = /** @class */ (function () {
             if (status === DirectionsStatus.OK) {
                 _this.directionDisplay.setMap(_this.map);
                 _this.directionDisplay.setDirections(result);
+                console.log("direction : " + _this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
+                _this.distance = (_this.directionDisplay.getDirections().routes[0].legs[0].distance.value) / 1000;
+                console.log("distance : " + _this.distance + " km");
             }
             else {
                 window.alert('Directions request failed due to ' + status);
             }
         });
+    };
+    MapComponent.prototype.clearMarker = function () {
+        this.setMapOnAll(null);
+        this.nearByPlace = [];
+    };
+    MapComponent.prototype.setMapOnAll = function (map) {
+        for (var i = 0; i < this.nearByPlace.length; i++) {
+            this.nearByPlace[i].setMap(map);
+        }
     };
     MapComponent.prototype.searchActiveProvider = function () {
     };
@@ -541,6 +512,61 @@ var MapComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/providers/auth.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/providers/auth.service.ts ***!
+  \*******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthService = /** @class */ (function () {
+    function AuthService(afAuth) {
+        this.afAuth = afAuth;
+        this.user = afAuth.authState;
+    }
+    AuthService.prototype.loginWithGoogle = function () {
+        var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].GoogleAuthProvider();
+        this.afAuth.auth.signInWithPopup(provider);
+    };
+    AuthService.prototype.loginWithFacebook = function () {
+        var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].FacebookAuthProvider();
+        this.afAuth.auth.signInWithPopup(provider);
+    };
+    AuthService.prototype.logout = function () {
+        this.afAuth.auth.signOut();
+    };
+    AuthService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [angularfire2_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]])
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/starter/starter-nav/starter-nav.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/starter/starter-nav/starter-nav.component.css ***!
@@ -548,7 +574,7 @@ var MapComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".hos:hover{\n border-bottom: 2px solid red;\n}\n\n.tour:hover{\n border-bottom: 2px solid dodgerblue;\n}\n\n.rest:hover{\n border-bottom: 2px solid green;\n}\n\nnav{\n  background-color: #ebebeb !important;\n}\n"
+module.exports = ".hos:hover{\n border-bottom: 5px solid red;\n}\n\n.tour:hover{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:hover{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #ebebeb !important;\n}\n"
 
 /***/ }),
 
@@ -559,7 +585,7 @@ module.exports = ".hos:hover{\n border-bottom: 2px solid red;\n}\n\n.tour:hover{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <a href=\"\" class=\"uk-icon-button  uk-margin-small-right\" uk-icon=\"facebook\"></a>\n    <a href=\"\" class=\"uk-icon-button uk-margin-small-right\" uk-icon=\"google-plus\"></a>\n    <div class=\"uk-navbar-item\">\n      <a href=\"\"><span class=\"uk-icon uk-margin-small-right\" uk-icon=\"icon: user\"></span>Account</a>\n      <div uk-dropdown=\"mode: click\">\n        <ul class=\"uk-nav uk-dropdown-nav\">\n          <li class=\"uk-nav-header\">Account</li>\n          <li><a href=\"#\">Route Detail</a></li>\n          <li><a href=\"#\">History</a></li>\n          <li><a href=\"#\">Payment</a></li>\n          <li class=\"uk-nav-divider\"></li>\n          <li><a href=\"#\"><span uk-icon=\"sign-out\"></span>Logout</a></li>\n        </ul>\n      </div>\n    </div>\n\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -593,7 +619,6 @@ var StarterNavComponent = /** @class */ (function () {
     };
     StarterNavComponent.prototype.ngAfterViewInit = function () {
         console.log('only after THIS EVENT "child" is usable!!');
-        this.mapComponent.searchRestaurant();
     };
     StarterNavComponent.prototype.textChange = function () {
         console.log(this.placeSearch);
@@ -611,69 +636,6 @@ var StarterNavComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], StarterNavComponent);
     return StarterNavComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/starter/starter-side-nav/starter-side-nav.component.css":
-/*!*************************************************************************!*\
-  !*** ./src/app/starter/starter-side-nav/starter-side-nav.component.css ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/starter/starter-side-nav/starter-side-nav.component.html":
-/*!**************************************************************************!*\
-  !*** ./src/app/starter/starter-side-nav/starter-side-nav.component.html ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/starter/starter-side-nav/starter-side-nav.component.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/starter/starter-side-nav/starter-side-nav.component.ts ***!
-  \************************************************************************/
-/*! exports provided: StarterSideNavComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarterSideNavComponent", function() { return StarterSideNavComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var StarterSideNavComponent = /** @class */ (function () {
-    function StarterSideNavComponent() {
-    }
-    StarterSideNavComponent.prototype.ngOnInit = function () {
-    };
-    StarterSideNavComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-starter-side-nav',
-            template: __webpack_require__(/*! ./starter-side-nav.component.html */ "./src/app/starter/starter-side-nav/starter-side-nav.component.html"),
-            styles: [__webpack_require__(/*! ./starter-side-nav.component.css */ "./src/app/starter/starter-side-nav/starter-side-nav.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], StarterSideNavComponent);
-    return StarterSideNavComponent;
 }());
 
 
@@ -757,7 +719,15 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    firebase: {
+        apiKey: "AIzaSyAGwr9WxsGbt0jQdllJbQANHcQ7FMj7FpU",
+        authDomain: "projectpgn.firebaseapp.com",
+        databaseURL: "https://projectpgn.firebaseio.com",
+        projectId: "projectpgn",
+        storageBucket: "projectpgn.appspot.com",
+        messagingSenderId: "471681704144"
+    }
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
@@ -803,7 +773,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/main.ts */"./src/main.ts");
 
 
 /***/ })

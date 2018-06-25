@@ -2,6 +2,7 @@
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/SocialType.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/controller/HomeController.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/TransactionServiceImpl.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/TransactionDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/repo/NotiRepo.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleTypeServiceImpl.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleNearbyServiceImpl.java
@@ -13,6 +14,7 @@
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleTypeService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleServiceImpl.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/UserService.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/VehicleTypeDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/repo/VehicleRepo.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/Vehicle.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/Transaction.java
@@ -23,12 +25,16 @@
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/Notification.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/repo/TransactionRepo.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/TransactionResource.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/VehicleType.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserPosUpdateDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/User.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/dto/UserSearchDto.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleNearbyService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/PaigunnaApi.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/VehicleService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/UserServiceImpl.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/NotiResource.java
+/home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/domain/ServiceStatus.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/service/NotiService.java
 /home/loki/Projects/paigunnaapi/src/main/java/com/paigunna/api/resource/VehicleTypeResource.java

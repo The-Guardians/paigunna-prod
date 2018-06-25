@@ -1,4 +1,5 @@
 com/paigunna/api/service/VehicleNearbyServiceImpl.class
+com/paigunna/api/resource/dto/VehicleTypeDto.class
 com/paigunna/api/repo/UserRepo.class
 com/paigunna/api/service/NotiServiceImpl.class
 com/paigunna/api/service/VehicleService.class
@@ -8,12 +9,15 @@ com/paigunna/api/resource/NotiResource.class
 com/paigunna/api/service/VehicleServiceImpl.class
 com/paigunna/api/resource/VehicleTypeResource.class
 com/paigunna/api/service/VehicleNearbyServiceImpl$1.class
+com/paigunna/api/resource/dto/UserDto.class
+com/paigunna/api/domain/ServiceStatus.class
 com/paigunna/api/service/VehicleTypeServiceImpl.class
 com/paigunna/api/service/UserServiceImpl.class
 com/paigunna/api/repo/VehicleRepo.class
 com/paigunna/api/resource/dto/VehicleDto.class
 com/paigunna/api/service/ProviderActiveService.class
 com/paigunna/api/service/TransactionServiceImpl.class
+com/paigunna/api/resource/dto/UserSearchDto.class
 com/paigunna/api/service/UserService.class
 com/paigunna/api/controller/HomeController.class
 com/paigunna/api/domain/User.class
@@ -27,9 +31,11 @@ com/paigunna/api/domain/SocialType.class
 com/paigunna/api/domain/Transaction.class
 com/paigunna/api/PaigunnaApi.class
 com/paigunna/api/service/VehicleNearbyService.class
+com/paigunna/api/resource/dto/UserPosUpdateDto.class
 com/paigunna/api/domain/VehicleType.class
 com/paigunna/api/resource/UserResource.class
 com/paigunna/api/repo/NotiRepo.class
 com/paigunna/api/resource/TransactionResource.class
 com/paigunna/api/resource/VehicleResource.class
 com/paigunna/api/repo/VehicleTypeRepo.class
+com/paigunna/api/resource/dto/TransactionDto.class

@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, Provider, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {} from "@types/googlemaps";
-import {directiveCreate} from "@angular/core/src/render3/instructions";
 import TravelMode = google.maps.TravelMode;
 import DirectionsStatus = google.maps.DirectionsStatus;
 
@@ -21,11 +20,10 @@ export class MapComponent implements OnInit {
   nearByPlace: any = [];
   activeProviders: Provider = [];
   selectPlace: any;
-  markers: any = [];
-
 
   directionService = new google.maps.DirectionsService;
   directionDisplay = new google.maps.DirectionsRenderer;
+  distance: number;
 
   constructor(private http: HttpClient) {
 
@@ -36,14 +34,25 @@ export class MapComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position => {
 
-        var pos = {
+        let pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
 
         this.setMyLocation(pos);
 
-        let marker = this.createMarkerMyLocation(pos);
+        let mapProp = {
+          center: pos,
+          zoom: 15,
+          disableDefaultUI: true
+        };
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
+
+        let marker = new google.maps.Marker({
+          position: pos,
+          title: 'My Current Location',
+          animation: google.maps.Animation.BOUNCE
+        });
 
         marker.addListener('click', args => {
           this.map.panTo(marker.getPosition());
@@ -57,35 +66,6 @@ export class MapComponent implements OnInit {
     }
   }
 
-
-  createMarkerMyLocation(pos) {
-    let mapProp = {
-      center: pos,
-      zoom: 15,
-      disableDefaultUI: true
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
-
-    let marker = new google.maps.Marker({
-      position: pos,
-      title: "Your Location",
-      icon: '../../../assets/img/location.png',
-      animation: google.maps.Animation.BOUNCE
-    });
-    this.markers.push(marker);
-    return marker;
-  }
-
-  searchEvent() {
-    this.map.addListener('click', args => {
-      this.selectPlace = args.latLng;
-      this.findDirection();
-
-      console.log("select place : " + this.selectPlace);
-    })
-
-  }
-
   setMyLocation(pos: any) {
     this.myPos = pos;
   }
@@ -95,10 +75,23 @@ export class MapComponent implements OnInit {
     this.myMarker.setMap(this.map);
   }
 
+
+  // Search
+
+  searchEvent() {
+    this.map.addListener('click', args => {
+      this.selectPlace= args.latLng;
+      this.findDirection();
+
+      console.log("select place : " + this.selectPlace);
+    })
+
+  }
+
   searchHostel() {
-    this.setMapOnAll(null);
-    let mark = this.createMarkerMyLocation(this.myPos);
-    this.setMyMarker(mark);
+
+    this.clearMarker();
+
     let request = ({
       location: this.myPos,
       radius: 500,
@@ -117,9 +110,9 @@ export class MapComponent implements OnInit {
   }
 
   searchTourist() {
-    this.setMapOnAll(null);
-    let mark = this.createMarkerMyLocation(this.myPos);
-    this.setMyMarker(mark);
+
+    this.clearMarker();
+
     let request = ({
       location: this.myPos,
       radius: 500,
@@ -134,14 +127,13 @@ export class MapComponent implements OnInit {
         }
       }
     });
-
   }
 
   searchRestaurant() {
+
+    this.clearMarker();
+
     console.log("in resturant");
-    this.setMapOnAll(null);
-    let mark = this.createMarkerMyLocation(this.myPos);
-    this.setMyMarker(mark);
     let request = ({
       location: this.myPos,
       radius: 500,
@@ -165,41 +157,47 @@ export class MapComponent implements OnInit {
       animation: google.maps.Animation.DROP
     });
 
-    this.markers.push(marker);
     marker.addListener('click', () => {
       this.selectPlace = marker.getPosition();
-      console.log("select place ; " + this.selectPlace);
+      console.log("select place ; "+ this.selectPlace);
       this.findDirection();
-    })
+    });
+
+    this.nearByPlace.push(marker);
   }
 
-  findDirection() {
-    this.setMapOnAll(null);
+  findDirection(){
+
     let request = {
       origin: this.myPos,
       destination: this.selectPlace,
       travelMode: TravelMode.DRIVING
     };
     this.directionDisplay.setMap(null);
-    this.directionService.route(request, (result, status) => {
+    this.directionService.route(request, (result, status)=>{
       if (status === DirectionsStatus.OK) {
         this.directionDisplay.setMap(this.map);
         this.directionDisplay.setDirections(result);
-
-        console.log(result);
+        console.log("direction : "+this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
+        this.distance = (this.directionDisplay.getDirections().routes[0].legs[0].distance.value)/1000;
+        console.log("distance : "+this.distance+" km");
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     })
-
-
   }
 
-  setMapOnAll(map) {
-    for (var i = 0; i < this.markers.length; i++) {
-      this.markers[i].setMap(map);
+  clearMarker() {
+    this.setMapOnAll(null);
+    this.nearByPlace = [];
+  }
+
+  setMapOnAll(map){
+    for(let i = 0 ; i < this.nearByPlace.length;i++){
+      this.nearByPlace[i].setMap(map);
     }
   }
+
 
   searchActiveProvider() {
   }

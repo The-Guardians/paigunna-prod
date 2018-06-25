@@ -1,13 +1,13 @@
 .hos:hover{
- border-bottom: 2px solid red;
+ border-bottom: 5px solid red;
 }
 
 .tour:hover{
- border-bottom: 2px solid dodgerblue;
+ border-bottom: 5px solid dodgerblue;
 }
 
 .rest:hover{
- border-bottom: 2px solid green;
+ border-bottom: 5px solid green;
 }
 
 nav{
