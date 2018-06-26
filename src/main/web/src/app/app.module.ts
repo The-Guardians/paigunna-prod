@@ -61,7 +61,6 @@ import {AngularFireAuthModule} from "angularfire2/auth";
     LoginComponent,
   ],
   imports: [
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
