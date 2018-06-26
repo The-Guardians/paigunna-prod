@@ -218,7 +218,11 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                           style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\" style=\"text-align: center\">{{username}}</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                            uk-icon=\"icon: location\"></span>Route Detail<span\n        class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center ;\">\n    <div class=\"modal-content\" style=\"height:600px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">Price : test<!--<label id=\"price2\"></label>--></span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\">\n              Taxi\n            </button>\n          </div>\n          <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%; text-align: center;\">\n            {{distance}}\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n"
+=======
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\">{{username}} ({{useremail}})</li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\">Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#confirm\"><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<!--Route popup-->\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center\">\n    <div class=\"modal-content\" style=\"height:500px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            Price : test\n            <!--<label id=\"price2\"></label>-->\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n        </a>\n      </div>\n      <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%;\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--/Route popup-->\n\n<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label>Are you sure you want to log out?</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"conbtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout()\">Logout\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n\n\n\n"
+>>>>>>> 894fcae99018788d4d6fa540849cdc26c9717b46
 
 /***/ }),
 
@@ -245,6 +249,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/map.component */ "./src/app/map/map.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -256,21 +261,40 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService) {
+    function LoginComponent(authService, motor) {
         this.authService = authService;
+        this.motor = motor;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.getDisplayName();
+    };
+    LoginComponent.prototype.getDisplayName = function () {
         var _this = this;
         this.authService.afAuth.authState.subscribe(function (e) {
             _this.username = e.displayName;
+            _this.useremail = e.email;
+            if (_this.username != null) {
+                document.getElementById('loginGooglebtn').style.display = 'none';
+            }
         });
+    };
+    LoginComponent.prototype.setMotor = function () {
+        this.motor.setTypeMotor();
+    };
+    LoginComponent.prototype.setTaxi = function () {
+        this.motor.setTypeTaxi();
     };
     LoginComponent.prototype.loginGoogle = function () {
         var _this = this;
-        this.authService.loginWithGoogle();
-        this.authService.afAuth.authState.subscribe(function (e) {
-            _this.username = e.displayName;
+        var userResult = this.authService.loginWithGoogle();
+        userResult.subscribe(function (e) {
+            if (e != null) {
+                _this.username = e.displayName;
+                _this.useremail = e.email;
+                document.getElementById('loginGooglebtn').style.display = 'none';
+            }
         });
     };
     LoginComponent.prototype.loginFacebook = function () {
@@ -278,6 +302,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.logout = function () {
         this.authService.logout();
+        document.getElementById('name').innerHTML = "";
     };
     LoginComponent.prototype.printUser = function () {
         this.authService.afAuth.authState.subscribe(function (e) {
@@ -290,7 +315,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
-        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _map_map_component__WEBPACK_IMPORTED_MODULE_2__["MapComponent"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -501,6 +526,109 @@ var MapComponent = /** @class */ (function () {
             this.nearByPlace[i].setMap(map);
         }
     };
+    MapComponent.prototype.setTypeMotor = function () {
+        this.type = "motor";
+        if (this.distance <= 1.0) {
+            this.priceMotor = 10;
+        }
+        else if (this.distance <= 1.3) {
+            this.priceMotor = 15;
+        }
+        else if (this.distance <= 1.6) {
+            this.priceMotor = 20;
+        }
+        else if (this.distance <= 2.0) {
+            this.priceMotor = 25;
+        }
+        else if (this.distance <= 3.0) {
+            this.priceMotor = 30;
+        }
+        else if (this.distance <= 4.0) {
+            this.priceMotor = 35;
+        }
+        else if (this.distance <= 5.0) {
+            this.priceMotor = 40;
+        }
+        else if (this.distance > 5.0) {
+            this.rate = 10;
+        }
+        console.log(1);
+        this.calPrice(0, this.rate, this.type);
+    };
+    MapComponent.prototype.setTypeTaxi = function () {
+        this.type = "taxi";
+        if (this.distance <= 1.0) {
+            this.rate = 0;
+        }
+        else if (this.distance > 1.0 && this.distance <= 10.0) {
+            this.rate = 5.5;
+        }
+        else if (this.distance > 10.0 && this.distance <= 20.0) {
+            this.rate = 6.5;
+        }
+        else if (this.distance > 20.0 && this.distance <= 40.0) {
+            this.rate = 7.5;
+        }
+        else if (this.distance > 40.0 && this.distance <= 60.0) {
+            this.rate = 8.0;
+        }
+        else if (this.distance > 60.0 && this.distance <= 80.0) {
+            this.rate = 9.0;
+        }
+        else if (this.distance > 80.0) {
+            this.rate = 10.5;
+        }
+        this.calPrice(35, this.rate, this.type);
+    };
+    MapComponent.prototype.calPrice = function (start, rate, type) {
+        this.price1 = document.getElementById('price1');
+        this.price2 = document.getElementById('price2');
+        this.textTotalAmount = document.getElementById('totalAmount');
+        if (this.price2 != "") {
+            this.price2.innerHTML = "";
+        }
+        if (type == "motor" && this.priceMotor <= 5.0) {
+            this.amount = this.priceMotor;
+        }
+        else {
+            this.amount = ((this.priceMotor * rate) + start);
+        }
+        var temp = ((0.0365) * this.amount) * 0.07;
+        console.log((0.0365) * this.amount + " => " + temp);
+        this.totalAmount = ((((0.0365) * this.amount) + temp) + this.amount).toFixed(2);
+        this.price2.innerHTML = 'Price : ' + this.amount + ' &#3647';
+    };
+    MapComponent.prototype.setTextOnItemPay = function () {
+        if (document.getElementById('itemPay').style.display != 'block') {
+            this.price1.innerHTML = 'Price : ' + this.amount + ' &#3647';
+            this.textTotalAmount.innerHTML = 'Price(' + this.amount + ' &#3647) + Charge(3.65%+7%(7% of 3.65%))' + ' = ' + this.totalAmount + ' &#3647';
+            document.getElementById('totalTravel').innerHTML = 'item #1 (  ' + this.distance + ' km)';
+            // document.getElementById('destination').innerHTML = desName;
+            //       var pay = totalAmount * 100;
+            //       OmiseCard.configure({
+            //         publicKey: 'pkey_test_5afuh3yxu16m5ih76xb',
+            //         image: 'https://www.picz.in.th/images/2018/05/28/znlQ1k.png',
+            //         amount: pay,
+            //         submitFormTarget: '#from-pay'
+            //       });
+            // // Configuring your own custom button
+            //       OmiseCard.configureButton('#pay-button', {
+            //         frameLabel: 'Paigunna',
+            //         submitLabel: 'PAY RIGHT NOW !'
+            //       });
+            //       OmiseCard.attach();
+        }
+    };
+    MapComponent.prototype.clearTextOnItemPay = function () {
+        this.price1.innerHTML = "";
+        this.textTotalAmount.innerHTML = "";
+        document.getElementById('totalTravel').innerHTML = "";
+        document.getElementById('destination').innerHTML = "";
+    };
+    MapComponent.prototype.payItem = function () {
+        document.getElementById('itemPay').style.display = 'none';
+        this.clearTextOnItemPay();
+    };
     MapComponent.prototype.searchActiveProvider = function () {
     };
     __decorate([
@@ -556,6 +684,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.loginWithGoogle = function () {
         var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].GoogleAuthProvider();
         this.afAuth.auth.signInWithPopup(provider);
+        return this.user;
     };
     AuthService.prototype.loginWithFacebook = function () {
         var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].FacebookAuthProvider();

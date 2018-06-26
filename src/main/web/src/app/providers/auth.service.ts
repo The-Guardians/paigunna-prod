@@ -17,7 +17,7 @@ export class AuthService {
   loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     this.afAuth.auth.signInWithPopup(provider);
-
+    return this.user;
   }
 
   loginWithFacebook(){

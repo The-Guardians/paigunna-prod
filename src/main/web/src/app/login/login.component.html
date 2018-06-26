@@ -1,22 +1,21 @@
 <div class="uk-navbar-item">
   <a *ngIf="" (click)="loginFacebook()" class="uk-icon-button  uk-margin-small-right"
      uk-icon="facebook"></a>
-  <a *ngIf="authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
+  <a id="loginGooglebtn" *ngIf="authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
      uk-icon="google-plus"></a>
   <a><img *ngIf="authService.user | async as user" class="uk-icon-button" [src]="user.photoURL"
           width="50px" height="50px"><span class="uk-badge"
                                            style="position: relative; margin-bottom: 15px;margin-right: 5px">1</span></a>
   <div uk-dropdown="mode: click">
     <ul class="uk-nav uk-dropdown-nav">
-      <li class="uk-nav-header" style="text-align: center">{{username}}</li>
+      <li id="name" class="uk-nav-header" style="text-align: center">{{username}} ({{useremail}})</li>
       <li class="uk-nav-divider"></li>
-      <li><a data-toggle="modal" data-target="#route"><span class="uk-margin-small-right"
-                                                            uk-icon="icon: location"></span>Route Detail<span
+      <li><a data-toggle="modal" data-target="#route"><span class="uk-margin-small-right" uk-icon="icon: location"></span>Route Detail<span
         class="uk-margin-small-left uk-badge">1</span></a></li>
       <li><a><span class="uk-margin-small-right" uk-icon="icon: history"></span>History</a></li>
       <li><a><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span>Payment</a></li>
       <li class="uk-nav-divider"></li>
-      <li (click)="authService.logout()"><a><span class="uk-margin-small-right" uk-icon="sign-out"></span>Logout</a>
+      <li><a data-toggle="modal" data-target="#confirm"><span class="uk-margin-small-right" uk-icon="sign-out"></span>Logout</a>
       </li>
     </ul>
   </div>
@@ -35,23 +34,49 @@
                   aria-haspopup="true" aria-expanded="false">
             Select vehicle
           </button>
-          <span title="price" style="float: right;margin-top: 3%">Price : test<!--<label id="price2"></label>--></span>
+          <span title="price" style="float: right;margin-top: 3%">
+            Price : test
+            <!--<label id="price2"></label>--></span>
           <div id="type" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button title="Motorcycle" class="dropdown-item" type="button" value="1">
+            <button title="Motorcycle" class="dropdown-item" type="button" value="1" (click)="setMotor()">
               Motorcycle
             </button>
-            <button title="Taxi" class="dropdown-item" type="button" value="2">
+            <button title="Taxi" class="dropdown-item" type="button" value="2" (click)="setTaxi()">
               Taxi
             </button>
           </div>
           <div id="route-panel" style="position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%; text-align: center;">
-            {{distance}}
           </div>
         </a>
       </div>
     </div>
   </div>
 </div>
+<!--/Route popup-->
 
+<!--Comfirm popup-->
+
+<div class="modal fade" id="confirm" style="z-index: 999999999;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notice</h4>
+      </div>
+      <div class="modal-body">
+        <p><label>Are you sure you want to log out?</label></p>
+      </div>
+      <div class="modal-footer text-center">
+        <button id="conbtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal"
+                (click)="logout()">Logout
+        </button>
+        <button type="button" title="go back" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--/Confirm popup-->
 
 
