@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {DataService} from '../data.service';
 import {AuthService} from "../providers/auth.service";
-import {MapComponent} from "../map/map.component";
+import {CalService} from "../cal-price/cal.service";
 
 @Component({
   selector: 'app-login',
@@ -9,32 +10,44 @@ import {MapComponent} from "../map/map.component";
 })
 export class LoginComponent implements OnInit {
 
+  @Output() myEvent = new EventEmitter();
+
   username: string;
   useremail: string;
+  idConfirm: string;
+  textConfirm: string;
+  photo: any;
 
-  constructor(public authService: AuthService,public motor:MapComponent) {
+  constructor(public authService: AuthService, private data: DataService,private cal: CalService) {
   }
 
   ngOnInit() {
     this.getDisplayName();
+    this.data.idCon.subscribe(e => this.idConfirm = e);
+    this.data.currentMessage.subscribe(e => this.textConfirm = e);
   }
 
   private getDisplayName() {
     this.authService.afAuth.authState.subscribe(e => {
-      this.username = e.displayName;
-      this.useremail = e.email;
-      if (this.username != null) {
+      if (e != null) {
+        this.username = e.displayName;
+        this.useremail = e.email;
+        this.photo = e.photoURL;
+        document.getElementById('name').style.display = 'block';
         document.getElementById('loginGooglebtn').style.display = 'none';
+        document.getElementById('logo').style.display = 'block';
+      } else {
+        document.getElementById('logo').style.display = 'none';
       }
     });
   }
 
   setMotor(){
-    this.motor.setTypeMotor();
+    this.cal.setTypeMotor();
   }
 
   setTaxi(){
-    this.motor.setTypeTaxi();
+    this.cal.setTypeTaxi();
   }
 
   loginGoogle() {
@@ -43,7 +56,10 @@ export class LoginComponent implements OnInit {
       if (e != null) {
         this.username = e.displayName;
         this.useremail = e.email;
+        this.photo = e.photoURL;
+        document.getElementById('name').style.display = 'block';
         document.getElementById('loginGooglebtn').style.display = 'none';
+        document.getElementById('logo').style.display = 'block';
       }
     });
   }
@@ -52,15 +68,15 @@ export class LoginComponent implements OnInit {
     this.authService.loginWithFacebook();
   }
 
-  logout() {
-    this.authService.logout();
-    document.getElementById('name').innerHTML = "";
-  }
-
   printUser() {
     this.authService.afAuth.authState.subscribe(e => {
       console.log("authState : " + e.isAnonymous);
     });
+  }
+
+  setNoticeLogout() {
+    this.myEvent.emit(null);
+    this.data.changeMessage("logoutConfirm", "Are you sure you want to log out?");
   }
 
 }

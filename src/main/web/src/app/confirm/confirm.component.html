@@ -1,0 +1,30 @@
+<!--Comfirm popup-->
+
+<div class="modal fade" id="{{idConfirm}}" style="z-index: 999999999;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notice</h4>
+      </div>
+      <div class="modal-body">
+        <p><label>{{textConfirm}}</label></p>
+      </div>
+      <div class="modal-footer text-center">
+        <button id="logOutBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal"
+                (click)="logout()">Log out
+        </button>
+        <!--<button id="Temp1" type="button" title="continue" class="btn btn-success" data-dismiss="modal"-->
+                <!--(click)="logout()">Log out-->
+        <!--</button>-->
+        <!--<button id="Temp2" type="button" title="continue" class="btn btn-success" data-dismiss="modal"-->
+                <!--(click)="logout()">Log out-->
+        <!--</button>-->
+        <button type="button" title="go back" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--/Confirm popup-->

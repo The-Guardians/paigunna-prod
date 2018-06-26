@@ -50,6 +50,8 @@ import { LoginComponent } from './login/login.component';
 import {AuthService} from "./providers/auth.service";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import { ConfirmComponent } from './confirm/confirm.component';
+import { CalPriceComponent } from './cal-price/cal-price.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import {AngularFireAuthModule} from "angularfire2/auth";
     StarterComponent,
     StarterNavComponent,
     LoginComponent,
+    ConfirmComponent,
+    CalPriceComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
