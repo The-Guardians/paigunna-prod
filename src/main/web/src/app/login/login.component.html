@@ -39,10 +39,10 @@
             <!--<label id="price2"></label>-->
                         </span>
           <div id="type" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button title="Motorcycle" class="dropdown-item" type="button" value="1">
+            <button title="Motorcycle" class="dropdown-item" type="button" value="1" (click)="setMotor()">
               Motorcycle
             </button>
-            <button title="Taxi" class="dropdown-item" type="button" value="2">
+            <button title="Taxi" class="dropdown-item" type="button" value="2" (click)="setTaxi()">
               Taxi
             </button>
           </div>
@@ -80,24 +80,6 @@
 </div>
 
 <!--/Confirm popup-->
-
-<!--<div class="uk-navbar-item">-->
-<!--<a *ngIf="!authService.use" (click)="printUser()" class="uk-icon-button  uk-margin-small-right"-->
-<!--uk-icon="facebook"></a>-->
-<!--<a *ngIf="!authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"-->
-<!--uk-icon="google-plus"></a>-->
-<!--<a *ngIf="authService.user | async as user"><img class="uk-icon-button" [src]="user.photoURL" width="50px" height="50px"></a>-->
-<!--<div uk-dropdown="mode: click">-->
-<!--<ul class="uk-nav uk-dropdown-nav">-->
-<!--<li class="uk-nav-header">Account</li>-->
-<!--<li><a href="#">Route Detail</a></li>-->
-<!--<li><a href="#">History</a></li>-->
-<!--<li><a href="#">Payment</a></li>-->
-<!--<li class="uk-nav-divider"></li>-->
-<!--<li (click)="logout()"><a><span uk-icon="sign-out"></span>Logout</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
 
 
 

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../providers/auth.service";
+import {MapComponent} from "../map/map.component";
 
 @Component({
   selector: 'app-login',
@@ -8,10 +9,10 @@ import {AuthService} from "../providers/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  username : string ;
-  useremail : string;
+  username: string;
+  useremail: string;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService,public motor:MapComponent) {
   }
 
   ngOnInit() {
@@ -28,30 +29,38 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  loginGoogle(){
-    let userResult = this.authService.loginWithGoogle();
-      userResult.subscribe(e =>{
-        if (e != null) {
-          this.username = e.displayName;
-          this.useremail = e.email;
-          document.getElementById('loginGooglebtn').style.display = 'none';
-        }
-      });
+  setMotor(){
+    this.motor.setTypeMotor();
   }
 
-  loginFacebook(){
+  setTaxi(){
+    this.motor.setTypeTaxi();
+  }
+
+  loginGoogle() {
+    let userResult = this.authService.loginWithGoogle();
+    userResult.subscribe(e => {
+      if (e != null) {
+        this.username = e.displayName;
+        this.useremail = e.email;
+        document.getElementById('loginGooglebtn').style.display = 'none';
+      }
+    });
+  }
+
+  loginFacebook() {
     this.authService.loginWithFacebook();
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     document.getElementById('name').innerHTML = "";
   }
 
-  printUser(){
-      this.authService.afAuth.authState.subscribe(e=>{
-        console.log("authState : " + e.isAnonymous);
-      });
-    }
+  printUser() {
+    this.authService.afAuth.authState.subscribe(e => {
+      console.log("authState : " + e.isAnonymous);
+    });
+  }
 
 }
