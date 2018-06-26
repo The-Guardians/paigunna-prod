@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MapComponent} from "../../map/map.component";
 import {User} from "../../../generated-model/model";
+import {AuthService} from "../../providers/auth.service";
 @Component({
   selector: 'app-starter-nav',
   templateUrl: './starter-nav.component.html',
@@ -15,7 +16,7 @@ export class StarterNavComponent implements OnInit {
 
   user: User;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

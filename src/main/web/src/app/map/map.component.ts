@@ -25,6 +25,8 @@ export class MapComponent implements OnInit {
   radius: number = 1000;
   placeName: string;
 
+  travelList:any = [];
+
   directionService = new google.maps.DirectionsService;
   directionDisplay = new google.maps.DirectionsRenderer;
   distance: number;

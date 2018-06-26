@@ -1,15 +1,21 @@
-.hos:hover{
+.hos:visited{
  border-bottom: 5px solid red;
 }
 
-.tour:hover{
+.tour:visited{
  border-bottom: 5px solid dodgerblue;
 }
 
-.rest:hover{
+.rest:visited{
  border-bottom: 5px solid green;
 }
 
 nav{
-  background-color: #ebebeb !important;
+  background-color: #323e53 !important;
+  color: #ffffff;
 }
+
+.white{
+  color: #ffffff;
+}
+

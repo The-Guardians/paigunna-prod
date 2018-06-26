@@ -437,7 +437,7 @@ var CalService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"{{idConfirm}}\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label>{{textConfirm}}</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"logOutBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout()\">Log out\n        </button>\n        <!--<button id=\"Temp1\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"-->\n                <!--(click)=\"logout()\">Log out-->\n        <!--</button>-->\n        <!--<button id=\"Temp2\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"-->\n                <!--(click)=\"logout()\">Log out-->\n        <!--</button>-->\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n"
+module.exports = "<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"{{idConfirm}}\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" style=\"color: black\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label style=\"color: black\">{{textConfirm}}</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"logOutBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout()\">Log out\n        </button>\n        <!--<button id=\"Temp1\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"-->\n                <!--(click)=\"logout()\">Log out-->\n        <!--</button>-->\n        <!--<button id=\"Temp2\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"-->\n                <!--(click)=\"logout()\">Log out-->\n        <!--</button>-->\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n"
 
 /***/ }),
 
@@ -574,7 +574,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a id=\"logo\"><img *ngIf=\"authService.user\" class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"></a>\n  <div id=\"menu\" uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\">{{username}} ({{useremail}})</li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\">Route Detail</a></li>\n      <li><a class=\"uk-dropdown-close\">History</a></li>\n      <li><a class=\"uk-dropdown-close\">Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#logoutConfirm\" (click)=\"setNoticeLogout()\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<!--Route popup-->\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center\">\n    <div class=\"modal-content\" style=\"height:500px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n        </a>\n      </div>\n      <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%;\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--/Route popup-->\n\n<app-confirm></app-confirm>\n\n\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img *ngIf=\"authService.user\" class=\"uk-icon-button\" src=\"{{photo}}\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                           style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: location\"></span>Route Detail<span\n        class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\" ><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a class=\"uk-dropdown-close\" ><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#logoutConfirm\" (click)=\"setNoticeLogout()\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center ;\">\n    <div class=\"modal-content\" style=\"height:600px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n          <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%; text-align: center;\">\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n<!--/Route popup-->\n\n<app-confirm></app-confirm>\n\n\n"
 
 /***/ }),
 
@@ -703,7 +703,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  height: 100vh;\n  width: 100%;\n}\n"
+module.exports = ""
 
 /***/ }),
 
@@ -753,6 +753,7 @@ var MapComponent = /** @class */ (function () {
         this.nearByPlace = [];
         this.activeProviders = [];
         this.radius = 1000;
+        this.travelList = [];
         this.directionService = new google.maps.DirectionsService;
         this.directionDisplay = new google.maps.DirectionsRenderer;
     }
@@ -1061,7 +1062,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".hos:hover{\n border-bottom: 5px solid red;\n}\n\n.tour:hover{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:hover{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #ebebeb !important;\n}\n"
+module.exports = ".hos:visited{\n border-bottom: 5px solid red;\n}\n\n.tour:visited{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:visited{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #323e53 !important;\n  color: #ffffff;\n}\n\n.white{\n  color: #ffffff;\n}\n\n"
 
 /***/ }),
 
@@ -1072,7 +1073,7 @@ module.exports = ".hos:hover{\n border-bottom: 5px solid red;\n}\n\n.tour:hover{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\"uk-active hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\"uk-active tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\"uk-active rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -1088,6 +1089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarterNavComponent", function() { return StarterNavComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../map/map.component */ "./src/app/map/map.component.ts");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../providers/auth.service */ "./src/app/providers/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1099,8 +1101,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var StarterNavComponent = /** @class */ (function () {
-    function StarterNavComponent() {
+    function StarterNavComponent(authService) {
+        this.authService = authService;
     }
     StarterNavComponent.prototype.ngOnInit = function () {
     };
@@ -1120,7 +1124,7 @@ var StarterNavComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./starter-nav.component.html */ "./src/app/starter/starter-nav/starter-nav.component.html"),
             styles: [__webpack_require__(/*! ./starter-nav.component.css */ "./src/app/starter/starter-nav/starter-nav.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], StarterNavComponent);
     return StarterNavComponent;
 }());
