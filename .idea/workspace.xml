@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="b5fc9ec8-5b61-49c4-86d2-28d368dd607c" name="Default" comment="" />
+=======
     <list default="true" id="b5fc9ec8-5b61-49c4-86d2-28d368dd607c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paigunna/api/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paigunna/api/repo/UserRepo.java" afterDir="false" />
@@ -39,6 +42,7 @@
       <change beforePath="$PROJECT_DIR$/target/paigunna-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/paigunna-api-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/paigunna-api-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/paigunna-api-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
+>>>>>>> 56e4b325cf6b9e4e7b08a09717d7d4183d62de1f
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -627,15 +631,41 @@
       <workItem from="1529564443005" duration="1938000" />
       <workItem from="1529640572188" duration="3285000" />
       <workItem from="1529768800569" duration="17371000" />
+<<<<<<< HEAD
+      <workItem from="1529787312438" duration="23036000" />
+      <workItem from="1529829509844" duration="3039000" />
+      <workItem from="1529832562270" duration="2227000" />
+    </task>
+    <task id="LOCAL-00001" summary="edit nearby(Overlap) and change picture your-location">
+      <created>1529834189346</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529834189346</updated>
+=======
       <workItem from="1529787312438" duration="33829000" />
       <workItem from="1529848745726" duration="15650000" />
+<<<<<<< HEAD
       <workItem from="1529896267592" duration="8040000" />
       <workItem from="1529912427846" duration="4236000" />
+=======
+      <workItem from="1529896267592" duration="708000" />
+>>>>>>> 56e4b325cf6b9e4e7b08a09717d7d4183d62de1f
+>>>>>>> 35f98bd7945082f126c00491a34f8ff73856282a
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="163584000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="128430000" />
+=======
+    <option name="totallyTimeSpent" value="152016000" />
+>>>>>>> 56e4b325cf6b9e4e7b08a09717d7d4183d62de1f
+>>>>>>> 35f98bd7945082f126c00491a34f8ff73856282a
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1058" extended-state="6" />
@@ -706,6 +736,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="edit nearby(Overlap) and change picture your-location" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit nearby(Overlap) and change picture your-location" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/web/src/app/providers/auth.service.ts">

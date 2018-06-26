@@ -218,7 +218,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\" style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\" style=\"text-align: center\">{{username}}</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: location\"></span>Route Detail<span class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                           style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\" style=\"text-align: center\">{{username}}</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                            uk-icon=\"icon: location\"></span>Route Detail<span\n        class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center ;\">\n    <div class=\"modal-content\" style=\"height:600px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">Price : test<!--<label id=\"price2\"></label>--></span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\">\n              Taxi\n            </button>\n          </div>\n          <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%; text-align: center;\">\n            {{distance}}\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -306,7 +306,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  height: 100vh;\n  width: 100%;\n}\n"
+module.exports = ""
 
 /***/ }),
 
@@ -354,6 +354,7 @@ var MapComponent = /** @class */ (function () {
         this.authService = authService;
         this.nearByPlace = [];
         this.activeProviders = [];
+        this.travelList = [];
         this.directionService = new google.maps.DirectionsService;
         this.directionDisplay = new google.maps.DirectionsRenderer;
     }
@@ -480,6 +481,8 @@ var MapComponent = /** @class */ (function () {
             if (status === DirectionsStatus.OK) {
                 _this.directionDisplay.setMap(_this.map);
                 _this.directionDisplay.setDirections(result);
+                // let panel = document.getElementById('route-panel');
+                // this.directionDisplay.setPanel(panel);
                 console.log("direction : " + _this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
                 _this.distance = (_this.directionDisplay.getDirections().routes[0].legs[0].distance.value) / 1000;
                 console.log("distance : " + _this.distance + " km");
