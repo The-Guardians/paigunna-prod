@@ -1,18 +1,18 @@
 <div class="uk-navbar-item">
   <a *ngIf="" (click)="loginFacebook()" class="uk-icon-button  uk-margin-small-right"
      uk-icon="facebook"></a>
-  <a *ngIf="authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
+  <a id="loginGooglebtn" *ngIf="authService.user" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
      uk-icon="google-plus"></a>
   <a><img *ngIf="authService.user | async as user" class="uk-icon-button" [src]="user.photoURL"
           width="50px" height="50px"></a>
   <div uk-dropdown="mode: click">
     <ul class="uk-nav uk-dropdown-nav">
-      <li class="uk-nav-header">{{username}}</li>
+      <li id="name" class="uk-nav-header">{{username}} ({{useremail}})</li>
       <li><a data-toggle="modal" data-target="#route">Route Detail</a></li>
       <li><a>History</a></li>
       <li><a>Payment</a></li>
       <li class="uk-nav-divider"></li>
-      <li (click)="authService.logout()"><a><span class="uk-margin-small-right" uk-icon="sign-out"></span>Logout</a>
+      <li><a data-toggle="modal" data-target="#confirm"><span class="uk-margin-small-right" uk-icon="sign-out"></span>Logout</a>
       </li>
     </ul>
   </div>
@@ -28,14 +28,15 @@
       </div>
       <div class="list-group" style="z-index: 9999999;">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <button title="Select vehicle" id="select" class="btn btn-secondary dropdown-toggle" type="button" style="float: left;"
+          <button title="Select vehicle" id="select" class="btn btn-secondary dropdown-toggle" type="button"
+                  style="float: left;"
                   id="dropdownMenu2" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
             Select vehicle
           </button>
           <span title="price" style="float: right;margin-top: 3%">
             Price : test
-                            <!--<label id="price2"></label>-->
+            <!--<label id="price2"></label>-->
                         </span>
           <div id="type" class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button title="Motorcycle" class="dropdown-item" type="button" value="1">
@@ -54,6 +55,31 @@
 </div>
 
 <!--/Route popup-->
+
+<!--Comfirm popup-->
+
+<div class="modal fade" id="confirm" style="z-index: 999999999;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notice</h4>
+      </div>
+      <div class="modal-body">
+        <p><label>Are you sure you want to log out?</label></p>
+      </div>
+      <div class="modal-footer text-center">
+        <button id="conbtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal"
+                (click)="logout()">Logout
+        </button>
+        <button type="button" title="go back" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--/Confirm popup-->
 
 <!--<div class="uk-navbar-item">-->
 <!--<a *ngIf="!authService.use" (click)="printUser()" class="uk-icon-button  uk-margin-small-right"-->

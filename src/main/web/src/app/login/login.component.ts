@@ -15,16 +15,28 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.afAuth.authState.subscribe(e=>{
+    this.getDisplayName();
+  }
+
+  private getDisplayName() {
+    this.authService.afAuth.authState.subscribe(e => {
       this.username = e.displayName;
+      this.useremail = e.email;
+      if (this.username != null) {
+        document.getElementById('loginGooglebtn').style.display = 'none';
+      }
     });
   }
 
   loginGoogle(){
-    this.authService.loginWithGoogle();
-    this.authService.afAuth.authState.subscribe(e=>{
-      this.username = e.displayName;
-    });
+    let userResult = this.authService.loginWithGoogle();
+      userResult.subscribe(e =>{
+        if (e != null) {
+          this.username = e.displayName;
+          this.useremail = e.email;
+          document.getElementById('loginGooglebtn').style.display = 'none';
+        }
+      });
   }
 
   loginFacebook(){
@@ -33,6 +45,7 @@ export class LoginComponent implements OnInit {
 
   logout(){
     this.authService.logout();
+    document.getElementById('name').innerHTML = "";
   }
 
   printUser(){

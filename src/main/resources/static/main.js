@@ -218,7 +218,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li class=\"uk-nav-header\">{{username}}</li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\">Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li (click)=\"authService.logout()\"><a><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<!--Route popup-->\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center\">\n    <div class=\"modal-content\" style=\"height:500px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\" style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            Price : test\n                            <!--<label id=\"price2\"></label>-->\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\">\n              Taxi\n            </button>\n          </div>\n        </a>\n      </div>\n      <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%;\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--/Route popup-->\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\">{{username}} ({{useremail}})</li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\">Route Detail</a></li>\n      <li><a>History</a></li>\n      <li><a>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#confirm\"><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n\n<!--Route popup-->\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center\">\n    <div class=\"modal-content\" style=\"height:500px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            Price : test\n            <!--<label id=\"price2\"></label>-->\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\">\n              Taxi\n            </button>\n          </div>\n        </a>\n      </div>\n      <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%;\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--/Route popup-->\n\n<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label>Are you sure you want to log out?</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"conbtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout()\">Logout\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n<!--<div class=\"uk-navbar-item\">-->\n<!--<a *ngIf=\"!authService.use\" (click)=\"printUser()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n<!--uk-icon=\"facebook\"></a>-->\n<!--<a *ngIf=\"!authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"-->\n<!--uk-icon=\"google-plus\"></a>-->\n<!--<a *ngIf=\"authService.user | async as user\"><img class=\"uk-icon-button\" [src]=\"user.photoURL\" width=\"50px\" height=\"50px\"></a>-->\n<!--<div uk-dropdown=\"mode: click\">-->\n<!--<ul class=\"uk-nav uk-dropdown-nav\">-->\n<!--<li class=\"uk-nav-header\">Account</li>-->\n<!--<li><a href=\"#\">Route Detail</a></li>-->\n<!--<li><a href=\"#\">History</a></li>-->\n<!--<li><a href=\"#\">Payment</a></li>-->\n<!--<li class=\"uk-nav-divider\"></li>-->\n<!--<li (click)=\"logout()\"><a><span uk-icon=\"sign-out\"></span>Logout</a></li>-->\n<!--</ul>-->\n<!--</div>-->\n<!--</div>-->\n\n\n\n\n"
 
 /***/ }),
 
@@ -261,16 +261,27 @@ var LoginComponent = /** @class */ (function () {
         this.authService = authService;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.getDisplayName();
+    };
+    LoginComponent.prototype.getDisplayName = function () {
         var _this = this;
         this.authService.afAuth.authState.subscribe(function (e) {
             _this.username = e.displayName;
+            _this.useremail = e.email;
+            if (_this.username != null) {
+                document.getElementById('loginGooglebtn').style.display = 'none';
+            }
         });
     };
     LoginComponent.prototype.loginGoogle = function () {
         var _this = this;
-        this.authService.loginWithGoogle();
-        this.authService.afAuth.authState.subscribe(function (e) {
-            _this.username = e.displayName;
+        var userResult = this.authService.loginWithGoogle();
+        userResult.subscribe(function (e) {
+            if (e != null) {
+                _this.username = e.displayName;
+                _this.useremail = e.email;
+                document.getElementById('loginGooglebtn').style.display = 'none';
+            }
         });
     };
     LoginComponent.prototype.loginFacebook = function () {
@@ -278,6 +289,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.logout = function () {
         this.authService.logout();
+        document.getElementById('name').innerHTML = "";
     };
     LoginComponent.prototype.printUser = function () {
         this.authService.afAuth.authState.subscribe(function (e) {
@@ -552,6 +564,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.loginWithGoogle = function () {
         var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].GoogleAuthProvider();
         this.afAuth.auth.signInWithPopup(provider);
+        return this.user;
     };
     AuthService.prototype.loginWithFacebook = function () {
         var provider = new firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"].FacebookAuthProvider();
