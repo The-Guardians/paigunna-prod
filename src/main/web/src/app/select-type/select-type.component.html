@@ -1,0 +1,45 @@
+<div class="modal fade" id="route" style="z-index:9999999;">
+  <div class="modal-dialog modal-lg" style="text-align: center;">
+    <div class="modal-content" style="height:450px;padding: 2%;margin-top: 13%;">
+      <div class="title" style="margin-top: 2%;z-index: 999;color: black">Route and call service
+      </div>
+      <div class="list-group" style="z-index: 9999999;max-height: 100%">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <button title="Select vehicle" id="select" class="btn btn-secondary dropdown-toggle" type="button"
+                  style="float: left;"
+                  id="dropdownMenu2" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            Select vehicle
+          </button>
+          <span title="price" style="float: right;margin-top: 3%">
+            <label id="price2"></label>
+                        </span>
+          <div id="type" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button title="Motorcycle" class="dropdown-item" type="button" value="1" (click)="setMotor()">
+              Motorcycle
+            </button>
+            <button title="Taxi" class="dropdown-item" type="button" value="2" (click)="setTaxi()">
+              Taxi
+            </button>
+          </div>
+          <br>
+        </a>
+        <div id="route-panel"
+             style="position: relative;max-height: 20%!important; overflow: auto; margin-top: 4%; text-align: center;">
+        </div>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <button title="callService" [disabled]="btnCallService" class="btn btn-success" type="button"
+                  style="float: left;" data-toggle="modal" data-target="#confirm" (click)="setNotice();time();">
+            Call Service
+          </button>
+          <button id="waiting" title="waiting" class="btn btn-danger" type="button"
+                  style="float: left;">
+            <span style="margin-bottom: 5%" id="show_text"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm></app-confirm>

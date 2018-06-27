@@ -1,6 +1,6 @@
 <!--Comfirm popup-->
 
-<div class="modal fade" id="{{idConfirm}}" style="z-index: 999999999;">
+<div class="modal fade" id="confirm" style="z-index: 999999999;">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -11,15 +11,15 @@
         <p><label style="color: black">{{textConfirm}}</label></p>
       </div>
       <div class="modal-footer text-center">
-        <button id="logOutBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal"
-                (click)="logout()">Log out
+        <button id="logOutBtn" type="button" title="logout" class="btn btn-success" data-dismiss="modal"
+                (click)="logout();">Log out
         </button>
-        <!--<button id="Temp1" type="button" title="continue" class="btn btn-success" data-dismiss="modal"-->
-                <!--(click)="logout()">Log out-->
-        <!--</button>-->
-        <!--<button id="Temp2" type="button" title="continue" class="btn btn-success" data-dismiss="modal"-->
-                <!--(click)="logout()">Log out-->
-        <!--</button>-->
+        <button id="callBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="paymentText();"
+        >Call service
+        </button>
+        <button id="payBtn" type="button" title="payment" class="btn btn-primary" data-toggle="modal" data-target="#omise" data-dismiss="modal"
+        >Payment
+        </button>
         <button type="button" title="go back" class="btn btn-danger" data-dismiss="modal">Go Back</button>
       </div>
     </div>
@@ -28,3 +28,5 @@
 </div>
 
 <!--/Confirm popup-->
+
+<app-payment></app-payment>

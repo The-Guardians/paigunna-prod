@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DataService} from '../data.service';
 import {AuthService} from "../providers/auth.service";
-import {CalService} from "../cal-price/cal.service";
+import {ConfirmService} from "../confirm/confirm.service";
+
 
 @Component({
   selector: 'app-login',
@@ -14,16 +15,14 @@ export class LoginComponent implements OnInit {
 
   username: string;
   useremail: string;
-  idConfirm: string;
   textConfirm: string;
   photo: any;
 
-  constructor(public authService: AuthService, private data: DataService,private cal: CalService) {
+  constructor(public authService: AuthService, private data: DataService,private confirm:ConfirmService) {
   }
 
   ngOnInit() {
     this.getDisplayName();
-    this.data.idCon.subscribe(e => this.idConfirm = e);
     this.data.currentMessage.subscribe(e => this.textConfirm = e);
   }
 
@@ -40,14 +39,6 @@ export class LoginComponent implements OnInit {
         document.getElementById('logo').style.display = 'none';
       }
     });
-  }
-
-  setMotor(){
-    this.cal.setTypeMotor();
-  }
-
-  setTaxi(){
-    this.cal.setTypeTaxi();
   }
 
   loginGoogle() {
@@ -76,7 +67,8 @@ export class LoginComponent implements OnInit {
 
   setNoticeLogout() {
     this.myEvent.emit(null);
-    this.data.changeMessage("logoutConfirm", "Are you sure you want to log out?");
+    this.data.changeMessage("Are you sure you want to log out?");
+    this.confirm.logoutBtn();
   }
 
 }

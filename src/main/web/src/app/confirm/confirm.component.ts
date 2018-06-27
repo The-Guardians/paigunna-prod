@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../providers/auth.service";
 import {DataService} from '../data.service';
+import {PaymentService} from "../payment/payment.service";
 
 @Component({
   selector: 'app-confirm',
@@ -11,15 +12,17 @@ export class ConfirmComponent implements OnInit {
 
   @Output() myEvent = new EventEmitter();
 
-  idConfirm: string;
   textConfirm: string;
 
-  constructor(public authService: AuthService, private data: DataService) {
+  constructor(public authService: AuthService, private data: DataService,private payment:PaymentService) {
   }
 
   ngOnInit() {
-    this.data.idCon.subscribe(e => this.idConfirm = e);
     this.data.currentMessage.subscribe(e => this.textConfirm = e);
+  }
+
+  paymentText(){
+    this.payment.setTextOnItemPay();
   }
 
   logout() {

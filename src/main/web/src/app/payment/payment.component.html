@@ -1,0 +1,96 @@
+<div class="modal fade" id="omise" style="z-index:9999999;">
+  <div class="modal-dialog" style="text-align: center;">
+    <div class="modal-content" style="height:450px;padding: 2%;margin-top: 13%;">
+      <div class="title" style="margin-top: 2%;z-index: 999;color: black;">Payment
+      </div>
+      <div class="list-group">
+        <div id="itemPay">
+          <div class="list-group" style="z-index: 9999999;max-height: 100%">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <h6 class="mb-1" style="text-align: left">
+                <label id="totalTravel" style="color: black"></label>
+                <span style="float: right;">
+            <label title="price" id="price1" style="color: black"></label>
+            </span>
+              </h6>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div title="Source" class="form-control" style="margin-right: 3%;width: 100%">
+                <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"
+                         scrollamount="2" scrolldelay="4">
+                  Your Location
+                </marquee>
+              </div>
+            </a>
+            <span type="text" style="text-align: center;color: black"> to </span>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div title="Destination" class="form-control">
+                <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"
+                         scrollamount="2" scrolldelay="4">
+                  <label id="destination"></label>
+                </marquee>
+              </div>
+            </a>
+            <span type="text" title="total price"><label id="totalAmount" style="color: orangered;"></label></span>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="form">
+                <div>
+                  <!-- Create your own button -->
+                  <button title="Pay now" class="btn btn-success" type="submit" id="pay-button">Pay now</button>
+                </div>
+
+                <form id="from-pay" name="checkoutForm">
+                  <input type="hidden" name="sample-number" value="sample-5">
+                </form>
+              </div>
+              <button class="btn btn-danger" (click)="payItem1();">Test(จ่ายสำเร็จ)</button>
+            </a>
+          </div>
+          <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">-->
+          <!--<h5 class="mb-1" style="text-align: left">-->
+          <!--<label id="totalTravel"></label>-->
+          <!--<span style="float: right;">-->
+          <!--<label title="price" id="price1"></label>-->
+          <!--</span>-->
+          <!--<div class="input-group" style="width: 100%;">-->
+          <!--<div class="form-control" style="width: 100%">-->
+          <!--<div title="Source" class="form-control" style="margin-right: 3%;width: 100%">-->
+          <!--<marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"-->
+          <!--scrollamount="2" scrolldelay="4">-->
+          <!--Your Location-->
+          <!--</marquee>-->
+          <!--</div>-->
+          <!--<span type="text" style="text-align: center;"> to </span>-->
+          <!--<br>-->
+          <!--<div title="Destination" class="form-control" style="margin-left: 3%;width: 100%">-->
+          <!--<marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"-->
+          <!--scrollamount="2" scrolldelay="4">-->
+          <!--<label id="destination"></label>-->
+          <!--</marquee>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</h5>-->
+          <!--<h6 style="color: orangered;">*** credit card charge : 3.65% ***</h6>-->
+
+          <!--<div class="form">-->
+          <!--<div>-->
+          <!--&lt;!&ndash; Create your own button &ndash;&gt;-->
+          <!--<button title="Pay now" class="btn btn-success" type="submit" id="pay-button">Pay now</button>-->
+          <!--</div>-->
+
+          <!--<form id="from-pay" name="checkoutForm">-->
+          <!--<input type="hidden" name="sample-number" value="sample-5">-->
+          <!--</form>-->
+
+          <!--</div>-->
+          <!--</a>-->
+          <!--<button title="test" type="button" style="padding: 5px;" class="btn btn-danger" onclick="pay();">-->
+          <!--<label style="margin-bottom: 5%">test(ถ้าจ่ายเงินเรียบร้อยแล้ว)-->
+          <!--</label>-->
+          <!--</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -52,6 +52,8 @@ import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import { ConfirmComponent } from './confirm/confirm.component';
 import { CalPriceComponent } from './cal-price/cal-price.component';
+import { SelectTypeComponent } from './select-type/select-type.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import { CalPriceComponent } from './cal-price/cal-price.component';
     LoginComponent,
     ConfirmComponent,
     CalPriceComponent,
+    SelectTypeComponent,
+    PaymentComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

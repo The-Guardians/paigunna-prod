@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
+})
+export class PaymentComponent implements OnInit {
+
+  distance: number;
+  price1: any;
+  textTotalAmount: any;
+
+  constructor() { }
+
+  ngOnInit() {
+    this.price1 = document.getElementById('price1');
+    this.textTotalAmount = document.getElementById('totalAmount');
+    document.getElementById('itemPay').style.display = 'none';
+  }
+
+
+  clearTextOnItemPay() {
+    this.price1.innerHTML = "";
+    this.textTotalAmount.innerHTML = "";
+    document.getElementById('totalTravel').innerHTML = "";
+    document.getElementById('destination').innerHTML = "";
+  }
+
+  payItem1() {
+    document.getElementById('itemPay').style.display = 'none';
+    this.clearTextOnItemPay();
+  }
+
+//   btnOmises(){
+//     let pay = this.totalAmount * 100;
+//       this.OmiseCard.configure({
+//         publicKey: 'pkey_test_5afuh3yxu16m5ih76xb',
+//         image: 'https://www.picz.in.th/images/2018/05/28/znlQ1k.png',
+//         amount: 156233,
+//         submitFormTarget: '#from-pay'
+//       });
+// // Configuring your own custom button
+//       this.OmiseCard.configureButton('#pay-button', {
+//         frameLabel: 'Paigunna',
+//         submitLabel: 'PAY RIGHT NOW !'
+//       });
+//       this.OmiseCard.attach();
+//   }
+
+}

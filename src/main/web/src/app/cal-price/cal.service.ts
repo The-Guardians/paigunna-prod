@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DataService} from "../data.service";
+import {PaymentService} from "../payment/payment.service";
 
 
 @Injectable({
@@ -14,11 +15,10 @@ export class CalService {
   price1: any;
   price2: any;
   textTotalAmount: any;
-  totalAmount: any;
   amount: number;
   pay: number;
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService,private payment:PaymentService) {
   }
 
   distanceFunc() {
@@ -45,7 +45,6 @@ export class CalService {
     } else if (this.distance > 5.0) {
       this.rate = 10;
     }
-    console.log(1);
     this.calPrice(0, this.rate, this.type);
   }
 
@@ -82,48 +81,7 @@ export class CalService {
     } else {
       this.amount = ((this.distance * rate) + start);
     }
-    let temp = ((0.0365) * this.amount) * 0.07;
-    console.log(temp);
-    console.log((0.0365) * this.amount + " => " + temp);
-    this.totalAmount = ((((0.0365) * this.amount) + temp) + this.amount).toFixed(2);
     this.price2.innerHTML = 'Price : ' + this.amount + ' &#3647';
-
+    this.payment.setAmount(this.amount);
   }
-
-  setTextOnItemPay() {
-    this.distance = this.distanceFunc();
-    if (document.getElementById('itemPay').style.display != 'block') {
-      this.price1.innerHTML = 'Price : ' + this.amount + ' &#3647';
-      this.textTotalAmount.innerHTML = 'Price(' + this.amount + ' &#3647) + Charge(3.65%+7%(7% of 3.65%))' + ' = ' + this.totalAmount + ' &#3647';
-      document.getElementById('totalTravel').innerHTML = 'item #1 (  ' + this.distance + ' km)';
-      // document.getElementById('destination').innerHTML = desName;
-//       var pay = totalAmount * 100;
-//       OmiseCard.configure({
-//         publicKey: 'pkey_test_5afuh3yxu16m5ih76xb',
-//         image: 'https://www.picz.in.th/images/2018/05/28/znlQ1k.png',
-//         amount: pay,
-//         submitFormTarget: '#from-pay'
-//       });
-// // Configuring your own custom button
-//       OmiseCard.configureButton('#pay-button', {
-//         frameLabel: 'Paigunna',
-//         submitLabel: 'PAY RIGHT NOW !'
-//       });
-//       OmiseCard.attach();
-    }
-  }
-
-
-  clearTextOnItemPay() {
-    this.price1.innerHTML = "";
-    this.textTotalAmount.innerHTML = "";
-    document.getElementById('totalTravel').innerHTML = "";
-    document.getElementById('destination').innerHTML = "";
-  }
-
-  payItem() {
-    document.getElementById('itemPay').style.display = 'none';
-    this.clearTextOnItemPay();
-  }
-
 }

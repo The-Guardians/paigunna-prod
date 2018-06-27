@@ -4,6 +4,7 @@ import {} from "@types/googlemaps";
 import TravelMode = google.maps.TravelMode;
 import DirectionsStatus = google.maps.DirectionsStatus;
 import {DataService} from "../data.service";
+import {count} from "rxjs/operators";
 
 @Component({
   selector: 'app-map',
@@ -24,8 +25,9 @@ export class MapComponent implements OnInit {
   selectPlace: any;
   radius: number = 1000;
   placeName: string;
+  count: number = 0;
 
-  travelList:any = [];
+  travelList: any = [];
 
   directionService = new google.maps.DirectionsService;
   directionDisplay = new google.maps.DirectionsRenderer;
@@ -61,12 +63,6 @@ export class MapComponent implements OnInit {
           icon: "../assets/img/location.png"
         });
 
-        marker.addListener('click', args => {
-          this.map.panTo(marker.getPosition());
-          console.log(marker.getPosition().lng() + " : " + marker.getPosition().lat());
-          console.log(marker.getPlace())
-        });
-
         this.setMyMarker(marker);
         this.searchEvent();
 
@@ -92,9 +88,9 @@ export class MapComponent implements OnInit {
     this.map.addListener('click', args => {
       this.selectPlace = args.latLng;
       this.findDirection();
-
       console.log("select place : " + this.selectPlace);
-      console.log(this.placeName);
+      // this.placeName = google.maps.geometry.this.selectPlace;
+      // this.data.setPlaceName(this.placeName);
     })
 
   }
@@ -234,10 +230,9 @@ export class MapComponent implements OnInit {
 
     marker.addListener('click', () => {
       this.selectPlace = marker.getPosition();
-      this.placeName = place.name;
-      console.log("select place : " + this.selectPlace);
-      console.log("place name : " + place.name);
+      this.data.setPlaceName(place.name);
       this.findDirection();
+      this.count++;
     });
 
     this.nearByPlace.push(marker);
@@ -253,6 +248,7 @@ export class MapComponent implements OnInit {
     };
     this.directionDisplay.setMap(null);
     this.directionService.route(request, (result, status) => {
+
       if (status === DirectionsStatus.OK) {
         this.directionDisplay.setMap(this.map);
         this.directionDisplay.setDirections(result);
@@ -262,6 +258,11 @@ export class MapComponent implements OnInit {
         console.log("distance : " + this.distance + " km");
         this.setDistance(this.distance);
         this.placeName = result.routes[0].legs[0].end_address;
+        if (this.count == 0) {
+          this.data.setPlaceName(this.placeName);
+        } else {
+          this.count = 0;
+        }
       } else {
         window.alert('Directions request failed due to ' + status);
       }
