@@ -410,7 +410,7 @@ var CalService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" style=\"color: black\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label style=\"color: black\">{{textConfirm}}</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"logOutBtn\" type=\"button\" title=\"logout\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout();\">Log out\n        </button>\n        <button id=\"callBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\" (click)=\"paymentText();\"\n        >Call service\n        </button>\n        <button id=\"payBtn\" type=\"button\" title=\"payment\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#omise\" data-dismiss=\"modal\"\n        >Payment\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n<app-payment></app-payment>\n"
+module.exports = "<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" style=\"color: black\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label style=\"color: black\">{{textConfirm}}</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"logOutBtn\" type=\"button\" title=\"logout\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout();\">Log out\n        </button>\n        <button id=\"callBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\" (click)=\"paymentText();waitbtnsh();\"\n        >Continue\n        </button>\n        <button id=\"waitBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\" (click)=\"callbtnsh()\"\n        >Continue\n        </button>\n        <button id=\"payBtn\" type=\"button\" title=\"payment\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#omise\" data-dismiss=\"modal\"\n        >Payment\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n<app-payment></app-payment>\n"
 
 /***/ }),
 
@@ -439,6 +439,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
 /* harmony import */ var _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../payment/payment.service */ "./src/app/payment/payment.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -452,11 +453,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ConfirmComponent = /** @class */ (function () {
-    function ConfirmComponent(authService, data, payment) {
+    function ConfirmComponent(authService, data, payment, select) {
         this.authService = authService;
         this.data = data;
         this.payment = payment;
+        this.select = select;
         this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     ConfirmComponent.prototype.ngOnInit = function () {
@@ -464,6 +467,7 @@ var ConfirmComponent = /** @class */ (function () {
         this.data.currentMessage.subscribe(function (e) { return _this.textConfirm = e; });
     };
     ConfirmComponent.prototype.paymentText = function () {
+        this.data.panelStatus(true);
         this.payment.setTextOnItemPay();
     };
     ConfirmComponent.prototype.logout = function () {
@@ -471,6 +475,13 @@ var ConfirmComponent = /** @class */ (function () {
         document.getElementById('logo').style.display = 'none';
         document.getElementById('loginGooglebtn').style.display = 'block';
         document.getElementById('name').style.display = 'none';
+    };
+    ConfirmComponent.prototype.callbtnsh = function () {
+        this.payment.clearPay();
+        this.select.callbtnsh();
+    };
+    ConfirmComponent.prototype.waitbtnsh = function () {
+        this.select.waitbtnsh();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -482,7 +493,7 @@ var ConfirmComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./confirm.component.html */ "./src/app/confirm/confirm.component.html"),
             styles: [__webpack_require__(/*! ./confirm.component.scss */ "./src/app/confirm/confirm.component.scss")]
         }),
-        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__["PaymentService"]])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__["PaymentService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_4__["SelectService"]])
     ], ConfirmComponent);
     return ConfirmComponent;
 }());
@@ -518,17 +529,26 @@ var ConfirmService = /** @class */ (function () {
     ConfirmService.prototype.logoutBtn = function () {
         document.getElementById('callBtn').style.display = "none";
         document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
         document.getElementById('logOutBtn').style.display = "block";
     };
     ConfirmService.prototype.callBtn = function () {
         document.getElementById('logOutBtn').style.display = "none";
         document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
         document.getElementById('callBtn').style.display = "block";
     };
     ConfirmService.prototype.payBtn = function () {
         document.getElementById('logOutBtn').style.display = "none";
         document.getElementById('callBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
         document.getElementById('payBtn').style.display = "block";
+    };
+    ConfirmService.prototype.waitBtn = function () {
+        document.getElementById('logOutBtn').style.display = "none";
+        document.getElementById('callBtn').style.display = "none";
+        document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "block";
     };
     ConfirmService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -570,10 +590,15 @@ var DataService = /** @class */ (function () {
     function DataService() {
         this.statusbtnCall = true;
         this.messageConfirm = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
+        this.panel = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
         this.currentMessage = this.messageConfirm.asObservable();
+        this.statusPanel = this.panel.asObservable();
     }
     DataService.prototype.changeMessage = function (message) {
         this.messageConfirm.next(message);
+    };
+    DataService.prototype.panelStatus = function (panel) {
+        this.panel.next(panel);
     };
     DataService.prototype.setDistance = function (distance) {
         this.distanceTotal = distance;
@@ -619,7 +644,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                           style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: location\"></span>Route Detail<span\n        class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\" ><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-payment></app-payment>\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                                     style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route Detail<span\n          class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-payment></app-payment>\n\n\n"
 
 /***/ }),
 
@@ -770,6 +795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -784,10 +810,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TravelMode = google.maps.TravelMode;
 var DirectionsStatus = google.maps.DirectionsStatus;
 
+
 var MapComponent = /** @class */ (function () {
-    function MapComponent(http, data) {
+    function MapComponent(http, data, select) {
         this.http = http;
         this.data = data;
+        this.select = select;
         this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.nearByPlace = [];
         this.activeProviders = [];
@@ -985,12 +1013,14 @@ var MapComponent = /** @class */ (function () {
             if (status === DirectionsStatus.OK) {
                 _this.directionDisplay.setMap(_this.map);
                 _this.directionDisplay.setDirections(result);
+                _this.distance = parseFloat(_this.directionDisplay.getDirections().routes[0].legs[0].distance.text);
                 var panel = document.getElementById('route-panel');
                 _this.directionDisplay.setPanel(panel);
-                _this.distance = parseFloat(_this.directionDisplay.getDirections().routes[0].legs[0].distance.text);
                 console.log("distance : " + _this.distance + " km");
                 _this.setDistance(_this.distance);
                 _this.placeName = result.routes[0].legs[0].end_address;
+                _this.data.panelStatus(false);
+                _this.select.callbtnsh();
                 if (_this.count == 0) {
                     _this.data.setPlaceName(_this.placeName);
                 }
@@ -1031,7 +1061,7 @@ var MapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_3__["SelectService"]])
     ], MapComponent);
     return MapComponent;
 }());
@@ -1073,6 +1103,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentComponent", function() { return PaymentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1083,8 +1114,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var PaymentComponent = /** @class */ (function () {
-    function PaymentComponent() {
+    function PaymentComponent(data) {
+        this.data = data;
     }
     PaymentComponent.prototype.ngOnInit = function () {
         this.price1 = document.getElementById('price1');
@@ -1098,6 +1131,7 @@ var PaymentComponent = /** @class */ (function () {
         document.getElementById('destination').innerHTML = "";
     };
     PaymentComponent.prototype.payItem1 = function () {
+        this.data.panelStatus(false);
         document.getElementById('itemPay').style.display = 'none';
         this.clearTextOnItemPay();
     };
@@ -1107,7 +1141,7 @@ var PaymentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
             styles: [__webpack_require__(/*! ./payment.component.scss */ "./src/app/payment/payment.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], PaymentComponent);
     return PaymentComponent;
 }());
@@ -1160,6 +1194,14 @@ var PaymentService = /** @class */ (function () {
         this.textTotalAmount.innerHTML = 'Price(' + this.amount + ' &#3647) + Charge(3.65%+7%(7% of 3.65%))' + ' = ' + this.totalAmount + ' &#3647';
         document.getElementById('totalTravel').innerHTML = 'item #1 (  ' + this.distance + ' km)';
         document.getElementById('destination').innerHTML = this.data.getPlaceName();
+    };
+    PaymentService.prototype.clearPay = function () {
+        this.data.panelStatus(false);
+        document.getElementById('itemPay').style.display = 'none';
+        this.price1.innerHTML = "";
+        this.textTotalAmount.innerHTML = "";
+        document.getElementById('totalTravel').innerHTML = "";
+        document.getElementById('destination').innerHTML = "";
     };
     PaymentService.prototype.statusPayItem = function () {
         if (document.getElementById('itemPay').style.display == 'none') {
@@ -1245,7 +1287,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n          <br>\n        </a>\n        <div id=\"route-panel\"\n             style=\"position: relative;max-height: 20%!important; overflow: auto; margin-top: 4%; text-align: center;\">\n        </div>\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"callService\" [disabled]=\"btnCallService\" class=\"btn btn-success\" type=\"button\"\n                  style=\"float: left;\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNotice();\">\n            Call Service\n          </button>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<app-confirm></app-confirm>\n"
+module.exports = "<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" [disabled]=\"btnSelect\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n          <br>\n        </a>\n        <div id=\"route-panel\"\n             style=\"position: relative;max-height: 20%!important; overflow: auto; margin-top: 4%; text-align: center;\">\n        </div>\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button id=\"callbtn\" title=\"callService\" [disabled]=\"btnCallService\" class=\"btn btn-success\" type=\"button\"\n                  style=\"float: left;\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNotice();\">\n            Call Service\n          </button>\n          <button id=\"waitingbtn\" title=\"waiting\" class=\"btn btn-warning\" type=\"button\"\n                  style=\"float: left;\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeWait();\">\n            waiting\n          </button>\n          <button id=\"incomebtn\" title=\"service incoming\" class=\"btn btn-danger\" type=\"button\"\n                  style=\"float: left;\" disabled>\n            Service incoming\n          </button>\n          <button id=\"servicebtn\" title=\"test accept\" class=\"btn btn-danger\" type=\"button\"\n                  style=\"float: left;\" (click)=\"closeSelect();incomebtnsh();\">\n            Test(service accept)\n          </button>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<app-confirm></app-confirm>\n"
 
 /***/ }),
 
@@ -1298,7 +1340,13 @@ var SelectTypeComponent = /** @class */ (function () {
         this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     SelectTypeComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.btnCallService = true;
+        this.btnSelect = true;
+        this.data.statusPanel.subscribe(function (e) { return _this.btnSelect = e; });
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("incomebtn").style.display = 'none';
+        document.getElementById("servicebtn").style.display = 'none';
     };
     SelectTypeComponent.prototype.setMotor = function () {
         this.cal.setTypeMotor();
@@ -1329,6 +1377,20 @@ var SelectTypeComponent = /** @class */ (function () {
         this.data.changeMessage("You have an outstanding balance. Please pay");
         this.confirm.payBtn();
     };
+    SelectTypeComponent.prototype.setNoticeWait = function () {
+        this.myEvent.emit(null);
+        this.data.changeMessage("Are you sure you want to cancel service ?");
+        this.confirm.waitBtn();
+    };
+    SelectTypeComponent.prototype.closeSelect = function () {
+        this.data.panelStatus(true);
+    };
+    SelectTypeComponent.prototype.incomebtnsh = function () {
+        document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("callbtn").style.display = 'none';
+        document.getElementById("incomebtn").style.display = 'block';
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -1342,6 +1404,54 @@ var SelectTypeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_cal_price_cal_service__WEBPACK_IMPORTED_MODULE_1__["CalService"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__["PaymentService"], _confirm_confirm_service__WEBPACK_IMPORTED_MODULE_4__["ConfirmService"]])
     ], SelectTypeComponent);
     return SelectTypeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/select-type/select.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/select-type/select.service.ts ***!
+  \***********************************************/
+/*! exports provided: SelectService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectService", function() { return SelectService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SelectService = /** @class */ (function () {
+    function SelectService() {
+    }
+    SelectService.prototype.callbtnsh = function () {
+        document.getElementById("incomebtn").style.display = 'none';
+        document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("callbtn").style.display = 'block';
+    };
+    SelectService.prototype.waitbtnsh = function () {
+        document.getElementById("servicebtn").style.display = 'block';
+        document.getElementById("callbtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'block';
+    };
+    SelectService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SelectService);
+    return SelectService;
 }());
 
 

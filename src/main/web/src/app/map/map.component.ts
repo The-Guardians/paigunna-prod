@@ -4,7 +4,7 @@ import {} from "@types/googlemaps";
 import TravelMode = google.maps.TravelMode;
 import DirectionsStatus = google.maps.DirectionsStatus;
 import {DataService} from "../data.service";
-import {count} from "rxjs/operators";
+import {SelectService} from "../select-type/select.service";
 
 @Component({
   selector: 'app-map',
@@ -33,7 +33,7 @@ export class MapComponent implements OnInit {
   directionDisplay = new google.maps.DirectionsRenderer;
   distance: number;
 
-  constructor(private http: HttpClient, private data: DataService) {
+  constructor(private http: HttpClient, private data: DataService, private select: SelectService) {
 
   }
 
@@ -65,7 +65,6 @@ export class MapComponent implements OnInit {
 
         this.setMyMarker(marker);
         this.searchEvent();
-
       }));
     }
   }
@@ -252,12 +251,14 @@ export class MapComponent implements OnInit {
       if (status === DirectionsStatus.OK) {
         this.directionDisplay.setMap(this.map);
         this.directionDisplay.setDirections(result);
+        this.distance = parseFloat(this.directionDisplay.getDirections().routes[0].legs[0].distance.text);
         let panel = document.getElementById('route-panel');
         this.directionDisplay.setPanel(panel);
-        this.distance = parseFloat(this.directionDisplay.getDirections().routes[0].legs[0].distance.text);
         console.log("distance : " + this.distance + " km");
         this.setDistance(this.distance);
         this.placeName = result.routes[0].legs[0].end_address;
+        this.data.panelStatus(false);
+        this.select.callbtnsh();
         if (this.count == 0) {
           this.data.setPlaceName(this.placeName);
         } else {

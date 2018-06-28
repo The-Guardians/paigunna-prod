@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-payment',
@@ -11,7 +12,8 @@ export class PaymentComponent implements OnInit {
   price1: any;
   textTotalAmount: any;
 
-  constructor() { }
+  constructor(private data: DataService) {
+  }
 
   ngOnInit() {
     this.price1 = document.getElementById('price1');
@@ -28,6 +30,7 @@ export class PaymentComponent implements OnInit {
   }
 
   payItem1() {
+    this.data.panelStatus(false);
     document.getElementById('itemPay').style.display = 'none';
     this.clearTextOnItemPay();
   }

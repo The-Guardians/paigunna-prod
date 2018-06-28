@@ -14,8 +14,11 @@
         <button id="logOutBtn" type="button" title="logout" class="btn btn-success" data-dismiss="modal"
                 (click)="logout();">Log out
         </button>
-        <button id="callBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="paymentText();"
-        >Call service
+        <button id="callBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="paymentText();waitbtnsh();"
+        >Continue
+        </button>
+        <button id="waitBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="callbtnsh()"
+        >Continue
         </button>
         <button id="payBtn" type="button" title="payment" class="btn btn-primary" data-toggle="modal" data-target="#omise" data-dismiss="modal"
         >Payment

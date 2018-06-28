@@ -12,7 +12,9 @@ export class DataService {
   namePlace: string;
 
   private messageConfirm = new BehaviorSubject('default message');
+  private panel = new BehaviorSubject('default message');
   currentMessage = this.messageConfirm.asObservable();
+  statusPanel = this.panel.asObservable();
 
 
   constructor() {
@@ -20,6 +22,10 @@ export class DataService {
 
   changeMessage(message: string) {
     this.messageConfirm.next(message);
+  }
+
+  panelStatus(panel:any) {
+    this.panel.next(panel);
   }
 
   setDistance(distance: number) {

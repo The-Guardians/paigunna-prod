@@ -3,7 +3,6 @@ import {CalService} from "../cal-price/cal.service";
 import {DataService} from "../data.service";
 import {PaymentService} from "../payment/payment.service";
 import {ConfirmService} from "../confirm/confirm.service";
-import {Observable} from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-select-type',
@@ -15,12 +14,18 @@ export class SelectTypeComponent implements OnInit {
   @Output() myEvent = new EventEmitter();
 
   btnCallService: boolean;
+  btnSelect: any;
 
   constructor(private cal: CalService, private data: DataService, private payment: PaymentService, private confirm: ConfirmService) {
   }
 
   ngOnInit() {
     this.btnCallService = true;
+    this.btnSelect = true;
+    this.data.statusPanel.subscribe(e => this.btnSelect = e);
+    document.getElementById("waitingbtn").style.display = 'none';
+    document.getElementById("incomebtn").style.display = 'none';
+    document.getElementById("servicebtn").style.display = 'none';
   }
 
   setMotor() {
@@ -56,4 +61,20 @@ export class SelectTypeComponent implements OnInit {
     this.confirm.payBtn();
   }
 
+  setNoticeWait() {
+    this.myEvent.emit(null);
+    this.data.changeMessage("Are you sure you want to cancel service ?");
+    this.confirm.waitBtn();
+  }
+
+  closeSelect(){
+    this.data.panelStatus(true);
+  }
+
+  incomebtnsh(){
+    document.getElementById("servicebtn").style.display = 'none';
+    document.getElementById("waitingbtn").style.display = 'none';
+    document.getElementById("callbtn").style.display = 'none';
+    document.getElementById("incomebtn").style.display = 'block';
+  }
 }

@@ -18,12 +18,14 @@ export class LoginComponent implements OnInit {
   textConfirm: string;
   photo: any;
 
+
   constructor(public authService: AuthService, private data: DataService,private confirm:ConfirmService) {
   }
 
   ngOnInit() {
     this.getDisplayName();
     this.data.currentMessage.subscribe(e => this.textConfirm = e);
+
   }
 
   private getDisplayName() {

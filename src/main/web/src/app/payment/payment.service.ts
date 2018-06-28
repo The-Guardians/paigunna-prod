@@ -35,13 +35,21 @@ export class PaymentService {
     document.getElementById('destination').innerHTML = this.data.getPlaceName();
   }
 
+  clearPay() {
+    this.data.panelStatus(false);
+    document.getElementById('itemPay').style.display = 'none';
+    this.price1.innerHTML = "";
+    this.textTotalAmount.innerHTML = "";
+    document.getElementById('totalTravel').innerHTML = "";
+    document.getElementById('destination').innerHTML = "";
+  }
+
   statusPayItem() {
     if (document.getElementById('itemPay').style.display == 'none'){
       return true;
     }else {
       return false;
     }
-
   }
 
 }
