@@ -5,12 +5,16 @@
       </div>
       <div class="list-group" style="z-index: 9999999;max-height: 100%">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <button title="Select vehicle" id="select" [disabled]="btnSelect" class="btn btn-secondary dropdown-toggle" type="button"
+          <button title="Select vehicle" id="select" [disabled]="btnSelect" class="btn btn-secondary dropdown-toggle"
+                  type="button"
                   style="float: left;"
                   id="dropdownMenu2" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
             Select vehicle
           </button>
+          <span id="warningSelect" style="float: right;margin-top: 3%;color: red">
+            ***Please select destination***
+                        </span>
           <span title="price" style="float: right;margin-top: 3%">
             <label id="price2"></label>
                         </span>
@@ -22,26 +26,24 @@
               Taxi
             </button>
           </div>
-          <br>
         </a>
         <div id="route-panel"
-             style="position: relative;max-height: 20%!important; overflow: auto; margin-top: 4%; text-align: center;">
+             style="position: relative;max-height: 20%!important; overflow: auto;text-align: center;">
         </div>
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
           <button id="callbtn" title="callService" [disabled]="btnCallService" class="btn btn-success" type="button"
-                  style="float: left;" data-toggle="modal" data-target="#confirm" (click)="setNotice();">
+                  data-toggle="modal" data-target="#confirm" (click)="setNotice();">
             Call Service
           </button>
           <button id="waitingbtn" title="waiting" class="btn btn-warning" type="button"
-                  style="float: left;" data-toggle="modal" data-target="#confirm" (click)="setNoticeWait();">
+                  data-toggle="modal" data-target="#confirm" (click)="setNoticeWait();">
             waiting
           </button>
-          <button id="incomebtn" title="service incoming" class="btn btn-danger" type="button"
-                  style="float: left;" disabled>
+          <button id="incomebtn" title="service incoming" class="btn btn-danger" type="button" disabled>
             Service incoming
           </button>
           <button id="servicebtn" title="test accept" class="btn btn-danger" type="button"
-                  style="float: left;" (click)="closeSelect();incomebtnsh();">
+                  (click)="closeSelect();incomebtnsh();">
             Test(service accept)
           </button>
         </a>

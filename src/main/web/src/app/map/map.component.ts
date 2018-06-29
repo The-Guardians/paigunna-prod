@@ -105,6 +105,16 @@ export class MapComponent implements OnInit {
     this.setMyMarker(marker);
   }
 
+  private requestServiceNearby(service, requestName) {
+    service.nearbySearch(requestName, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length; i++) {
+          this.createMarker(results[i]);
+        }
+      }
+    });
+  }
+
   searchHostel() {
 
     this.clearMarker();
@@ -118,14 +128,8 @@ export class MapComponent implements OnInit {
     });
 
     let service = new google.maps.places.PlacesService(this.map);
-    service.nearbySearch(request, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i])
-        }
-      }
-    });
 
+    this.requestServiceNearby(service,request);
   }
 
   searchTourist() {
@@ -160,42 +164,12 @@ export class MapComponent implements OnInit {
       type: 'amusement_park'
     };
     let service = new google.maps.places.PlacesService(this.map);
-    service.nearbySearch(requestShop, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
-        }
-      }
-    });
-    service.nearbySearch(requestPark, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
-        }
-      }
-    });
-    service.nearbySearch(requestMovie, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
-        }
-      }
-    });
-    service.nearbySearch(requestNight, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
 
-        }
-      }
-    });
-    service.nearbySearch(requestAmuusement, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i]);
-        }
-      }
-    });
+    this.requestServiceNearby(service,requestShop);
+    this.requestServiceNearby(service,requestPark);
+    this.requestServiceNearby(service,requestMovie);
+    this.requestServiceNearby(service,requestNight);
+    this.requestServiceNearby(service, requestAmuusement);
   }
 
   searchRestaurant() {
@@ -211,13 +185,8 @@ export class MapComponent implements OnInit {
     });
 
     let service = new google.maps.places.PlacesService(this.map);
-    service.nearbySearch(request, (results, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          this.createMarker(results[i])
-        }
-      }
-    });
+
+    this.requestServiceNearby(service,request);
   }
 
   createMarker(place) {
@@ -257,7 +226,9 @@ export class MapComponent implements OnInit {
         console.log("distance : " + this.distance + " km");
         this.setDistance(this.distance);
         this.placeName = result.routes[0].legs[0].end_address;
+        this.data.setCall(true);
         this.data.panelStatus(false);
+        this.select.closeWarning();
         this.select.callbtnsh();
         if (this.count == 0) {
           this.data.setPlaceName(this.placeName);

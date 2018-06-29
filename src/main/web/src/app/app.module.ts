@@ -54,6 +54,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { CalPriceComponent } from './cal-price/cal-price.component';
 import { SelectTypeComponent } from './select-type/select-type.component';
 import { PaymentComponent } from './payment/payment.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { PaymentComponent } from './payment/payment.component';
     CalPriceComponent,
     SelectTypeComponent,
     PaymentComponent,
+    HistoryComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

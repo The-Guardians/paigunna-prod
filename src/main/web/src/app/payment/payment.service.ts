@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DataService} from "../data.service";
+import {SelectService} from "../select-type/select.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PaymentService {
   totalAmount: any;
   amount: number;
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private select: SelectService) {
   }
 
   setAmount(amount: number) {
@@ -37,6 +38,8 @@ export class PaymentService {
 
   clearPay() {
     this.data.panelStatus(false);
+    this.select.callbtnsh();
+    this.data.setCall(true);
     document.getElementById('itemPay').style.display = 'none';
     this.price1.innerHTML = "";
     this.textTotalAmount.innerHTML = "";
@@ -45,9 +48,9 @@ export class PaymentService {
   }
 
   statusPayItem() {
-    if (document.getElementById('itemPay').style.display == 'none'){
+    if (document.getElementById('itemPay').style.display == 'none') {
       return true;
-    }else {
+    } else {
       return false;
     }
   }

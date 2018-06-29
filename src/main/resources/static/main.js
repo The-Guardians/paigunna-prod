@@ -114,12 +114,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cal_price_cal_price_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./cal-price/cal-price.component */ "./src/app/cal-price/cal-price.component.ts");
 /* harmony import */ var _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./select-type/select-type.component */ "./src/app/select-type/select-type.component.ts");
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _history_history_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./history/history.component */ "./src/app/history/history.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -156,6 +158,7 @@ var AppModule = /** @class */ (function () {
                 _cal_price_cal_price_component__WEBPACK_IMPORTED_MODULE_18__["CalPriceComponent"],
                 _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__["SelectTypeComponent"],
                 _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__["PaymentComponent"],
+                _history_history_component__WEBPACK_IMPORTED_MODULE_21__["HistoryComponent"],
             ],
             imports: [
                 angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
@@ -591,14 +594,19 @@ var DataService = /** @class */ (function () {
         this.statusbtnCall = true;
         this.messageConfirm = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
         this.panel = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
+        this.call = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
         this.currentMessage = this.messageConfirm.asObservable();
         this.statusPanel = this.panel.asObservable();
+        this.callService = this.call.asObservable();
     }
     DataService.prototype.changeMessage = function (message) {
         this.messageConfirm.next(message);
     };
     DataService.prototype.panelStatus = function (panel) {
         this.panel.next(panel);
+    };
+    DataService.prototype.setCall = function (call) {
+        this.call.next(call);
     };
     DataService.prototype.setDistance = function (distance) {
         this.distanceTotal = distance;
@@ -637,6 +645,119 @@ var DataService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/history/history.component.html":
+/*!************************************************!*\
+  !*** ./src/app/history/history.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <div id=\"historyData\" style=\"position: relative;text-align: center;\">\n            </div>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/history/history.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/history/history.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/history/history.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/history/history.component.ts ***!
+  \**********************************************/
+/*! exports provided: HistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryComponent", function() { return HistoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HistoryComponent = /** @class */ (function () {
+    function HistoryComponent() {
+        this.HttpClient = function () {
+            this.get = function (aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function () {
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                };
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            };
+        };
+    }
+    HistoryComponent.prototype.ngOnInit = function () {
+        this.getUser();
+    };
+    HistoryComponent.prototype.getUser = function () {
+        var client = new this.HttpClient();
+        client.get('/api/user', function (response) {
+            console.log(response);
+            var myBooks = JSON.parse(response);
+            console.log(myBooks);
+            // historyHtmlTable(response,'#historyDataTable');
+            var col = [];
+            for (var i = 0; i < myBooks.length; i++) {
+                for (var key in myBooks[i]) {
+                    if (col.indexOf(key) === -1) {
+                        col.push(key);
+                    }
+                }
+            }
+            // CREATE DYNAMIC TABLE.
+            var table = document.createElement("table");
+            // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+            var tr = table.insertRow(-1); // TABLE ROW.
+            for (var i = 0; i < col.length; i++) {
+                var th = document.createElement("th"); // TABLE HEADER.
+                th.innerHTML = col[i];
+                tr.appendChild(th);
+            }
+            // ADD JSON DATA TO THE TABLE AS ROWS.
+            for (var i = 0; i < myBooks.length; i++) {
+                tr = table.insertRow(-1);
+                for (var j = 0; j < col.length; j++) {
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = myBooks[i][col[j]];
+                }
+            }
+            // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+            var divContainer = document.getElementById("historyData");
+            divContainer.innerHTML = "";
+            divContainer.appendChild(table);
+        });
+    };
+    HistoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-history',
+            template: __webpack_require__(/*! ./history.component.html */ "./src/app/history/history.component.html"),
+            styles: [__webpack_require__(/*! ./history.component.scss */ "./src/app/history/history.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HistoryComponent);
+    return HistoryComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.html":
 /*!********************************************!*\
   !*** ./src/app/login/login.component.html ***!
@@ -644,7 +765,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                                     style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route Detail<span\n          class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-payment></app-payment>\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                                     style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route Detail\n        <span class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#history\"><span class=\"uk-margin-small-right\"\n                                                                                        uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-history></app-history>\n\n<app-payment></app-payment>\n\n\n"
 
 /***/ }),
 
@@ -880,8 +1001,17 @@ var MapComponent = /** @class */ (function () {
         });
         this.setMyMarker(marker);
     };
-    MapComponent.prototype.searchHostel = function () {
+    MapComponent.prototype.requestServiceNearby = function (service, requestName) {
         var _this = this;
+        service.nearbySearch(requestName, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    _this.createMarker(results[i]);
+                }
+            }
+        });
+    };
+    MapComponent.prototype.searchHostel = function () {
         this.clearMarker();
         this.directionDisplay.setMap(null);
         this.geoLocate();
@@ -891,16 +1021,9 @@ var MapComponent = /** @class */ (function () {
             type: 'lodging'
         });
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, request);
     };
     MapComponent.prototype.searchTourist = function () {
-        var _this = this;
         this.clearMarker();
         this.directionDisplay.setMap(null);
         this.geoLocate();
@@ -930,44 +1053,13 @@ var MapComponent = /** @class */ (function () {
             type: 'amusement_park'
         };
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(requestShop, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
-        service.nearbySearch(requestPark, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
-        service.nearbySearch(requestMovie, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
-        service.nearbySearch(requestNight, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
-        service.nearbySearch(requestAmuusement, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, requestShop);
+        this.requestServiceNearby(service, requestPark);
+        this.requestServiceNearby(service, requestMovie);
+        this.requestServiceNearby(service, requestNight);
+        this.requestServiceNearby(service, requestAmuusement);
     };
     MapComponent.prototype.searchRestaurant = function () {
-        var _this = this;
         this.clearMarker();
         this.directionDisplay.setMap(null);
         this.geoLocate();
@@ -977,13 +1069,7 @@ var MapComponent = /** @class */ (function () {
             type: 'restaurant'
         });
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, request);
     };
     MapComponent.prototype.createMarker = function (place) {
         var _this = this;
@@ -1019,7 +1105,9 @@ var MapComponent = /** @class */ (function () {
                 console.log("distance : " + _this.distance + " km");
                 _this.setDistance(_this.distance);
                 _this.placeName = result.routes[0].legs[0].end_address;
+                _this.data.setCall(true);
                 _this.data.panelStatus(false);
+                _this.select.closeWarning();
                 _this.select.callbtnsh();
                 if (_this.count == 0) {
                     _this.data.setPlaceName(_this.placeName);
@@ -1104,6 +1192,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentComponent", function() { return PaymentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1115,9 +1204,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var PaymentComponent = /** @class */ (function () {
-    function PaymentComponent(data) {
+    function PaymentComponent(data, select) {
         this.data = data;
+        this.select = select;
     }
     PaymentComponent.prototype.ngOnInit = function () {
         this.price1 = document.getElementById('price1');
@@ -1132,6 +1223,8 @@ var PaymentComponent = /** @class */ (function () {
     };
     PaymentComponent.prototype.payItem1 = function () {
         this.data.panelStatus(false);
+        this.select.callbtnsh();
+        this.data.setCall(true);
         document.getElementById('itemPay').style.display = 'none';
         this.clearTextOnItemPay();
     };
@@ -1141,7 +1234,7 @@ var PaymentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
             styles: [__webpack_require__(/*! ./payment.component.scss */ "./src/app/payment/payment.component.scss")]
         }),
-        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
     ], PaymentComponent);
     return PaymentComponent;
 }());
@@ -1162,6 +1255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentService", function() { return PaymentService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1173,9 +1267,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var PaymentService = /** @class */ (function () {
-    function PaymentService(data) {
+    function PaymentService(data, select) {
         this.data = data;
+        this.select = select;
     }
     PaymentService.prototype.setAmount = function (amount) {
         this.amount = amount;
@@ -1197,6 +1293,8 @@ var PaymentService = /** @class */ (function () {
     };
     PaymentService.prototype.clearPay = function () {
         this.data.panelStatus(false);
+        this.select.callbtnsh();
+        this.data.setCall(true);
         document.getElementById('itemPay').style.display = 'none';
         this.price1.innerHTML = "";
         this.textTotalAmount.innerHTML = "";
@@ -1215,7 +1313,7 @@ var PaymentService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
     ], PaymentService);
     return PaymentService;
 }());
@@ -1287,7 +1385,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" [disabled]=\"btnSelect\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n          <br>\n        </a>\n        <div id=\"route-panel\"\n             style=\"position: relative;max-height: 20%!important; overflow: auto; margin-top: 4%; text-align: center;\">\n        </div>\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button id=\"callbtn\" title=\"callService\" [disabled]=\"btnCallService\" class=\"btn btn-success\" type=\"button\"\n                  style=\"float: left;\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNotice();\">\n            Call Service\n          </button>\n          <button id=\"waitingbtn\" title=\"waiting\" class=\"btn btn-warning\" type=\"button\"\n                  style=\"float: left;\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeWait();\">\n            waiting\n          </button>\n          <button id=\"incomebtn\" title=\"service incoming\" class=\"btn btn-danger\" type=\"button\"\n                  style=\"float: left;\" disabled>\n            Service incoming\n          </button>\n          <button id=\"servicebtn\" title=\"test accept\" class=\"btn btn-danger\" type=\"button\"\n                  style=\"float: left;\" (click)=\"closeSelect();incomebtnsh();\">\n            Test(service accept)\n          </button>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<app-confirm></app-confirm>\n"
+module.exports = "<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" [disabled]=\"btnSelect\" class=\"btn btn-secondary dropdown-toggle\"\n                  type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span id=\"warningSelect\" style=\"float: right;margin-top: 3%;color: red\">\n            ***Please select destination***\n                        </span>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n        </a>\n        <div id=\"route-panel\"\n             style=\"position: relative;max-height: 20%!important; overflow: auto;text-align: center;\">\n        </div>\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button id=\"callbtn\" title=\"callService\" [disabled]=\"btnCallService\" class=\"btn btn-success\" type=\"button\"\n                  data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNotice();\">\n            Call Service\n          </button>\n          <button id=\"waitingbtn\" title=\"waiting\" class=\"btn btn-warning\" type=\"button\"\n                  data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeWait();\">\n            waiting\n          </button>\n          <button id=\"incomebtn\" title=\"service incoming\" class=\"btn btn-danger\" type=\"button\" disabled>\n            Service incoming\n          </button>\n          <button id=\"servicebtn\" title=\"test accept\" class=\"btn btn-danger\" type=\"button\"\n                  (click)=\"closeSelect();incomebtnsh();\">\n            Test(service accept)\n          </button>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<app-confirm></app-confirm>\n"
 
 /***/ }),
 
@@ -1341,12 +1439,13 @@ var SelectTypeComponent = /** @class */ (function () {
     }
     SelectTypeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.btnCallService = true;
         this.btnSelect = true;
         this.data.statusPanel.subscribe(function (e) { return _this.btnSelect = e; });
+        this.data.callService.subscribe(function (e) { return _this.btnCallService = e; });
         document.getElementById("waitingbtn").style.display = 'none';
         document.getElementById("incomebtn").style.display = 'none';
         document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("warningSelect").style.display = 'block';
     };
     SelectTypeComponent.prototype.setMotor = function () {
         this.cal.setTypeMotor();
@@ -1444,6 +1543,9 @@ var SelectService = /** @class */ (function () {
         document.getElementById("servicebtn").style.display = 'block';
         document.getElementById("callbtn").style.display = 'none';
         document.getElementById("waitingbtn").style.display = 'block';
+    };
+    SelectService.prototype.closeWarning = function () {
+        document.getElementById("warningSelect").style.display = 'none';
     };
     SelectService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

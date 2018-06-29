@@ -20,4 +20,8 @@ export class SelectService {
     document.getElementById("waitingbtn").style.display = 'block';
   }
 
+  closeWarning(){
+    document.getElementById("warningSelect").style.display = 'none';
+  }
+
 }

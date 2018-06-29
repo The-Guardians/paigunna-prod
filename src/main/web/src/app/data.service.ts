@@ -13,8 +13,10 @@ export class DataService {
 
   private messageConfirm = new BehaviorSubject('default message');
   private panel = new BehaviorSubject('default message');
+  private call = new BehaviorSubject(true);
   currentMessage = this.messageConfirm.asObservable();
   statusPanel = this.panel.asObservable();
+  callService = this.call.asObservable();
 
 
   constructor() {
@@ -26,6 +28,10 @@ export class DataService {
 
   panelStatus(panel:any) {
     this.panel.next(panel);
+  }
+
+  setCall(call:any) {
+    this.call.next(call);
   }
 
   setDistance(distance: number) {

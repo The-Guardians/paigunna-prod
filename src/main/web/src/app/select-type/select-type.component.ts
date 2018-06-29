@@ -13,19 +13,20 @@ export class SelectTypeComponent implements OnInit {
 
   @Output() myEvent = new EventEmitter();
 
-  btnCallService: boolean;
+  btnCallService: any;
   btnSelect: any;
 
   constructor(private cal: CalService, private data: DataService, private payment: PaymentService, private confirm: ConfirmService) {
   }
 
   ngOnInit() {
-    this.btnCallService = true;
     this.btnSelect = true;
     this.data.statusPanel.subscribe(e => this.btnSelect = e);
+    this.data.callService.subscribe(e => this.btnCallService = e);
     document.getElementById("waitingbtn").style.display = 'none';
     document.getElementById("incomebtn").style.display = 'none';
     document.getElementById("servicebtn").style.display = 'none';
+    document.getElementById("warningSelect").style.display = 'block';
   }
 
   setMotor() {
