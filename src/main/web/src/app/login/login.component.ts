@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   username: string;
   useremail: string;
 
-  constructor(public authService: AuthService,public motor:MapComponent) {
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  setMotor(){
-    this.motor.setTypeMotor();
-  }
-
-  setTaxi(){
-    this.motor.setTypeTaxi();
-  }
+  // setMotor(){
+  //   this.motor.setTypeMotor();
+  // }
+  //
+  // setTaxi(){
+  //   this.motor.setTypeTaxi();
+  // }
 
   loginGoogle() {
     let userResult = this.authService.loginWithGoogle();
