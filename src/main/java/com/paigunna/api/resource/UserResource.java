@@ -24,7 +24,7 @@ public class UserResource {
 
     @GetMapping
     public List<User> findAll(){
-        return userRepo.findAll();
+        return userService.findAll();
     }
 
     @GetMapping("/{id}")

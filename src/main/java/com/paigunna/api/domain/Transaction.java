@@ -36,6 +36,8 @@ public class Transaction implements Serializable {
     @Column(name = "DISTANCE")
     private Double distance;
 
+    @Column(name = "START_PLACE_NAME")
+    private String startPlaceName;
     @Column(name = "START_LAT")
     private Double startLat;
     @Column(name = "START_LNG")
@@ -47,6 +49,9 @@ public class Transaction implements Serializable {
     private Double destinationLat;
     @Column(name = "DESTINATION_LNG")
     private Double destinationLng;
+
+    @Column(name = "OMISE_TOKEN")
+    private String omiseToken;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PROVIDER")
@@ -150,6 +155,22 @@ public class Transaction implements Serializable {
 
     public void setPassenger(User passenger) {
         this.passenger = passenger;
+    }
+
+    public String getStartPlaceName() {
+        return startPlaceName;
+    }
+
+    public void setStartPlaceName(String startPlaceName) {
+        this.startPlaceName = startPlaceName;
+    }
+
+    public String getOmiseToken() {
+        return omiseToken;
+    }
+
+    public void setOmiseToken(String omiseToken) {
+        this.omiseToken = omiseToken;
     }
 
 

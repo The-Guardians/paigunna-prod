@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface UserService {
 
+    List<User> findAll();
+
     User save(User user);
 
     List<User> searchActiveUser(UserDto userDto);

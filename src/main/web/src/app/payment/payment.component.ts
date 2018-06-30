@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {SelectService} from "../select-type/select.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-payment',
@@ -13,7 +14,7 @@ export class PaymentComponent implements OnInit {
   price1: any;
   textTotalAmount: any;
 
-  constructor(private data: DataService, private select: SelectService) {
+  constructor(private data: DataService, private select: SelectService, private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -36,6 +37,10 @@ export class PaymentComponent implements OnInit {
     this.data.setCall(true);
     document.getElementById('itemPay').style.display = 'none';
     this.clearTextOnItemPay();
+  }
+
+  omisePayment(){
+
   }
 
 //   btnOmises(){
