@@ -27,5 +27,6 @@ hs_err_pid*
 *.iml
 *.ipr
 
-src/main/web/node_modules/
+/target/
+/src/main/web/node_modules/
 /src/main/web/src/generated-model/model.d.ts

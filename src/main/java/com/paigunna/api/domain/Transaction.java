@@ -53,12 +53,18 @@ public class Transaction implements Serializable {
     @Column(name = "OMISE_TOKEN")
     private String omiseToken;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PROVIDER")
+    @Column(name = "PROVIDER")
+    private Long providerId;
+
+    @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JoinColumn(name = "PROVIDER", referencedColumnName = "id", insertable = false, updatable = false)
     private User provider;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PASSENGER")
+    @Column(name = "PASSENGER")
+    private Long passengerId;
+
+    @ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JoinColumn(name = "PASSENGER", referencedColumnName = "id", insertable = false, updatable = false)
     private User passenger;
 
     public String getId() {
@@ -87,6 +93,22 @@ public class Transaction implements Serializable {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public Long getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(Long providerId) {
+        this.providerId = providerId;
+    }
+
+    public Long getPassengerId() {
+        return passengerId;
+    }
+
+    public void setPassengerId(Long passengerId) {
+        this.passengerId = passengerId;
     }
 
     public void setPrice(BigDecimal price) {

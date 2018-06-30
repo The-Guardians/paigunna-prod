@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {SelectService} from "../select-type/select.service";
-import {HttpClient} from "@angular/common/http";
+import {Omise} from "omise";
+import IOptions = Omise.IOptions;
+import ICharge = Omise.Charges.ICharge;
 
 @Component({
   selector: 'app-payment',
@@ -14,7 +16,7 @@ export class PaymentComponent implements OnInit {
   price1: any;
   textTotalAmount: any;
 
-  constructor(private data: DataService, private select: SelectService, private http: HttpClient) {
+  constructor(private data: DataService, private select: SelectService) {
   }
 
   ngOnInit() {
@@ -39,8 +41,10 @@ export class PaymentComponent implements OnInit {
     this.clearTextOnItemPay();
   }
 
-  omisePayment(){
-
+  render(){
+    let key : IOptions;
+    key.secretKey = "";
+    key.publicKey = "";
   }
 
 //   btnOmises(){
