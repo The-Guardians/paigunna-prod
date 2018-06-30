@@ -7,25 +7,32 @@
         <div class="list-group" style="z-index: 9999999;">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
              style="overflow-x: auto;overflow-y:auto;">
-            <div id="historyData" style="position: relative;text-align: center;">
-            </div>
+            <table style="width:100%; color: #000;">
+              <tr>
+                <th>Transaction No.</th>
+                <!--<th>Time</th>-->
+                <!--<th>Source</th>-->
+                <!--<th>Destination</th>-->
+                <!--<th>Distance</th>-->
+                <!--<th>Price</th>-->
+                <!--<th>Provider</th>-->
+              </tr>
+              <tr *ngFor="let item of transaction;">
+                <td>{{item.id}}</td>
+                <!--<td>{{item.timeStart}}</td>-->
+                <!--<td>{{item.timeStart}}</td>-->
+                <!--<td>{{item.timeStart}}</td>-->
+                <!--<td>{{item.timeStart}}</td>-->
+                <!--<td>{{item.timeStart}}</td>-->
+                <!--<td>{{item.timeStart}}</td>-->
+              </tr>
+            </table>
           </a>
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div style="color: #dd131b;text-align: center;">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end
               สร้างตาราง History
             </div>
           </a>
-
-          <table style="width:100%; color: #000;">
-            <tr>
-              <th>ลำดับ</th>
-              <th>จุดหมาย</th>
-            </tr>
-            <tr *ngFor="let item of transaction; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{item.destinationName}}</td>
-            </tr>
-          </table>
         </div>
       </div>
     </div>
