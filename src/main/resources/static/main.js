@@ -653,7 +653,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <div id=\"historyData\" style=\"position: relative;text-align: center;\">\n            </div>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <div id=\"historyData\" style=\"position: relative;text-align: center;\">\n            </div>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n\n          <table style=\"width:100%; color: #000;\">\n            <tr>\n              <th>ลำดับ</th>\n              <th>จุดหมาย</th>\n            </tr>\n            <tr *ngFor=\"let item of transaction; let i = index\">\n              <td>{{i+1}}</td>\n              <td>{{item.destinationName}}</td>\n            </tr>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -679,6 +679,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryComponent", function() { return HistoryComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -689,8 +690,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HistoryComponent = /** @class */ (function () {
-    function HistoryComponent() {
+    function HistoryComponent(http) {
+        this.http = http;
         this.HttpClient = function () {
             this.get = function (aUrl, aCallback) {
                 var anHttpRequest = new XMLHttpRequest();
@@ -704,11 +707,12 @@ var HistoryComponent = /** @class */ (function () {
         };
     }
     HistoryComponent.prototype.ngOnInit = function () {
-        this.getUser();
+        // this.getUser();
+        this.getTransaction();
     };
     HistoryComponent.prototype.getUser = function () {
         var client = new this.HttpClient();
-        client.get('/api/user', function (response) {
+        client.get('/api/transaction', function (response) {
             var dataOfQuery = JSON.parse(response);
             var col = [];
             for (var i = 0; i < dataOfQuery.length; i++) {
@@ -742,13 +746,21 @@ var HistoryComponent = /** @class */ (function () {
             console.log("Create table history success");
         });
     };
+    HistoryComponent.prototype.getTransaction = function () {
+        var _this = this;
+        this.http.get('/api/transaction').subscribe(function (data) {
+            console.log(data);
+            _this.transaction = data;
+            console.log("transaction : " + _this.transaction);
+        });
+    };
     HistoryComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-history',
             template: __webpack_require__(/*! ./history.component.html */ "./src/app/history/history.component.html"),
             styles: [__webpack_require__(/*! ./history.component.scss */ "./src/app/history/history.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], HistoryComponent);
     return HistoryComponent;
 }());
@@ -1768,7 +1780,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -13,4 +13,6 @@ public interface TransactionService {
     Transaction save(Transaction transaction);
 
     List<Transaction> search(TransactionDto transactionDto);
+
+    List<Transaction> findAll();
 }

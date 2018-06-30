@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Transaction} from "../../generated-model/model";
 
 @Component({
   selector: 'app-history',
@@ -7,11 +9,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() {
+  transaction : Transaction;
+
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
-    this.getUser();
+    // this.getUser();
+    this.getTransaction();
   }
 
   HttpClient = function () {
@@ -29,7 +34,7 @@ export class HistoryComponent implements OnInit {
 
   getUser() {
     let client = new this.HttpClient();
-    client.get('/api/user', function (response) {
+    client.get('/api/transaction', function (response) {
 
       let dataOfQuery = JSON.parse(response);
       let col = [];
@@ -71,6 +76,14 @@ export class HistoryComponent implements OnInit {
       divContainer.appendChild(table);
       console.log("Create table history success")
     });
+  }
+
+  getTransaction(){
+    this.http.get('/api/transaction').subscribe(data => {
+      console.log(data);
+      this.transaction = data;
+      console.log("transaction : "+this.transaction)
+    })
   }
 
 }

@@ -15,6 +15,17 @@
               สร้างตาราง History
             </div>
           </a>
+
+          <table style="width:100%; color: #000;">
+            <tr>
+              <th>ลำดับ</th>
+              <th>จุดหมาย</th>
+            </tr>
+            <tr *ngFor="let item of transaction; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.destinationName}}</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

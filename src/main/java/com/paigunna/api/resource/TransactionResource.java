@@ -1,6 +1,5 @@
 package com.paigunna.api.resource;
 
-import com.google.common.base.Strings;
 import com.paigunna.api.domain.Transaction;
 import com.paigunna.api.repo.TransactionRepo;
 import com.paigunna.api.service.TransactionService;
@@ -26,8 +25,8 @@ public class TransactionResource {
     private TransactionService transactionService;
 
     @GetMapping
-    public List<Transaction> findAll() {
-        return transactionRepo.findAll();
+    public List<Transaction> getAll() {
+        return transactionService.findAll();
     }
 
     @GetMapping("/user/{id}")

@@ -26,4 +26,9 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> search(TransactionDto transactionDto) {
         return null;
     }
+
+    @Override
+    public List<Transaction> findAll() {
+        return transactionRepo.findAll();
+    }
 }
