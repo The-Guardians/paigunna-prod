@@ -26,11 +26,11 @@ export class DataService {
     this.messageConfirm.next(message);
   }
 
-  panelStatus(panel:any) {
+  panelStatus(panel: any) {
     this.panel.next(panel);
   }
 
-  setCall(call:any) {
+  setCall(call: any) {
     this.call.next(call);
   }
 
@@ -55,7 +55,7 @@ export class DataService {
 
   }
 
-  setPlaceName(name:string) {
+  setPlaceName(name: string) {
     this.namePlace = name;
     console.log(name);
   }

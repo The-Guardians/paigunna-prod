@@ -68,11 +68,11 @@ export class SelectTypeComponent implements OnInit {
     this.confirm.waitBtn();
   }
 
-  closeSelect(){
+  closeSelect() {
     this.data.panelStatus(true);
   }
 
-  incomebtnsh(){
+  incomebtnsh() {
     document.getElementById("servicebtn").style.display = 'none';
     document.getElementById("waitingbtn").style.display = 'none';
     document.getElementById("callbtn").style.display = 'none';

@@ -15,21 +15,21 @@ export class ConfirmService {
     document.getElementById('logOutBtn').style.display = "block";
   }
 
-  callBtn(){
+  callBtn() {
     document.getElementById('logOutBtn').style.display = "none";
     document.getElementById('payBtn').style.display = "none";
     document.getElementById('waitBtn').style.display = "none";
     document.getElementById('callBtn').style.display = "block";
   }
 
-  payBtn(){
+  payBtn() {
     document.getElementById('logOutBtn').style.display = "none";
     document.getElementById('callBtn').style.display = "none";
     document.getElementById('waitBtn').style.display = "none";
     document.getElementById('payBtn').style.display = "block";
   }
 
-  waitBtn(){
+  waitBtn() {
     document.getElementById('logOutBtn').style.display = "none";
     document.getElementById('callBtn').style.display = "none";
     document.getElementById('payBtn').style.display = "none";

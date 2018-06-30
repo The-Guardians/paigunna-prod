@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   photo: any;
 
 
-  constructor(public authService: AuthService, private data: DataService,private confirm:ConfirmService) {
+  constructor(public authService: AuthService, private data: DataService, private confirm: ConfirmService) {
   }
 
   ngOnInit() {

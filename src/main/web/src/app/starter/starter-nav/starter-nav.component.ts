@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MapComponent} from "../../map/map.component";
 import {User} from "../../../generated-model/model";
 import {AuthService} from "../../providers/auth.service";
+
 @Component({
   selector: 'app-starter-nav',
   templateUrl: './starter-nav.component.html',
@@ -16,7 +17,8 @@ export class StarterNavComponent implements OnInit {
 
   user: User;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit() {
   }
@@ -25,7 +27,7 @@ export class StarterNavComponent implements OnInit {
     console.log('only after THIS EVENT "child" is usable!!');
   }
 
-  textChange(){
+  textChange() {
     console.log(this.placeSearch);
   }
 

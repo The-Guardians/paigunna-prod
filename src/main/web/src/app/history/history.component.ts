@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-history',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.getUser();
@@ -29,16 +30,11 @@ export class HistoryComponent implements OnInit {
   getUser() {
     let client = new this.HttpClient();
     client.get('/api/user', function (response) {
-      console.log(response);
 
-      let myBooks = JSON.parse(response);
-      console.log(myBooks);
-
-      // historyHtmlTable(response,'#historyDataTable');
-
+      let dataOfQuery = JSON.parse(response);
       let col = [];
-      for (let i = 0; i < myBooks.length; i++) {
-        for (let key in myBooks[i]) {
+      for (let i = 0; i < dataOfQuery.length; i++) {
+        for (let key in dataOfQuery[i]) {
           if (col.indexOf(key) === -1) {
             col.push(key);
           }
@@ -59,13 +55,13 @@ export class HistoryComponent implements OnInit {
       }
 
       // ADD JSON DATA TO THE TABLE AS ROWS.
-      for (let i = 0; i < myBooks.length; i++) {
+      for (let i = 0; i < dataOfQuery.length; i++) {
 
         tr = table.insertRow(-1);
 
         for (let j = 0; j < col.length; j++) {
           let tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = myBooks[i][col[j]];
+          tabCell.innerHTML = dataOfQuery[i][col[j]];
         }
       }
 
@@ -73,6 +69,7 @@ export class HistoryComponent implements OnInit {
       let divContainer = document.getElementById("historyData");
       divContainer.innerHTML = "";
       divContainer.appendChild(table);
+      console.log("Create table history success")
     });
   }
 

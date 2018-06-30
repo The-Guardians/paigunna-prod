@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  lat:number = 54.000;
-  lng:number = 1.00;
+  lat: number = 54.000;
+  lng: number = 1.00;
 }

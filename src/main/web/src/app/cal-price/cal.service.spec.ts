@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 
-import { CalService } from './cal.service';
+import {CalService} from './cal.service';
 
 describe('CalService', () => {
   beforeEach(() => {

@@ -15,14 +15,14 @@ export class ConfirmComponent implements OnInit {
 
   textConfirm: string;
 
-  constructor(public authService: AuthService, private data: DataService,private payment:PaymentService,private select:SelectService) {
+  constructor(public authService: AuthService, private data: DataService, private payment: PaymentService, private select: SelectService) {
   }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(e => this.textConfirm = e);
   }
 
-  paymentText(){
+  paymentText() {
     this.data.panelStatus(true);
     this.payment.setTextOnItemPay();
   }
@@ -34,12 +34,12 @@ export class ConfirmComponent implements OnInit {
     document.getElementById('name').style.display = 'none';
   }
 
-  callbtnsh(){
+  callbtnsh() {
     this.payment.clearPay();
     this.select.callbtnsh();
   }
 
-  waitbtnsh(){
+  waitbtnsh() {
     this.select.waitbtnsh();
   }
 

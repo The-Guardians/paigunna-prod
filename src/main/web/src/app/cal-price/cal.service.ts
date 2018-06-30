@@ -18,7 +18,7 @@ export class CalService {
   amount: number;
   pay: number;
 
-  constructor(private data: DataService,private payment:PaymentService) {
+  constructor(private data: DataService, private payment: PaymentService) {
   }
 
   distanceFunc() {

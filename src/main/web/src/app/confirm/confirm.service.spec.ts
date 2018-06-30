@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 
-import { ConfirmService } from './confirm.service';
+import {ConfirmService} from './confirm.service';
 
 describe('ConfirmService', () => {
   beforeEach(() => {
