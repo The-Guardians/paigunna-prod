@@ -322,6 +322,7 @@ var CalService = /** @class */ (function () {
     CalService.prototype.distanceFunc = function () {
         return this.data.getDistance();
     };
+    //merge
     CalService.prototype.setTypeMotor = function () {
         this.distance = this.distanceFunc();
         this.type = "motor";

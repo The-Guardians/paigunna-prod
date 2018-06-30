@@ -25,6 +25,7 @@ export class CalService {
     return this.data.getDistance();
   }
 
+  //merge
   setTypeMotor() {
     this.distance = this.distanceFunc();
     this.type = "motor";
