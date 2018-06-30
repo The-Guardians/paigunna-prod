@@ -653,7 +653,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <div id=\"historyData\" style=\"position: relative;text-align: center;\">\n            </div>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n\n          <table style=\"width:100%; color: #000;\">\n            <tr>\n              <th>ลำดับ</th>\n              <th>จุดหมาย</th>\n            </tr>\n            <tr *ngFor=\"let item of transaction; let i = index\">\n              <td>{{i+1}}</td>\n              <td>{{item.destinationName}}</td>\n            </tr>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <table style=\"width:100%; color: #000;\">\n              <tr>\n                <th>Transaction No.</th>\n                <!--<th>Time</th>-->\n                <!--<th>Source</th>-->\n                <!--<th>Destination</th>-->\n                <!--<th>Distance</th>-->\n                <!--<th>Price</th>-->\n                <!--<th>Provider</th>-->\n              </tr>\n              <tr *ngFor=\"let item of transaction;\">\n                <td>{{item.id}}</td>\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n              </tr>\n            </table>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -694,57 +694,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HistoryComponent = /** @class */ (function () {
     function HistoryComponent(http) {
         this.http = http;
-        this.HttpClient = function () {
-            this.get = function (aUrl, aCallback) {
-                var anHttpRequest = new XMLHttpRequest();
-                anHttpRequest.onreadystatechange = function () {
-                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                        aCallback(anHttpRequest.responseText);
-                };
-                anHttpRequest.open("GET", aUrl, true);
-                anHttpRequest.send(null);
-            };
-        };
     }
     HistoryComponent.prototype.ngOnInit = function () {
-        // this.getUser();
         this.getTransaction();
-    };
-    HistoryComponent.prototype.getUser = function () {
-        var client = new this.HttpClient();
-        client.get('/api/transaction', function (response) {
-            var dataOfQuery = JSON.parse(response);
-            var col = [];
-            for (var i = 0; i < dataOfQuery.length; i++) {
-                for (var key in dataOfQuery[i]) {
-                    if (col.indexOf(key) === -1) {
-                        col.push(key);
-                    }
-                }
-            }
-            // CREATE DYNAMIC TABLE.
-            var table = document.createElement("table");
-            // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-            var tr = table.insertRow(-1); // TABLE ROW.
-            for (var i = 0; i < col.length; i++) {
-                var th = document.createElement("th"); // TABLE HEADER.
-                th.innerHTML = col[i];
-                tr.appendChild(th);
-            }
-            // ADD JSON DATA TO THE TABLE AS ROWS.
-            for (var i = 0; i < dataOfQuery.length; i++) {
-                tr = table.insertRow(-1);
-                for (var j = 0; j < col.length; j++) {
-                    var tabCell = tr.insertCell(-1);
-                    tabCell.innerHTML = dataOfQuery[i][col[j]];
-                }
-            }
-            // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-            var divContainer = document.getElementById("historyData");
-            divContainer.innerHTML = "";
-            divContainer.appendChild(table);
-            console.log("Create table history success");
-        });
     };
     HistoryComponent.prototype.getTransaction = function () {
         var _this = this;
@@ -1204,6 +1156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
 /* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1216,10 +1169,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PaymentComponent = /** @class */ (function () {
-    function PaymentComponent(data, select) {
+    function PaymentComponent(data, select, http) {
         this.data = data;
         this.select = select;
+        this.http = http;
     }
     PaymentComponent.prototype.ngOnInit = function () {
         this.price1 = document.getElementById('price1');
@@ -1239,7 +1194,7 @@ var PaymentComponent = /** @class */ (function () {
         document.getElementById('itemPay').style.display = 'none';
         this.clearTextOnItemPay();
     };
-    PaymentComponent.prototype.render = function () {
+    PaymentComponent.prototype.omisePayment = function () {
     };
     PaymentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1247,7 +1202,7 @@ var PaymentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
             styles: [__webpack_require__(/*! ./payment.component.scss */ "./src/app/payment/payment.component.scss")]
         }),
-        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], PaymentComponent);
     return PaymentComponent;
 }());
@@ -1782,7 +1737,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/main.ts */"./src/main.ts");
 
 
 /***/ })
