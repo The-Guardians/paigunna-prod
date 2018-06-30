@@ -3,7 +3,7 @@
   <div class="nav-overlay uk-navbar-left">
 
     <!-- Paigunna Logo -->
-    <a class="uk-navbar-item uk-logo"><img src="assets/img/paigunna-logo.png" width="100px" height="100px"></a>
+    <a class="uk-navbar-item uk-logo" href="/"><img src="assets/img/paigunna-logo.png" width="100px" height="100px"></a>
 
     <!-- Menu List -->
     <ul class="uk-navbar-nav">
@@ -17,7 +17,7 @@
   <!-- Search Box-->
   <div class="nav-overlay uk-navbar-right">
 
-      <app-login></app-login>
+    <app-login></app-login>
 
     <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
        href="#"></a>
@@ -27,7 +27,8 @@
 
     <div class="uk-navbar-item uk-width-expand">
       <form class="uk-search uk-search-navbar uk-width-1-1">
-        <input [(ngModel)]="placeSearch" [ngModelOptions]="{standalone: true}" (change)="textChange()" class="uk-search-input" type="search" placeholder="Search Place" autofocus>
+        <input [(ngModel)]="placeSearch" [ngModelOptions]="{standalone: true}" (change)="textChange()"
+               class="uk-search-input" type="search" placeholder="Search Place" autofocus>
       </form>
     </div>
     <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>

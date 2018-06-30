@@ -1,0 +1,34 @@
+<!--Comfirm popup-->
+<div class="modal fade" id="confirm" style="z-index: 999999999;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color: black">Notice</h4>
+      </div>
+      <div class="modal-body">
+        <p><label style="color: black">{{textConfirm}}</label></p>
+      </div>
+      <div class="modal-footer text-center">
+        <button id="logOutBtn" type="button" title="logout" class="btn btn-success" data-dismiss="modal"
+                (click)="logout();">Log out
+        </button>
+        <button id="callBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="paymentText();waitbtnsh();"
+        >Continue
+        </button>
+        <button id="waitBtn" type="button" title="continue" class="btn btn-success" data-dismiss="modal" (click)="callbtnsh()"
+        >Continue
+        </button>
+        <button id="payBtn" type="button" title="payment" class="btn btn-primary" data-toggle="modal" data-target="#omise" data-dismiss="modal"
+        >Payment
+        </button>
+        <button type="button" title="go back" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--/Confirm popup-->
+
+<app-payment></app-payment>

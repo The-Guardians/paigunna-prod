@@ -110,12 +110,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./providers/auth.service */ "./src/app/providers/auth.service.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var _confirm_confirm_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./confirm/confirm.component */ "./src/app/confirm/confirm.component.ts");
+/* harmony import */ var _cal_price_cal_price_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./cal-price/cal-price.component */ "./src/app/cal-price/cal-price.component.ts");
+/* harmony import */ var _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./select-type/select-type.component */ "./src/app/select-type/select-type.component.ts");
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
+/* harmony import */ var _history_history_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./history/history.component */ "./src/app/history/history.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -144,6 +154,11 @@ var AppModule = /** @class */ (function () {
                 _starter_starter_component__WEBPACK_IMPORTED_MODULE_5__["StarterComponent"],
                 _starter_starter_nav_starter_nav_component__WEBPACK_IMPORTED_MODULE_6__["StarterNavComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
+                _confirm_confirm_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmComponent"],
+                _cal_price_cal_price_component__WEBPACK_IMPORTED_MODULE_18__["CalPriceComponent"],
+                _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__["SelectTypeComponent"],
+                _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__["PaymentComponent"],
+                _history_history_component__WEBPACK_IMPORTED_MODULE_21__["HistoryComponent"],
             ],
             imports: [
                 angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
@@ -211,6 +226,537 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/cal-price/cal-price.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/cal-price/cal-price.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  cal-price works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/cal-price/cal-price.component.scss":
+/*!****************************************************!*\
+  !*** ./src/app/cal-price/cal-price.component.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/cal-price/cal-price.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/cal-price/cal-price.component.ts ***!
+  \**************************************************/
+/*! exports provided: CalPriceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalPriceComponent", function() { return CalPriceComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CalPriceComponent = /** @class */ (function () {
+    function CalPriceComponent() {
+    }
+    CalPriceComponent.prototype.ngOnInit = function () {
+    };
+    CalPriceComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-cal-price',
+            template: __webpack_require__(/*! ./cal-price.component.html */ "./src/app/cal-price/cal-price.component.html"),
+            styles: [__webpack_require__(/*! ./cal-price.component.scss */ "./src/app/cal-price/cal-price.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CalPriceComponent);
+    return CalPriceComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cal-price/cal.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/cal-price/cal.service.ts ***!
+  \******************************************/
+/*! exports provided: CalService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalService", function() { return CalService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _payment_payment_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../payment/payment.service */ "./src/app/payment/payment.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CalService = /** @class */ (function () {
+    function CalService(data, payment) {
+        this.data = data;
+        this.payment = payment;
+    }
+    CalService.prototype.distanceFunc = function () {
+        return this.data.getDistance();
+    };
+    //merge
+    CalService.prototype.setTypeMotor = function () {
+        this.distance = this.distanceFunc();
+        this.type = "motor";
+        if (this.distance <= 1.0) {
+            this.priceMotor = 10;
+        }
+        else if (this.distance <= 1.3) {
+            this.priceMotor = 15;
+        }
+        else if (this.distance <= 1.6) {
+            this.priceMotor = 20;
+        }
+        else if (this.distance <= 2.0) {
+            this.priceMotor = 25;
+        }
+        else if (this.distance <= 3.0) {
+            this.priceMotor = 30;
+        }
+        else if (this.distance <= 4.0) {
+            this.priceMotor = 35;
+        }
+        else if (this.distance <= 5.0) {
+            this.priceMotor = 40;
+        }
+        else if (this.distance > 5.0) {
+            this.rate = 10;
+        }
+        this.calPrice(0, this.rate, this.type);
+    };
+    CalService.prototype.setTypeTaxi = function () {
+        this.distance = this.distanceFunc();
+        this.type = "taxi";
+        if (this.distance <= 1.0) {
+            this.rate = 0;
+        }
+        else if (this.distance > 1.0 && this.distance <= 10.0) {
+            this.rate = 5.5;
+        }
+        else if (this.distance > 10.0 && this.distance <= 20.0) {
+            this.rate = 6.5;
+        }
+        else if (this.distance > 20.0 && this.distance <= 40.0) {
+            this.rate = 7.5;
+        }
+        else if (this.distance > 40.0 && this.distance <= 60.0) {
+            this.rate = 8.0;
+        }
+        else if (this.distance > 60.0 && this.distance <= 80.0) {
+            this.rate = 9.0;
+        }
+        else if (this.distance > 80.0) {
+            this.rate = 10.5;
+        }
+        this.calPrice(35, this.rate, this.type);
+    };
+    CalService.prototype.calPrice = function (start, rate, type) {
+        this.price1 = document.getElementById('price1');
+        this.price2 = document.getElementById('price2');
+        this.textTotalAmount = document.getElementById('totalAmount');
+        if (this.price2 != "") {
+            this.price2.innerHTML = "";
+        }
+        if (type == "motor" && this.distance <= 5.0) {
+            this.amount = this.priceMotor;
+        }
+        else {
+            this.amount = ((this.distance * rate) + start);
+        }
+        this.price2.innerHTML = 'Price : ' + this.amount + ' &#3647';
+        this.payment.setAmount(this.amount);
+    };
+    CalService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_2__["PaymentService"]])
+    ], CalService);
+    return CalService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/confirm/confirm.component.html":
+/*!************************************************!*\
+  !*** ./src/app/confirm/confirm.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--Comfirm popup-->\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" style=\"color: black\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label style=\"color: black\">{{textConfirm}}</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"logOutBtn\" type=\"button\" title=\"logout\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout();\">Log out\n        </button>\n        <button id=\"callBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\" (click)=\"paymentText();waitbtnsh();\"\n        >Continue\n        </button>\n        <button id=\"waitBtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\" (click)=\"callbtnsh()\"\n        >Continue\n        </button>\n        <button id=\"payBtn\" type=\"button\" title=\"payment\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#omise\" data-dismiss=\"modal\"\n        >Payment\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n<app-payment></app-payment>\n"
+
+/***/ }),
+
+/***/ "./src/app/confirm/confirm.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/confirm/confirm.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/confirm/confirm.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/confirm/confirm.component.ts ***!
+  \**********************************************/
+/*! exports provided: ConfirmComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmComponent", function() { return ConfirmComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../payment/payment.service */ "./src/app/payment/payment.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ConfirmComponent = /** @class */ (function () {
+    function ConfirmComponent(authService, data, payment, select) {
+        this.authService = authService;
+        this.data = data;
+        this.payment = payment;
+        this.select = select;
+        this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    ConfirmComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data.currentMessage.subscribe(function (e) { return _this.textConfirm = e; });
+    };
+    ConfirmComponent.prototype.paymentText = function () {
+        this.data.panelStatus(true);
+        this.payment.setTextOnItemPay();
+    };
+    ConfirmComponent.prototype.logout = function () {
+        this.authService.logout();
+        document.getElementById('logo').style.display = 'none';
+        document.getElementById('loginGooglebtn').style.display = 'block';
+        document.getElementById('name').style.display = 'none';
+    };
+    ConfirmComponent.prototype.callbtnsh = function () {
+        this.payment.clearPay();
+        this.select.callbtnsh();
+    };
+    ConfirmComponent.prototype.waitbtnsh = function () {
+        this.select.waitbtnsh();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ConfirmComponent.prototype, "myEvent", void 0);
+    ConfirmComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-confirm',
+            template: __webpack_require__(/*! ./confirm.component.html */ "./src/app/confirm/confirm.component.html"),
+            styles: [__webpack_require__(/*! ./confirm.component.scss */ "./src/app/confirm/confirm.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__["PaymentService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_4__["SelectService"]])
+    ], ConfirmComponent);
+    return ConfirmComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/confirm/confirm.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/confirm/confirm.service.ts ***!
+  \********************************************/
+/*! exports provided: ConfirmService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmService", function() { return ConfirmService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ConfirmService = /** @class */ (function () {
+    function ConfirmService() {
+    }
+    ConfirmService.prototype.logoutBtn = function () {
+        document.getElementById('callBtn').style.display = "none";
+        document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
+        document.getElementById('logOutBtn').style.display = "block";
+    };
+    ConfirmService.prototype.callBtn = function () {
+        document.getElementById('logOutBtn').style.display = "none";
+        document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
+        document.getElementById('callBtn').style.display = "block";
+    };
+    ConfirmService.prototype.payBtn = function () {
+        document.getElementById('logOutBtn').style.display = "none";
+        document.getElementById('callBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "none";
+        document.getElementById('payBtn').style.display = "block";
+    };
+    ConfirmService.prototype.waitBtn = function () {
+        document.getElementById('logOutBtn').style.display = "none";
+        document.getElementById('callBtn').style.display = "none";
+        document.getElementById('payBtn').style.display = "none";
+        document.getElementById('waitBtn').style.display = "block";
+    };
+    ConfirmService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], ConfirmService);
+    return ConfirmService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/data.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/data.service.ts ***!
+  \*********************************/
+/*! exports provided: DataService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DataService = /** @class */ (function () {
+    function DataService() {
+        this.statusbtnCall = true;
+        this.messageConfirm = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
+        this.panel = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('default message');
+        this.call = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](true);
+        this.currentMessage = this.messageConfirm.asObservable();
+        this.statusPanel = this.panel.asObservable();
+        this.callService = this.call.asObservable();
+    }
+    DataService.prototype.changeMessage = function (message) {
+        this.messageConfirm.next(message);
+    };
+    DataService.prototype.panelStatus = function (panel) {
+        this.panel.next(panel);
+    };
+    DataService.prototype.setCall = function (call) {
+        this.call.next(call);
+    };
+    DataService.prototype.setDistance = function (distance) {
+        this.distanceTotal = distance;
+        console.log(distance);
+    };
+    DataService.prototype.getDistance = function () {
+        console.log(this.distanceTotal);
+        return this.distanceTotal;
+    };
+    DataService.prototype.setStatusbtnCall = function (status) {
+        this.statusbtnCall = status;
+        console.log(status);
+    };
+    DataService.prototype.getStatusbtnCall = function () {
+        console.log(this.statusbtnCall);
+        return this.statusbtnCall;
+    };
+    DataService.prototype.setPlaceName = function (name) {
+        this.namePlace = name;
+        console.log(name);
+    };
+    DataService.prototype.getPlaceName = function () {
+        console.log(this.namePlace);
+        return this.namePlace;
+    };
+    DataService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], DataService);
+    return DataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/history/history.component.html":
+/*!************************************************!*\
+  !*** ./src/app/history/history.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <div id=\"historyData\" style=\"position: relative;text-align: center;\">\n            </div>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/history/history.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/history/history.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/history/history.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/history/history.component.ts ***!
+  \**********************************************/
+/*! exports provided: HistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryComponent", function() { return HistoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HistoryComponent = /** @class */ (function () {
+    function HistoryComponent() {
+        this.HttpClient = function () {
+            this.get = function (aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function () {
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                };
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            };
+        };
+    }
+    HistoryComponent.prototype.ngOnInit = function () {
+        this.getUser();
+    };
+    HistoryComponent.prototype.getUser = function () {
+        var client = new this.HttpClient();
+        client.get('/api/user', function (response) {
+            var dataOfQuery = JSON.parse(response);
+            var col = [];
+            for (var i = 0; i < dataOfQuery.length; i++) {
+                for (var key in dataOfQuery[i]) {
+                    if (col.indexOf(key) === -1) {
+                        col.push(key);
+                    }
+                }
+            }
+            // CREATE DYNAMIC TABLE.
+            var table = document.createElement("table");
+            // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+            var tr = table.insertRow(-1); // TABLE ROW.
+            for (var i = 0; i < col.length; i++) {
+                var th = document.createElement("th"); // TABLE HEADER.
+                th.innerHTML = col[i];
+                tr.appendChild(th);
+            }
+            // ADD JSON DATA TO THE TABLE AS ROWS.
+            for (var i = 0; i < dataOfQuery.length; i++) {
+                tr = table.insertRow(-1);
+                for (var j = 0; j < col.length; j++) {
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = dataOfQuery[i][col[j]];
+                }
+            }
+            // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+            var divContainer = document.getElementById("historyData");
+            divContainer.innerHTML = "";
+            divContainer.appendChild(table);
+            console.log("Create table history success");
+        });
+    };
+    HistoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-history',
+            template: __webpack_require__(/*! ./history.component.html */ "./src/app/history/history.component.html"),
+            styles: [__webpack_require__(/*! ./history.component.scss */ "./src/app/history/history.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HistoryComponent);
+    return HistoryComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.html":
 /*!********************************************!*\
   !*** ./src/app/login/login.component.html ***!
@@ -218,7 +764,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" *ngIf=\"authService.user\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n  <a><img *ngIf=\"authService.user | async as user\" class=\"uk-icon-button\" [src]=\"user.photoURL\"\n          width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                           style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\" uk-icon=\"icon: location\"></span>Route Detail<span\n        class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: history\"></span>History</a></li>\n      <li><a><span class=\"uk-margin-small-right\" uk-icon=\"icon: credit-card\"></span>Payment</a></li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a data-toggle=\"modal\" data-target=\"#confirm\"><span class=\"uk-margin-small-right\" uk-icon=\"sign-out\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center ;\">\n    <div class=\"modal-content\" style=\"height:600px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 6%;z-index: 999;\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            Price : test\n            <!--<label id=\"price2\"></label>--></span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n          <div id=\"route-panel\" style=\"position: relative;overflow-y: auto;overflow-x: auto;margin-top: 4%; text-align: center;\">\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n<!--/Route popup-->\n\n<!--Comfirm popup-->\n\n<div class=\"modal fade\" id=\"confirm\" style=\"z-index: 999999999;\">\n  <div class=\"modal-dialog\">\n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Notice</h4>\n      </div>\n      <div class=\"modal-body\">\n        <p><label>Are you sure you want to log out?</label></p>\n      </div>\n      <div class=\"modal-footer text-center\">\n        <button id=\"conbtn\" type=\"button\" title=\"continue\" class=\"btn btn-success\" data-dismiss=\"modal\"\n                (click)=\"logout()\">Logout\n        </button>\n        <button type=\"button\" title=\"go back\" class=\"btn btn-danger\" data-dismiss=\"modal\">Go Back</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<!--/Confirm popup-->\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                                     style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route\n        Detail\n        <span class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#history\"><span class=\"uk-margin-small-right\"\n                                                                                        uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-history></app-history>\n\n<app-payment></app-payment>\n\n\n"
 
 /***/ }),
 
@@ -244,7 +790,9 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _confirm_confirm_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../confirm/confirm.service */ "./src/app/confirm/confirm.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -256,30 +804,36 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService) {
+    function LoginComponent(authService, data, confirm) {
         this.authService = authService;
+        this.data = data;
+        this.confirm = confirm;
+        this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.getDisplayName();
+        this.data.currentMessage.subscribe(function (e) { return _this.textConfirm = e; });
     };
     LoginComponent.prototype.getDisplayName = function () {
         var _this = this;
         this.authService.afAuth.authState.subscribe(function (e) {
-            _this.username = e.displayName;
-            _this.useremail = e.email;
-            if (_this.username != null) {
+            if (e != null) {
+                _this.username = e.displayName;
+                _this.useremail = e.email;
+                _this.photo = e.photoURL;
+                document.getElementById('name').style.display = 'block';
                 document.getElementById('loginGooglebtn').style.display = 'none';
+                document.getElementById('logo').style.display = 'block';
+            }
+            else {
+                document.getElementById('logo').style.display = 'none';
             }
         });
     };
-    // setMotor(){
-    //   this.motor.setTypeMotor();
-    // }
-    //
-    // setTaxi(){
-    //   this.motor.setTypeTaxi();
-    // }
     LoginComponent.prototype.loginGoogle = function () {
         var _this = this;
         var userResult = this.authService.loginWithGoogle();
@@ -287,29 +841,37 @@ var LoginComponent = /** @class */ (function () {
             if (e != null) {
                 _this.username = e.displayName;
                 _this.useremail = e.email;
+                _this.photo = e.photoURL;
+                document.getElementById('name').style.display = 'block';
                 document.getElementById('loginGooglebtn').style.display = 'none';
+                document.getElementById('logo').style.display = 'block';
             }
         });
     };
     LoginComponent.prototype.loginFacebook = function () {
         this.authService.loginWithFacebook();
     };
-    LoginComponent.prototype.logout = function () {
-        this.authService.logout();
-        document.getElementById('name').innerHTML = "";
-    };
     LoginComponent.prototype.printUser = function () {
         this.authService.afAuth.authState.subscribe(function (e) {
             console.log("authState : " + e.isAnonymous);
         });
     };
+    LoginComponent.prototype.setNoticeLogout = function () {
+        this.myEvent.emit(null);
+        this.data.changeMessage("Are you sure you want to log out?");
+        this.confirm.logoutBtn();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], LoginComponent.prototype, "myEvent", void 0);
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
-        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_providers_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _confirm_confirm_service__WEBPACK_IMPORTED_MODULE_3__["ConfirmService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -352,7 +914,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapComponent", function() { return MapComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../providers/auth.service */ "./src/app/providers/auth.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -367,12 +930,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TravelMode = google.maps.TravelMode;
 var DirectionsStatus = google.maps.DirectionsStatus;
 
+
 var MapComponent = /** @class */ (function () {
-    function MapComponent(http, authService) {
+    function MapComponent(http, data, select) {
         this.http = http;
-        this.authService = authService;
+        this.data = data;
+        this.select = select;
+        this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.nearByPlace = [];
         this.activeProviders = [];
+        this.radius = 1000;
+        this.count = 0;
         this.travelList = [];
         this.directionService = new google.maps.DirectionsService;
         this.directionDisplay = new google.maps.DirectionsRenderer;
@@ -395,11 +963,8 @@ var MapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: pos,
                     title: 'My Current Location',
-                    animation: google.maps.Animation.BOUNCE
-                });
-                marker.addListener('click', function (args) {
-                    _this.map.panTo(marker.getPosition());
-                    console.log(marker.getPosition().lng() + " : " + marker.getPosition().lat());
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: "../assets/img/location.png"
                 });
                 _this.setMyMarker(marker);
                 _this.searchEvent();
@@ -412,6 +977,7 @@ var MapComponent = /** @class */ (function () {
     MapComponent.prototype.setMyMarker = function (marker) {
         this.myMarker = marker;
         this.myMarker.setMap(this.map);
+        this.nearByPlace.push(marker);
     };
     // Search
     MapComponent.prototype.searchEvent = function () {
@@ -420,59 +986,89 @@ var MapComponent = /** @class */ (function () {
             _this.selectPlace = args.latLng;
             _this.findDirection();
             console.log("select place : " + _this.selectPlace);
+            // this.placeName = google.maps.geometry.this.selectPlace;
+            // this.data.setPlaceName(this.placeName);
+        });
+    };
+    MapComponent.prototype.geoLocate = function () {
+        this.setMyLocation(this.myPos);
+        var marker = new google.maps.Marker({
+            position: this.myPos,
+            title: 'My Current Location',
+            animation: google.maps.Animation.BOUNCE,
+            icon: "../assets/img/location.png"
+        });
+        this.setMyMarker(marker);
+    };
+    MapComponent.prototype.requestServiceNearby = function (service, requestName) {
+        var _this = this;
+        service.nearbySearch(requestName, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    _this.createMarker(results[i]);
+                }
+            }
         });
     };
     MapComponent.prototype.searchHostel = function () {
-        var _this = this;
         this.clearMarker();
+        this.directionDisplay.setMap(null);
+        this.geoLocate();
         var request = ({
             location: this.myPos,
-            radius: 500,
+            radius: this.radius,
             type: 'lodging'
         });
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, request);
     };
     MapComponent.prototype.searchTourist = function () {
-        var _this = this;
         this.clearMarker();
-        var request = ({
+        this.directionDisplay.setMap(null);
+        this.geoLocate();
+        var requestShop = {
             location: this.myPos,
-            radius: 500,
-            type: ''
-        });
+            radius: this.radius,
+            type: 'shopping_mall'
+        };
+        var requestPark = {
+            location: this.myPos,
+            radius: this.radius,
+            type: 'park'
+        };
+        var requestMovie = {
+            location: this.myPos,
+            radius: this.radius,
+            type: 'movie_theater'
+        };
+        var requestNight = {
+            location: this.myPos,
+            radius: this.radius,
+            type: 'night_club'
+        };
+        var requestAmuusement = {
+            location: this.myPos,
+            radius: this.radius,
+            type: 'amusement_park'
+        };
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, requestShop);
+        this.requestServiceNearby(service, requestPark);
+        this.requestServiceNearby(service, requestMovie);
+        this.requestServiceNearby(service, requestNight);
+        this.requestServiceNearby(service, requestAmuusement);
     };
     MapComponent.prototype.searchRestaurant = function () {
-        var _this = this;
         this.clearMarker();
-        console.log("in resturant");
+        this.directionDisplay.setMap(null);
+        this.geoLocate();
         var request = ({
             location: this.myPos,
-            radius: 500,
-            type: 'store'
+            radius: this.radius,
+            type: 'restaurant'
         });
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    _this.createMarker(results[i]);
-                }
-            }
-        });
+        this.requestServiceNearby(service, request);
     };
     MapComponent.prototype.createMarker = function (place) {
         var _this = this;
@@ -483,13 +1079,15 @@ var MapComponent = /** @class */ (function () {
         });
         marker.addListener('click', function () {
             _this.selectPlace = marker.getPosition();
-            console.log("select place ; " + _this.selectPlace);
+            _this.data.setPlaceName(place.name);
             _this.findDirection();
+            _this.count++;
         });
         this.nearByPlace.push(marker);
     };
     MapComponent.prototype.findDirection = function () {
         var _this = this;
+        this.clearMarker();
         var request = {
             origin: this.myPos,
             destination: this.selectPlace,
@@ -500,11 +1098,22 @@ var MapComponent = /** @class */ (function () {
             if (status === DirectionsStatus.OK) {
                 _this.directionDisplay.setMap(_this.map);
                 _this.directionDisplay.setDirections(result);
-                // let panel = document.getElementById('route-panel');
-                // this.directionDisplay.setPanel(panel);
-                console.log("direction : " + _this.directionDisplay.getDirections().routes[0].legs[0].distance.value);
-                _this.distance = (_this.directionDisplay.getDirections().routes[0].legs[0].distance.value) / 1000;
+                _this.distance = parseFloat(_this.directionDisplay.getDirections().routes[0].legs[0].distance.text);
+                var panel = document.getElementById('route-panel');
+                _this.directionDisplay.setPanel(panel);
                 console.log("distance : " + _this.distance + " km");
+                _this.setDistance(_this.distance);
+                _this.placeName = result.routes[0].legs[0].end_address;
+                _this.data.setCall(true);
+                _this.data.panelStatus(false);
+                _this.select.closeWarning();
+                _this.select.callbtnsh();
+                if (_this.count == 0) {
+                    _this.data.setPlaceName(_this.placeName);
+                }
+                else {
+                    _this.count = 0;
+                }
             }
             else {
                 window.alert('Directions request failed due to ' + status);
@@ -520,19 +1129,192 @@ var MapComponent = /** @class */ (function () {
             this.nearByPlace[i].setMap(map);
         }
     };
+    MapComponent.prototype.searchActiveProvider = function () {
+    };
+    MapComponent.prototype.setDistance = function (distance) {
+        this.data.setDistance(distance);
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('map'),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
     ], MapComponent.prototype, "mapElement", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], MapComponent.prototype, "myEvent", void 0);
     MapComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-map',
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _providers_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_3__["SelectService"]])
     ], MapComponent);
     return MapComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.html":
+/*!************************************************!*\
+  !*** ./src/app/payment/payment.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal fade\" id=\"omise\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black;\">Payment\n      </div>\n      <div class=\"list-group\">\n        <div id=\"itemPay\">\n          <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n            <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n              <h6 class=\"mb-1\" style=\"text-align: left\">\n                <label id=\"totalTravel\" style=\"color: black\"></label>\n                <span style=\"float: right;\">\n            <label title=\"price\" id=\"price1\" style=\"color: black\"></label>\n            </span>\n              </h6>\n            </a>\n            <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n              <div title=\"Source\" class=\"form-control\" style=\"margin-right: 3%;width: 100%\">\n                <marquee direction=\"left\" onmouseout=\"this.start()\" onmouseover=\"this.stop()\"\n                         scrollamount=\"2\" scrolldelay=\"4\">\n                  Your Location\n                </marquee>\n              </div>\n            </a>\n            <span type=\"text\" style=\"text-align: center;color: black\"> to </span>\n            <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n              <div title=\"Destination\" class=\"form-control\">\n                <marquee direction=\"left\" onmouseout=\"this.start()\" onmouseover=\"this.stop()\"\n                         scrollamount=\"2\" scrolldelay=\"4\">\n                  <label id=\"destination\"></label>\n                </marquee>\n              </div>\n            </a>\n            <span type=\"text\" title=\"total price\"><label id=\"totalAmount\" style=\"color: orangered;\"></label></span>\n            <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n              <div class=\"form\">\n                <div>\n                  <!-- Create your own button -->\n                  <button title=\"Pay now\" class=\"btn btn-success\" type=\"submit\" id=\"pay-button\">Pay now</button>\n                </div>\n\n                <form id=\"from-pay\" name=\"checkoutForm\">\n                  <input type=\"hidden\" name=\"sample-number\" value=\"sample-5\">\n                </form>\n              </div>\n              <button class=\"btn btn-danger\" (click)=\"payItem1();\">Test(จ่ายสำเร็จ)</button>\n            </a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/payment/payment.component.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/payment/payment.component.ts ***!
+  \**********************************************/
+/*! exports provided: PaymentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentComponent", function() { return PaymentComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PaymentComponent = /** @class */ (function () {
+    function PaymentComponent(data, select) {
+        this.data = data;
+        this.select = select;
+    }
+    PaymentComponent.prototype.ngOnInit = function () {
+        this.price1 = document.getElementById('price1');
+        this.textTotalAmount = document.getElementById('totalAmount');
+        document.getElementById('itemPay').style.display = 'none';
+    };
+    PaymentComponent.prototype.clearTextOnItemPay = function () {
+        this.price1.innerHTML = "";
+        this.textTotalAmount.innerHTML = "";
+        document.getElementById('totalTravel').innerHTML = "";
+        document.getElementById('destination').innerHTML = "";
+    };
+    PaymentComponent.prototype.payItem1 = function () {
+        this.data.panelStatus(false);
+        this.select.callbtnsh();
+        this.data.setCall(true);
+        document.getElementById('itemPay').style.display = 'none';
+        this.clearTextOnItemPay();
+    };
+    PaymentComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-payment',
+            template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
+            styles: [__webpack_require__(/*! ./payment.component.scss */ "./src/app/payment/payment.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
+    ], PaymentComponent);
+    return PaymentComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/payment/payment.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/payment/payment.service.ts ***!
+  \********************************************/
+/*! exports provided: PaymentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentService", function() { return PaymentService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PaymentService = /** @class */ (function () {
+    function PaymentService(data, select) {
+        this.data = data;
+        this.select = select;
+    }
+    PaymentService.prototype.setAmount = function (amount) {
+        this.amount = amount;
+    };
+    PaymentService.prototype.setTextOnItemPay = function () {
+        document.getElementById("itemPay").style.display = 'block';
+        this.price1 = document.getElementById('price1');
+        this.textTotalAmount = document.getElementById('totalAmount');
+        console.log(this.data.getDistance());
+        this.distance = this.data.getDistance();
+        var temp = ((0.0365) * this.amount) * 0.07;
+        console.log(temp);
+        console.log((0.0365) * this.amount + " => " + temp);
+        this.totalAmount = ((((0.0365) * this.amount) + temp) + this.amount).toFixed(2);
+        this.price1.innerHTML = 'Price : ' + this.amount + ' &#3647';
+        this.textTotalAmount.innerHTML = 'Price(' + this.amount + ' &#3647) + Charge(3.65%+7%(7% of 3.65%))' + ' = ' + this.totalAmount + ' &#3647';
+        document.getElementById('totalTravel').innerHTML = 'item #1 (  ' + this.distance + ' km)';
+        document.getElementById('destination').innerHTML = this.data.getPlaceName();
+    };
+    PaymentService.prototype.clearPay = function () {
+        this.data.panelStatus(false);
+        this.select.callbtnsh();
+        this.data.setCall(true);
+        document.getElementById('itemPay').style.display = 'none';
+        this.price1.innerHTML = "";
+        this.textTotalAmount.innerHTML = "";
+        document.getElementById('totalTravel').innerHTML = "";
+        document.getElementById('destination').innerHTML = "";
+    };
+    PaymentService.prototype.statusPayItem = function () {
+        if (document.getElementById('itemPay').style.display == 'none') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    PaymentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
+    ], PaymentService);
+    return PaymentService;
 }());
 
 
@@ -595,6 +1377,188 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/select-type/select-type.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/select-type/select-type.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal fade\" id=\"route\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Route and call service\n      </div>\n      <div class=\"list-group\" style=\"z-index: 9999999;max-height: 100%\">\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button title=\"Select vehicle\" id=\"select\" [disabled]=\"btnSelect\" class=\"btn btn-secondary dropdown-toggle\"\n                  type=\"button\"\n                  style=\"float: left;\"\n                  id=\"dropdownMenu2\" data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\" aria-expanded=\"false\">\n            Select vehicle\n          </button>\n          <span id=\"warningSelect\" style=\"float: right;margin-top: 3%;color: red\">\n            ***Please select destination***\n                        </span>\n          <span title=\"price\" style=\"float: right;margin-top: 3%\">\n            <label id=\"price2\"></label>\n                        </span>\n          <div id=\"type\" class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n            <button title=\"Motorcycle\" class=\"dropdown-item\" type=\"button\" value=\"1\" (click)=\"setMotor()\">\n              Motorcycle\n            </button>\n            <button title=\"Taxi\" class=\"dropdown-item\" type=\"button\" value=\"2\" (click)=\"setTaxi()\">\n              Taxi\n            </button>\n          </div>\n        </a>\n        <div id=\"route-panel\"\n             style=\"position: relative;max-height: 20%!important; overflow: auto;text-align: center;\">\n        </div>\n        <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n          <button id=\"callbtn\" title=\"callService\" [disabled]=\"btnCallService\" class=\"btn btn-success\" type=\"button\"\n                  data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNotice();\">\n            Call Service\n          </button>\n          <button id=\"waitingbtn\" title=\"waiting\" class=\"btn btn-warning\" type=\"button\"\n                  data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeWait();\">\n            waiting\n          </button>\n          <button id=\"incomebtn\" title=\"service incoming\" class=\"btn btn-danger\" type=\"button\" disabled>\n            Service incoming\n          </button>\n          <button id=\"servicebtn\" title=\"test accept\" class=\"btn btn-danger\" type=\"button\"\n                  (click)=\"closeSelect();incomebtnsh();\">\n            Test(service accept)\n          </button>\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<app-confirm></app-confirm>\n"
+
+/***/ }),
+
+/***/ "./src/app/select-type/select-type.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/select-type/select-type.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/select-type/select-type.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/select-type/select-type.component.ts ***!
+  \******************************************************/
+/*! exports provided: SelectTypeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectTypeComponent", function() { return SelectTypeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _cal_price_cal_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cal-price/cal.service */ "./src/app/cal-price/cal.service.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../payment/payment.service */ "./src/app/payment/payment.service.ts");
+/* harmony import */ var _confirm_confirm_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../confirm/confirm.service */ "./src/app/confirm/confirm.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SelectTypeComponent = /** @class */ (function () {
+    function SelectTypeComponent(cal, data, payment, confirm) {
+        this.cal = cal;
+        this.data = data;
+        this.payment = payment;
+        this.confirm = confirm;
+        this.myEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    SelectTypeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.btnSelect = true;
+        this.data.statusPanel.subscribe(function (e) { return _this.btnSelect = e; });
+        this.data.callService.subscribe(function (e) { return _this.btnCallService = e; });
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("incomebtn").style.display = 'none';
+        document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("warningSelect").style.display = 'block';
+    };
+    SelectTypeComponent.prototype.setMotor = function () {
+        this.cal.setTypeMotor();
+        this.btnCallService = false;
+        this.data.setStatusbtnCall(false);
+    };
+    SelectTypeComponent.prototype.setTaxi = function () {
+        this.cal.setTypeTaxi();
+        this.btnCallService = false;
+        this.data.setStatusbtnCall(false);
+    };
+    SelectTypeComponent.prototype.setNotice = function () {
+        var check = this.payment.statusPayItem();
+        if (check) {
+            this.setNoticeCall();
+        }
+        else {
+            this.setNoticePay();
+        }
+    };
+    SelectTypeComponent.prototype.setNoticeCall = function () {
+        this.myEvent.emit(null);
+        this.data.changeMessage("Are you sure you want to call service ?");
+        this.confirm.callBtn();
+    };
+    SelectTypeComponent.prototype.setNoticePay = function () {
+        this.myEvent.emit(null);
+        this.data.changeMessage("You have an outstanding balance. Please pay");
+        this.confirm.payBtn();
+    };
+    SelectTypeComponent.prototype.setNoticeWait = function () {
+        this.myEvent.emit(null);
+        this.data.changeMessage("Are you sure you want to cancel service ?");
+        this.confirm.waitBtn();
+    };
+    SelectTypeComponent.prototype.closeSelect = function () {
+        this.data.panelStatus(true);
+    };
+    SelectTypeComponent.prototype.incomebtnsh = function () {
+        document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("callbtn").style.display = 'none';
+        document.getElementById("incomebtn").style.display = 'block';
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], SelectTypeComponent.prototype, "myEvent", void 0);
+    SelectTypeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-select-type',
+            template: __webpack_require__(/*! ./select-type.component.html */ "./src/app/select-type/select-type.component.html"),
+            styles: [__webpack_require__(/*! ./select-type.component.scss */ "./src/app/select-type/select-type.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_cal_price_cal_service__WEBPACK_IMPORTED_MODULE_1__["CalService"], _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _payment_payment_service__WEBPACK_IMPORTED_MODULE_3__["PaymentService"], _confirm_confirm_service__WEBPACK_IMPORTED_MODULE_4__["ConfirmService"]])
+    ], SelectTypeComponent);
+    return SelectTypeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/select-type/select.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/select-type/select.service.ts ***!
+  \***********************************************/
+/*! exports provided: SelectService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectService", function() { return SelectService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SelectService = /** @class */ (function () {
+    function SelectService() {
+    }
+    SelectService.prototype.callbtnsh = function () {
+        document.getElementById("incomebtn").style.display = 'none';
+        document.getElementById("servicebtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'none';
+        document.getElementById("callbtn").style.display = 'block';
+    };
+    SelectService.prototype.waitbtnsh = function () {
+        document.getElementById("servicebtn").style.display = 'block';
+        document.getElementById("callbtn").style.display = 'none';
+        document.getElementById("waitingbtn").style.display = 'block';
+    };
+    SelectService.prototype.closeWarning = function () {
+        document.getElementById("warningSelect").style.display = 'none';
+    };
+    SelectService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SelectService);
+    return SelectService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/starter/starter-nav/starter-nav.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/starter/starter-nav/starter-nav.component.css ***!
@@ -602,7 +1566,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".hos:visited{\n border-bottom: 5px solid red;\n}\n\n.tour:visited{\n border-bottom: 5px solid dodgerblue;\n}\n\n.rest:visited{\n border-bottom: 5px solid green;\n}\n\nnav{\n  background-color: #323e53 !important;\n  color: #ffffff;\n}\n\n.white{\n  color: #ffffff;\n}\n\n"
+module.exports = ".hos:visited {\n  border-bottom: 5px solid red;\n}\n\n.tour:visited {\n  border-bottom: 5px solid dodgerblue;\n}\n\n.rest:visited {\n  border-bottom: 5px solid green;\n}\n\nnav {\n  background-color: #323e53 !important;\n  color: #ffffff;\n}\n\n.white {\n  color: #ffffff;\n}\n\n"
 
 /***/ }),
 
@@ -613,7 +1577,7 @@ module.exports = ".hos:visited{\n border-bottom: 5px solid red;\n}\n\n.tour:visi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n      <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\" class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\" href=\"/\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\"\n               class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -804,7 +1768,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/loki/Projects/paigunnaapi/src/main/web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/faris/paigunna-prod/src/main/web/src/main.ts */"./src/main.ts");
 
 
 /***/ })

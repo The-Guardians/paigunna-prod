@@ -1,21 +1,21 @@
-.hos:visited{
- border-bottom: 5px solid red;
+.hos:visited {
+  border-bottom: 5px solid red;
 }
 
-.tour:visited{
- border-bottom: 5px solid dodgerblue;
+.tour:visited {
+  border-bottom: 5px solid dodgerblue;
 }
 
-.rest:visited{
- border-bottom: 5px solid green;
+.rest:visited {
+  border-bottom: 5px solid green;
 }
 
-nav{
+nav {
   background-color: #323e53 !important;
   color: #ffffff;
 }
 
-.white{
+.white {
   color: #ffffff;
 }
 

@@ -11,7 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "angularfire2"
-import {MatAutocompleteModule,
+import {
+  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
   MatButtonModule,
@@ -45,11 +46,17 @@ import {MatAutocompleteModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,} from "@angular/material";
-import { LoginComponent } from './login/login.component';
+  MatTreeModule,
+} from "@angular/material";
+import {LoginComponent} from './login/login.component';
 import {AuthService} from "./providers/auth.service";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import {ConfirmComponent} from './confirm/confirm.component';
+import {CalPriceComponent} from './cal-price/cal-price.component';
+import {SelectTypeComponent} from './select-type/select-type.component';
+import {PaymentComponent} from './payment/payment.component';
+import {HistoryComponent} from './history/history.component';
 
 
 @NgModule({
@@ -59,6 +66,11 @@ import {AngularFireAuthModule} from "angularfire2/auth";
     StarterComponent,
     StarterNavComponent,
     LoginComponent,
+    ConfirmComponent,
+    CalPriceComponent,
+    SelectTypeComponent,
+    PaymentComponent,
+    HistoryComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -74,8 +86,7 @@ import {AngularFireAuthModule} from "angularfire2/auth";
         path: '',
         component: StarterComponent,
         data: {title: 'หน้าหลัก', iconClass: 'fa fa-home'},
-        children: [
-        ]
+        children: []
 
       }
     ]),
@@ -117,7 +128,7 @@ import {AngularFireAuthModule} from "angularfire2/auth";
     MatTooltipModule,
     MatTreeModule,
   ],
-  schemas:[NO_ERRORS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

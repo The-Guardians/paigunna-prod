@@ -1,0 +1,55 @@
+<div class="modal fade" id="route" style="z-index:9999999;">
+  <div class="modal-dialog modal-lg" style="text-align: center;">
+    <div class="modal-content" style="height:450px;padding: 2%;margin-top: 13%;">
+      <div class="title" style="margin-top: 2%;z-index: 999;color: black">Route and call service
+      </div>
+      <div class="list-group" style="z-index: 9999999;max-height: 100%">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <button title="Select vehicle" id="select" [disabled]="btnSelect" class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  style="float: left;"
+                  id="dropdownMenu2" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            Select vehicle
+          </button>
+          <span id="warningSelect" style="float: right;margin-top: 3%;color: red">
+            ***Please select destination***
+                        </span>
+          <span title="price" style="float: right;margin-top: 3%">
+            <label id="price2"></label>
+                        </span>
+          <div id="type" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button title="Motorcycle" class="dropdown-item" type="button" value="1" (click)="setMotor()">
+              Motorcycle
+            </button>
+            <button title="Taxi" class="dropdown-item" type="button" value="2" (click)="setTaxi()">
+              Taxi
+            </button>
+          </div>
+        </a>
+        <div id="route-panel"
+             style="position: relative;max-height: 20%!important; overflow: auto;text-align: center;">
+        </div>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <button id="callbtn" title="callService" [disabled]="btnCallService" class="btn btn-success" type="button"
+                  data-toggle="modal" data-target="#confirm" (click)="setNotice();">
+            Call Service
+          </button>
+          <button id="waitingbtn" title="waiting" class="btn btn-warning" type="button"
+                  data-toggle="modal" data-target="#confirm" (click)="setNoticeWait();">
+            waiting
+          </button>
+          <button id="incomebtn" title="service incoming" class="btn btn-danger" type="button" disabled>
+            Service incoming
+          </button>
+          <button id="servicebtn" title="test accept" class="btn btn-danger" type="button"
+                  (click)="closeSelect();incomebtnsh();">
+            Test(service accept)
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm></app-confirm>
