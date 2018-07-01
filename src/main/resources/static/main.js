@@ -1156,7 +1156,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
 /* harmony import */ var _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../select-type/select.service */ "./src/app/select-type/select.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1169,12 +1168,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var PaymentComponent = /** @class */ (function () {
-    function PaymentComponent(data, select, http) {
+    function PaymentComponent(data, select) {
         this.data = data;
         this.select = select;
-        this.http = http;
     }
     PaymentComponent.prototype.ngOnInit = function () {
         this.price1 = document.getElementById('price1');
@@ -1194,7 +1191,10 @@ var PaymentComponent = /** @class */ (function () {
         document.getElementById('itemPay').style.display = 'none';
         this.clearTextOnItemPay();
     };
-    PaymentComponent.prototype.omisePayment = function () {
+    PaymentComponent.prototype.render = function () {
+        var key;
+        key.secretKey = "";
+        key.publicKey = "";
     };
     PaymentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1202,7 +1202,7 @@ var PaymentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./payment.component.html */ "./src/app/payment/payment.component.html"),
             styles: [__webpack_require__(/*! ./payment.component.scss */ "./src/app/payment/payment.component.scss")]
         }),
-        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _select_type_select_service__WEBPACK_IMPORTED_MODULE_2__["SelectService"]])
     ], PaymentComponent);
     return PaymentComponent;
 }());
