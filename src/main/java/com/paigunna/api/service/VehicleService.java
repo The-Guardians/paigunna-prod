@@ -11,7 +11,7 @@ public interface VehicleService {
 
     Vehicle save(Vehicle vehicle);
 
-    Vehicle getVehicle(String id);
+    Vehicle getById(Long id);
 
-    List<Vehicle> getAllVehicle();
+    List<Vehicle> getAll();
 }
