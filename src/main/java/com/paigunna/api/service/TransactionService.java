@@ -1,7 +1,7 @@
 package com.paigunna.api.service;
 
 import com.paigunna.api.domain.Transaction;
-import com.paigunna.api.resource.dto.TransactionDto;
+import com.paigunna.api.dto.TransactionDto;
 
 import java.util.List;
 
@@ -14,5 +14,7 @@ public interface TransactionService {
 
     List<Transaction> search(TransactionDto transactionDto);
 
-    List<Transaction> findAll();
+    Transaction getById(Long id);
+
+    List<Transaction> getAll();
 }

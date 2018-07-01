@@ -23,7 +23,7 @@ public class User implements Serializable {
             generator = "user",
             strategy = GenerationType.TABLE
     )
-    private String id;
+    private Long id;
 
     @Column(name = "FNAME")
     private String fname;
@@ -55,11 +55,11 @@ public class User implements Serializable {
     @Column(name = "SOCIAL_TYPE")
     private SocialType socialType;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -24,12 +24,12 @@ public class UserResource {
 
     @GetMapping
     public List<User> findAll(){
-        return userService.findAll();
+        return userService.getAll();
     }
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable("id") String id){
-        return userService.getUser(id);
+    public User findById(@PathVariable("id") Long id){
+        return userService.getById(id);
     }
 
     @GetMapping("/service")

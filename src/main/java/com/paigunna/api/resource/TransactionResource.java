@@ -26,7 +26,12 @@ public class TransactionResource {
 
     @GetMapping
     public List<Transaction> getAll() {
-        return transactionService.findAll();
+        return transactionService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Transaction getById(Long id){
+        return transactionService.getById(id);
     }
 
     @GetMapping("/user/{id}")

@@ -1,8 +1,9 @@
-package com.paigunna.api.service;
+package com.paigunna.api.service.impl;
 
 import com.paigunna.api.domain.User;
 import com.paigunna.api.repo.UserRepo;
-import com.paigunna.api.resource.dto.UserDto;
+import com.paigunna.api.dto.UserDto;
+import com.paigunna.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,13 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     @Override
-    public List<User> findAll() {
+    public List<User> getAll() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public User getById(Long id) {
+        return userRepo.findById(id).orElse(null);
     }
 
     @Override
@@ -39,8 +45,4 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public User getUser(String id) {
-        return userRepo.findById(id);
-    }
 }

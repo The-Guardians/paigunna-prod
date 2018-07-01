@@ -24,7 +24,7 @@ public class Vehicle implements Serializable {
             generator = "vehicle",
             strategy = GenerationType.TABLE
     )
-    private String id;
+    private Long id;
 
     @Column(name = "LICENSE")
     private String license;
@@ -41,11 +41,11 @@ public class Vehicle implements Serializable {
     @JoinColumn(name = "VEHICLE_TYPE" ,referencedColumnName = "id",insertable = false, updatable = false)
     private VehicleType vehicleType;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

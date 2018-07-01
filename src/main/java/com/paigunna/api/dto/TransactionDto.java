@@ -1,4 +1,4 @@
-package com.paigunna.api.resource.dto;
+package com.paigunna.api.dto;
 
 import com.paigunna.api.domain.User;
 

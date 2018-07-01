@@ -24,7 +24,7 @@ public class VehicleType implements Serializable {
             generator = "vehicle_type",
             strategy = GenerationType.TABLE
     )
-    private String id;
+    private Long id;
 
     @Column(name = "DESCRIPTION")
     private String description;
@@ -32,11 +32,11 @@ public class VehicleType implements Serializable {
     @Column(name = "RATE")
     private BigDecimal rate;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
