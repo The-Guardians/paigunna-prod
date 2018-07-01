@@ -33,18 +33,12 @@ public class Vehicle implements Serializable {
     @Column(name = "BRAND")
     private String brand;
 
-    @Column(name = "OWNER" , nullable = false)
-    private Long ownerId;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "OWNER" , referencedColumnName = "id" , insertable = false , updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "OWNER" , referencedColumnName = "id")
     private User owner;
 
-    @Column(name = "VEHICLE_TYPE")
-    private Long vehicleTypeId;
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "VEHICLE_TYPE" ,referencedColumnName = "id" , insertable = false , updatable = false)
+    @OneToOne
+    @JoinColumn(name = "VEHICLE_TYPE" ,referencedColumnName = "id")
     private VehicleType vehicleType;
 
     public String getId() {
@@ -93,22 +87,6 @@ public class Vehicle implements Serializable {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
-    }
-
-    public Long getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public Long getVehicleTypeId() {
-        return vehicleTypeId;
-    }
-
-    public void setVehicleTypeId(Long vehicleTypeId) {
-        this.vehicleTypeId = vehicleTypeId;
     }
 
     @Override
