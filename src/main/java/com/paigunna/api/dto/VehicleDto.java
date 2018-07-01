@@ -1,4 +1,4 @@
-package com.paigunna.api.resource.dto;
+package com.paigunna.api.dto;
 
 import java.math.BigDecimal;
 

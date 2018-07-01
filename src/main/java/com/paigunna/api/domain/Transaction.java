@@ -26,7 +26,7 @@ public class Transaction implements Serializable {
             generator = "transaction",
             strategy = GenerationType.TABLE
     )
-    private String id;
+    private Long id;
 
     @Column(name = "TIME_START")
     private LocalDate timeStart;
@@ -62,11 +62,11 @@ public class Transaction implements Serializable {
     @JoinColumn(name = "PASSENGER", referencedColumnName = "id")
     private User passenger;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,13 +1,23 @@
-package com.paigunna.api.resource.dto;
+package com.paigunna.api.dto;
 
 /**
  * @author Arm
  */
 public class UserPosUpdateDto {
 
+    private Long id;
+
     private Double lat;
 
     private Double lng;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Double getLat() {
         return lat;

@@ -1,7 +1,7 @@
 package com.paigunna.api.service;
 
 import com.paigunna.api.domain.User;
-import com.paigunna.api.resource.dto.UserDto;
+import com.paigunna.api.dto.UserDto;
 
 import java.util.List;
 
@@ -10,7 +10,9 @@ import java.util.List;
  */
 public interface UserService {
 
-    List<User> findAll();
+    List<User> getAll();
+
+    User getById(Long id);
 
     User save(User user);
 
@@ -18,5 +20,5 @@ public interface UserService {
 
     User updateUserPos(UserDto userDto);
 
-    User getUser(String id);
+
 }
