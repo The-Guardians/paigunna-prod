@@ -33,12 +33,12 @@ public class Vehicle implements Serializable {
     @Column(name = "BRAND")
     private String brand;
 
-    @ManyToOne
-    @JoinColumn(name = "OWNER" , referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "OWNER" , referencedColumnName = "id" ,insertable = false, updatable = false)
     private User owner;
 
     @OneToOne
-    @JoinColumn(name = "VEHICLE_TYPE" ,referencedColumnName = "id")
+    @JoinColumn(name = "VEHICLE_TYPE" ,referencedColumnName = "id",insertable = false, updatable = false)
     private VehicleType vehicleType;
 
     public String getId() {
