@@ -95,7 +95,7 @@
                             </customTypeMappings>
                             <classPatterns>
                                 <pattern>com.paigunna.api.domain.**</pattern>
-                                <pattern>com.paigunna.api.resources.dto.**</pattern>
+                                <pattern>com.paigunna.api.dto.**</pattern>
                             </classPatterns>
                             <classes>
                                 <class>org.springframework.data.domain.Page</class>

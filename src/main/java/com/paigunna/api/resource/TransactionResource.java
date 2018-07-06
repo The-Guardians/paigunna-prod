@@ -19,9 +19,6 @@ import java.util.List;
 public class TransactionResource {
 
     @Autowired
-    private TransactionRepo transactionRepo;
-
-    @Autowired
     private TransactionService transactionService;
 
     @GetMapping

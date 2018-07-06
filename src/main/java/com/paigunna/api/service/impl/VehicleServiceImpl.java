@@ -18,17 +18,18 @@ public class VehicleServiceImpl implements VehicleService {
     private VehicleRepo vehicleRepo;
 
     @Override
+    public List<Vehicle> getAll() {
+        return vehicleRepo.findAll();
+    }
+
+    @Override
+    public Vehicle getById(Long id) {
+        return vehicleRepo.findById(id).orElse(null);
+    }
+
+    @Override
     public Vehicle save(Vehicle vehicle) {
         return vehicleRepo.save(vehicle);
     }
 
-    @Override
-    public Vehicle getVehicle(String id) {
-        return null;
-    }
-
-    @Override
-    public List<Vehicle> getAllVehicle() {
-        return null;
-    }
 }

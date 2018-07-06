@@ -1,13 +1,9 @@
 package com.paigunna.api.resource;
 
 import com.paigunna.api.domain.Vehicle;
-import com.paigunna.api.repo.VehicleRepo;
-import com.paigunna.api.dto.VehicleDto;
 import com.paigunna.api.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,15 +14,23 @@ import java.util.List;
 @RequestMapping("/api/vehicle")
 public class VehicleResource {
 
-    @Autowired
-    private VehicleRepo vehicleRepo;
 
     @Autowired
     private VehicleService vehicleService;
 
     @GetMapping
-    public List<Vehicle> findAll(){
-        return vehicleRepo.findAll();
+    public List<Vehicle> getAll(){
+        return vehicleService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Vehicle getById(@PathVariable("id") Long id){
+        return vehicleService.getById(id);
+    }
+
+    @PostMapping
+    public Vehicle save(Vehicle vehicle){
+        return vehicleService.save(vehicle);
     }
 
 }

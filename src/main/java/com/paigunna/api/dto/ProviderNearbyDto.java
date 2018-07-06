@@ -3,7 +3,6 @@ package com.paigunna.api.dto;
 /**
  * @author Arm
  */
-public class VehicleDto {
-
+public class ProviderNearbyDto {
 
 }
