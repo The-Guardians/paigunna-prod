@@ -115,12 +115,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./select-type/select-type.component */ "./src/app/select-type/select-type.component.ts");
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payment/payment.component */ "./src/app/payment/payment.component.ts");
 /* harmony import */ var _history_history_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./history/history.component */ "./src/app/history/history.component.ts");
+/* harmony import */ var _vehicle_info_vehicle_info_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./vehicle-info/vehicle-info.component */ "./src/app/vehicle-info/vehicle-info.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -159,6 +161,7 @@ var AppModule = /** @class */ (function () {
                 _select_type_select_type_component__WEBPACK_IMPORTED_MODULE_19__["SelectTypeComponent"],
                 _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__["PaymentComponent"],
                 _history_history_component__WEBPACK_IMPORTED_MODULE_21__["HistoryComponent"],
+                _vehicle_info_vehicle_info_component__WEBPACK_IMPORTED_MODULE_22__["VehicleInfoComponent"],
             ],
             imports: [
                 angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
@@ -653,7 +656,7 @@ var DataService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <table style=\"width:100%; color: #000;\">\n              <tr>\n                <th>Transaction No.</th>\n                <!--<th>Time</th>-->\n                <!--<th>Source</th>-->\n                <!--<th>Destination</th>-->\n                <!--<th>Distance</th>-->\n                <!--<th>Price</th>-->\n                <!--<th>Provider</th>-->\n              </tr>\n              <tr *ngFor=\"let item of transaction;\">\n                <td>{{item.id}}</td>\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n                <!--<td>{{item.timeStart}}</td>-->\n              </tr>\n            </table>\n          </a>\n          <a href=\"#\" class=\"list-group-item list-group-item-action flex-column align-items-start\">\n            <div style=\"color: #dd131b;text-align: center;\">ตอนนี้ทดลอง Query จากตาราง user ก่อน รอฝั่ง Back end\n              สร้างตาราง History\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"modal fade\" id=\"history\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;margin-bottom: 1%;z-index: 999;color: black;\">History\n      </div>\n      <div class=\"list-group\">\n        <div class=\"list-group\" style=\"z-index: 9999999;\">\n          <a class=\"list-group-item list-group-item-action flex-column align-items-start\"\n             style=\"overflow-x: auto;overflow-y:auto;\">\n            <table style=\"width:100%; color: #000;\">\n              <tr>\n                <th>Transaction No.</th>\n                <th>Time</th>\n                <th>Source</th>\n                <th>Destination</th>\n                <th>Distance</th>\n                <th>Price</th>\n                <th>Provider</th>\n              </tr>\n              <tr *ngFor=\"let item of transaction;\">\n                <td>{{item.id}}</td>\n                <td>{{item.timeStart}}</td>\n                <td>{{item.startPlaceName}}</td>\n                <td>{{item.destinationName}}</td>\n                <td>{{item.distance}}</td>\n                <td>{{item.price}}</td>\n                <td>{{item.provider.fname}}  {{item.provider.lname}}</td>\n              </tr>\n            </table>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -728,7 +731,7 @@ var HistoryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"uk-navbar-item\">\n  <a *ngIf=\"\" (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"\n     uk-icon=\"facebook\"></a>\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\"\n                    width=\"50px\" height=\"50px\"><span class=\"uk-badge\"\n                                                     style=\"position: relative; margin-bottom: 15px;margin-right: 5px\">1</span></a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route\n        Detail\n        <span class=\"uk-margin-small-left uk-badge\">1</span></a></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#history\"><span class=\"uk-margin-small-right\"\n                                                                                        uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-history></app-history>\n\n<app-payment></app-payment>\n\n\n"
+module.exports = "<div class=\"uk-navbar-item\">\n  <!--<a (click)=\"loginFacebook()\" class=\"uk-icon-button  uk-margin-small-right\"-->\n  <!--uk-icon=\"facebook\"></a>-->\n  <a id=\"loginGooglebtn\" (click)=\"loginGoogle()\" class=\"uk-icon-button uk-margin-small-right\"\n     uk-icon=\"google-plus\"></a>\n\n  <a id=\"logo\"><img class=\"uk-icon-button\" src=\"{{photo}}\" width=\"50px\" height=\"50px\">\n    <span class=\"uk-badge\" style=\"position: relative; margin-bottom: 15px;margin-right: 5px;\">1</span>\n  </a>\n  <div uk-dropdown=\"mode: click\">\n    <ul class=\"uk-nav uk-dropdown-nav\">\n      <li id=\"name\" class=\"uk-nav-header\" style=\"text-align: center\">{{username}} ({{useremail}})</li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#route\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: location\"></span>Route Detail\n        <!--<span class=\"uk-margin-small-left uk-badge\">1</span>--></a></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#history\"><span class=\"uk-margin-small-right\"\n                                                                                        uk-icon=\"icon: history\"></span>History</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#omise\"><span class=\"uk-margin-small-right\"\n                                                                                      uk-icon=\"icon: credit-card\"></span>Payment</a>\n      </li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#vehicle\"><span class=\"uk-margin-small-right\"\n                                                                                        uk-icon=\"icon: credit-card\"></span>Vehicle info</a>\n      </li>\n      <li class=\"uk-nav-divider\"></li>\n      <li><a class=\"uk-dropdown-close\" data-toggle=\"modal\" data-target=\"#confirm\" (click)=\"setNoticeLogout();\"><span\n        class=\"uk-margin-small-right\" uk-icon=\"sign-out\" style=\"color: red\"></span>Logout</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n<app-select-type></app-select-type>\n\n<app-confirm></app-confirm>\n\n<app-history></app-history>\n\n<app-payment></app-payment>\n\n<app-vehicle-info></app-vehicle-info>\n\n\n"
 
 /***/ }),
 
@@ -1546,7 +1549,7 @@ module.exports = ".hos:visited {\n  border-bottom: 5px solid red;\n}\n\n.tour:vi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\" href=\"/\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <app-login></app-login>\n\n    <a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"\n       href=\"#\"></a>\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\"\n               class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
+module.exports = "<!--Nav Bar-->\n<nav class=\"uk-navbar-container\" uk-navbar xmlns=\"http://www.w3.org/1999/html\">\n  <div class=\"nav-overlay uk-navbar-left\">\n\n    <!-- Paigunna Logo -->\n    <a class=\"uk-navbar-item uk-logo\" href=\"/\"><img src=\"assets/img/paigunna-logo.png\" width=\"100px\" height=\"100px\"></a>\n\n    <!-- Menu List -->\n    <ul class=\"uk-navbar-nav\">\n      <li class=\" hos\"><a (click)=\"mapComponent.searchHostel()\">Hostel</a></li>\n      <li class=\" tour\"><a (click)=\"mapComponent.searchTourist()\">Tourist Attraction</a></li>\n      <li class=\" rest\"><a (click)=\"mapComponent.searchRestaurant()\">Restaurant</a></li>\n    </ul>\n\n  </div>\n\n  <!-- Search Box-->\n  <div class=\"nav-overlay uk-navbar-right\">\n\n    <app-login></app-login>\n\n    <!--<a class=\"uk-navbar-toggle\" uk-search-icon uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\"-->\n       <!--href=\"#\"></a>-->\n  </div>\n\n  <div class=\"nav-overlay uk-navbar-left uk-flex-1\" hidden>\n\n    <div class=\"uk-navbar-item uk-width-expand\">\n      <form class=\"uk-search uk-search-navbar uk-width-1-1\">\n        <input [(ngModel)]=\"placeSearch\" [ngModelOptions]=\"{standalone: true}\" (change)=\"textChange()\"\n               class=\"uk-search-input\" type=\"search\" placeholder=\"Search Place\" autofocus>\n      </form>\n    </div>\n    <a class=\"uk-navbar-toggle\" uk-close uk-toggle=\"target: .nav-overlay; animation: uk-animation-fade\" href=\"#\"></a>\n  </div>\n</nav>\n\n<app-map></app-map>\n\n\n"
 
 /***/ }),
 
@@ -1663,6 +1666,97 @@ var StarterComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], StarterComponent);
     return StarterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/vehicle-info/vehicle-info.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/vehicle-info/vehicle-info.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal fade\" id=\"vehicle\" style=\"z-index:9999999;\">\n  <div class=\"modal-dialog modal-lg\" style=\"text-align: center;\">\n    <div class=\"modal-content\" style=\"height:450px;padding: 2%;margin-top: 13%;\">\n      <div class=\"title\" style=\"margin-top: 2%;z-index: 999;color: black\">Vehicle information\n      </div>\n      <li class=\"uk-nav-divider\"></li>\n      <form name=\"userForm\" ng-submit=\"submitForm()\">\n        <div class=\"form-group\">\n          <label style=\"color: black\">License</label>\n          <input type=\"text\" name=\"license\" class=\"form-control\" placeholder=\"Enter License\">\n        </div>\n        <div class=\"form-group\">\n          <label style=\"color: black\">Province</label>\n          <input type=\"text\" name=\"province\" class=\"form-control\" placeholder=\"Enter Province\">\n        </div>\n        <div class=\"form-group\">\n          <label style=\"color: black\">Brand</label>\n          <input type=\"text\" name=\"brand\" class=\"form-control\" placeholder=\"Enter Brand\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n      </form>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/vehicle-info/vehicle-info.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/vehicle-info/vehicle-info.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/vehicle-info/vehicle-info.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/vehicle-info/vehicle-info.component.ts ***!
+  \********************************************************/
+/*! exports provided: VehicleInfoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VehicleInfoComponent", function() { return VehicleInfoComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular */ "../../../node_modules/angular/index.js");
+/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var VehicleInfoComponent = /** @class */ (function () {
+    function VehicleInfoComponent(http) {
+        this.http = http;
+        this.postApp = angular__WEBPACK_IMPORTED_MODULE_1__["module"]('postApp', []);
+    }
+    VehicleInfoComponent.prototype.ngOnInit = function () {
+    };
+    //test
+    VehicleInfoComponent.prototype.submitForm = function () {
+        // this.http.post('/api/vehicle',null);
+        this.postApp.controller('postController', function ($scope, $http) {
+            $scope.submitForm = function () {
+                $http({
+                    method: 'POST',
+                    url: this.url,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function (obj) {
+                        var str = [];
+                        for (var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    },
+                    data: { license: $scope.license, province: $scope.province, brand: $scope.brand }
+                }).success(function () {
+                });
+            };
+        });
+    };
+    VehicleInfoComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-vehicle-info',
+            template: __webpack_require__(/*! ./vehicle-info.component.html */ "./src/app/vehicle-info/vehicle-info.component.html"),
+            styles: [__webpack_require__(/*! ./vehicle-info.component.scss */ "./src/app/vehicle-info/vehicle-info.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], VehicleInfoComponent);
+    return VehicleInfoComponent;
 }());
 
 

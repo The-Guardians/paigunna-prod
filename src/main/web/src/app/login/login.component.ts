@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.getDisplayName();
     this.data.currentMessage.subscribe(e => this.textConfirm = e);
-
   }
 
   private getDisplayName() {
@@ -72,5 +71,6 @@ export class LoginComponent implements OnInit {
     this.data.changeMessage("Are you sure you want to log out?");
     this.confirm.logoutBtn();
   }
-
 }
+
+

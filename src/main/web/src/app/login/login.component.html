@@ -1,25 +1,27 @@
 <div class="uk-navbar-item">
-  <a *ngIf="" (click)="loginFacebook()" class="uk-icon-button  uk-margin-small-right"
-     uk-icon="facebook"></a>
+  <!--<a (click)="loginFacebook()" class="uk-icon-button  uk-margin-small-right"-->
+  <!--uk-icon="facebook"></a>-->
   <a id="loginGooglebtn" (click)="loginGoogle()" class="uk-icon-button uk-margin-small-right"
      uk-icon="google-plus"></a>
 
-  <a id="logo"><img class="uk-icon-button" src="{{photo}}"
-                    width="50px" height="50px"><span class="uk-badge"
-                                                     style="position: relative; margin-bottom: 15px;margin-right: 5px">1</span></a>
+  <a id="logo"><img class="uk-icon-button" src="{{photo}}" width="50px" height="50px">
+    <span class="uk-badge" style="position: relative; margin-bottom: 15px;margin-right: 5px;">1</span>
+  </a>
   <div uk-dropdown="mode: click">
     <ul class="uk-nav uk-dropdown-nav">
       <li id="name" class="uk-nav-header" style="text-align: center">{{username}} ({{useremail}})</li>
       <li class="uk-nav-divider"></li>
       <li><a class="uk-dropdown-close" data-toggle="modal" data-target="#route"><span class="uk-margin-small-right"
-                                                                                      uk-icon="icon: location"></span>Route
-        Detail
-        <span class="uk-margin-small-left uk-badge">1</span></a></li>
+                                                                                      uk-icon="icon: location"></span>Route Detail
+        <!--<span class="uk-margin-small-left uk-badge">1</span>--></a></li>
       <li><a class="uk-dropdown-close" data-toggle="modal" data-target="#history"><span class="uk-margin-small-right"
                                                                                         uk-icon="icon: history"></span>History</a>
       </li>
       <li><a class="uk-dropdown-close" data-toggle="modal" data-target="#omise"><span class="uk-margin-small-right"
                                                                                       uk-icon="icon: credit-card"></span>Payment</a>
+      </li>
+      <li><a class="uk-dropdown-close" data-toggle="modal" data-target="#vehicle"><span class="uk-margin-small-right"
+                                                                                        uk-icon="icon: credit-card"></span>Vehicle info</a>
       </li>
       <li class="uk-nav-divider"></li>
       <li><a class="uk-dropdown-close" data-toggle="modal" data-target="#confirm" (click)="setNoticeLogout();"><span
@@ -36,5 +38,7 @@
 <app-history></app-history>
 
 <app-payment></app-payment>
+
+<app-vehicle-info></app-vehicle-info>
 
 

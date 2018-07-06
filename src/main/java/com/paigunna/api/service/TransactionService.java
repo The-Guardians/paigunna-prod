@@ -17,4 +17,6 @@ public interface TransactionService {
     Transaction getById(Long id);
 
     List<Transaction> getAll();
+
+    List<Transaction> getByPassenger(Long id);
 }

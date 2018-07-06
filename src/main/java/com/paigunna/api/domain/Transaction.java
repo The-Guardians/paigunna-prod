@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -51,8 +50,8 @@ public class Transaction implements Serializable {
     @Column(name = "DESTINATION_LNG")
     private Double destinationLng;
 
-    @Column(name = "OMISE_TOKEN")
-    private String omiseToken;
+    @Column(name = "OMISE_ID")
+    private String omiseId;
 
     @ManyToOne
     @JoinColumn(name = "PROVIDER", referencedColumnName = "id")
@@ -166,12 +165,12 @@ public class Transaction implements Serializable {
         this.startPlaceName = startPlaceName;
     }
 
-    public String getOmiseToken() {
-        return omiseToken;
+    public String getOmiseId() {
+        return omiseId;
     }
 
-    public void setOmiseToken(String omiseToken) {
-        this.omiseToken = omiseToken;
+    public void setOmiseId(String omiseId) {
+        this.omiseId = omiseId;
     }
 
 

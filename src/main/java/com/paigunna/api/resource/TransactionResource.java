@@ -27,13 +27,13 @@ public class TransactionResource {
     }
 
     @GetMapping("/{id}")
-    public Transaction getById(Long id){
+    public Transaction getById(@PathVariable("id") Long id) {
         return transactionService.getById(id);
     }
 
     @GetMapping("/user/{id}")
-    public List<Transaction> findByUser(@PathVariable("id")String id){
-        return null;
+    public List<Transaction> findByUser(@PathVariable("id") Long id) {
+        return transactionService.getByPassenger(id);
     }
 
 }

@@ -34,6 +34,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    public List<Transaction> getByPassenger(Long id) {
+        return transactionRepo.findByPassenger(id);
+    }
+
+    @Override
     public List<Transaction> search(TransactionDto transactionDto) {
         return null;
     }

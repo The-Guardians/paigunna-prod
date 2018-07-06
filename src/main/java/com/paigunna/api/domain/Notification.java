@@ -24,7 +24,7 @@ public class Notification implements Serializable {
             generator = "notification",
             strategy = GenerationType.TABLE
     )
-    private String id;
+    private Long id;
 
     @Column(name = "STATUS")
     private String status;
@@ -33,11 +33,11 @@ public class Notification implements Serializable {
     @JoinColumn(name = "TRANSACTION")
     private Transaction transaction;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -13,6 +13,7 @@ public class TransactionDto {
     private String destinationName;
     private Double destinationLat;
     private Double destinationLng;
+    private String omiseId;
     private User provider;
     private User passenger;
 
@@ -62,6 +63,14 @@ public class TransactionDto {
 
     public void setDestinationLng(Double destinationLng) {
         this.destinationLng = destinationLng;
+    }
+
+    public String getOmiseId() {
+        return omiseId;
+    }
+
+    public void setOmiseId(String omiseId) {
+        this.omiseId = omiseId;
     }
 
     public User getProvider() {
